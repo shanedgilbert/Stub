@@ -57,3 +57,9 @@ body {
   color: #fff;
   font-size: 12px;
 }
+
+.signup:hover{
+  color:#fff;
+  font-size: 20px;
+  text-decoration: none;
+}
