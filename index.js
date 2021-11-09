@@ -16,6 +16,14 @@ app.get("/", function(req, res){
    res.render("home");
 });
 
+app.get("/login", function(req, res){
+   res.render("login");
+});
+
+app.get("/moviepage", function(req, res){
+   res.render("moviepage");
+});
+
 
 
 app.listen(3000, function() {
