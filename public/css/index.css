@@ -54,6 +54,10 @@ body {
   color: #fff;
 }
 
+.listed{
+  margin: auto;
+  padding: 25px 5px;
+}
 .signup {
   color: #fff;
   font-size: 12px;
