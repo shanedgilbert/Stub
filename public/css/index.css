@@ -16,7 +16,7 @@ body {
     letter-spacing: 5px;
 }
 .navbar-nav  li a:hover {
-    color: #ff0000;
+    color: #232424;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -27,11 +27,11 @@ body {
 }
 
 .navbar-custom {
-    background-color: #b20000;
+    background-color: #232424;
 }
 
 .nav-color {
-  color: #b20000;
+  color: #232424;
 }
 
 .footer-padding {
@@ -45,7 +45,7 @@ body {
 	bottom: 0;
 	width: 100%;
 	height: 100px;
-	background-color: #b20000;
+	background-color: #232424;
 }
 
 .footer p {
@@ -58,7 +58,9 @@ body {
   margin: auto;
   padding: 25px 5px;
 }
-.signup {
+
+
+.navLinks {
   color: #fff;
   font-size: 12px;
 }

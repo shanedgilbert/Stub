@@ -14,33 +14,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
-<!--working on hamburger menu-->
-<!--
-  <div class="pos-f-t">
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h4 class="text-white">Collapsed content</h4>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
-    </div>
-  </div>
-  <nav class="navbar ms-auto navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-</div>
-
--->
 
   <nav class="navbar navbar-dark navbar-custom">
+
     <div class="container">
       <div class="navbar-header">
-        <p class="navbar-brand">Stub</p>
+        <a class="navbar-brand" href="#">
+        <img src="images/Stub_copy.png" width="60" height="60" alt="">
+      </a>
 
       </div>
         <ul class="navbar navbar-dark navbar-right">
           <!-- 6 -->
-          <a class="signup" href="/">log in</a>
+          <a class="navLinks home" href="/">home</a>
+          <a class="navLinks lists" href="/">lists</a>
+          <a class="navLinks settings" href="/">settings</a>
+          <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+          <a class="navLinks signup" href="/">log in</a>
 
         </ul>
 
