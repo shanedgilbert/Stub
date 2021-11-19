@@ -1,72 +1,84 @@
-body {
-  font-family: 'Ubuntu', sans-serif;
-}
 
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+
+html, body {
+  font-family: 'Ubuntu', 'Open Sans', sans-serif;
+  color: white;
+  background-color: #4B4C4D;
+  scroll-behavior: smooth;
 }
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  background-color: #232424;
 }
-.navbar-nav  li a:hover {
-    color: #232424;
-    font-family: 'Ubuntu', sans-serif;
+.active {
+  font-weight: 600;
 }
-
-.navbar-brand{
-  color: #fff;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 45px;
+.navbar-nav {
+  padding-right: 2rem;
 }
-
-.navbar-custom {
-    background-color: #232424;
+.nav-link {
+  font-size: 1em !important;
+  padding-left: 2.5rem !important;
+  color: white;
 }
-
-.nav-color {
-  color: #232424;
+.navbar-toggler {
+  border-color: white !important;
+  border-width: 2px;
 }
-
-.footer-padding {
-	padding-bottom: 60px;
+.nav-link:hover {
+  color: white;
 }
-
-.footer {
-	position: fixed;
-  padding-top: 25px;
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-	height: 100px;
-	background-color: #232424;
-}
-
-.footer p {
-	margin-top: 25px;
-	font-size: 12px;
-  color: #fff;
-}
-
-.listed{
-  margin: auto;
-  padding: 25px 5px;
-}
-
-
-.navLinks {
-  color: #fff;
-  font-size: 12px;
-}
-
-.signup:hover{
-  color:#fff;
-  font-size: 20px;
+.nav-item {
+  text-align: right;
   text-decoration: none;
+}
+.logo {
+  height: auto;
+  width: 6rem;
+}
+
+.titleHeader{
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*---Media Queries --*/
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 2rem;
+  }
+  .navbar-nav .nav-link {
+    padding-right: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    padding-right: 1rem;
+    color: white !important;
+  }
+}
+@media (max-width: 320px) {
 }
