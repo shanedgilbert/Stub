@@ -73,11 +73,18 @@ Extra (xl) large devices (large desktops, 1200px and up)
   .navbar-nav .nav-link {
     padding-right: 2rem;
   }
+
+  h1{
+    font-size: 2em;
+  }
 }
 @media (max-width: 576px) {
   .navbar-nav .nav-link {
     padding-right: 1rem;
     color: white !important;
+  }
+  h1 {
+    font-size: 1.5em;
   }
 }
 @media (max-width: 320px) {
