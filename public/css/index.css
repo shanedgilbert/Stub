@@ -1,4 +1,9 @@
 
+#adding-bar{
+  position: absolute;
+  top: 130px;
+  right: 10px;
+}
 
 html, body {
   font-family: 'Ubuntu', 'Open Sans', sans-serif;
@@ -96,7 +101,15 @@ Extra (xl) large devices (large desktops, 1200px and up)
   h1{
     font-size: 2em;
   }
+
+  #adding-bar{
+    position: absolute;
+    top: 180px;
+    right: 15px;
+  }
+
 }
+
 @media (max-width: 576px) {
   .navbar-nav .nav-link {
     padding-right: 1rem;
