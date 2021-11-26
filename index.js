@@ -2,9 +2,12 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require ("mongoose");
 const ejs = require("ejs");
 
 const app = express();
+
+mongoose.connect("mongodb/localhost:3000/todolistDB");
 
 app.set('view engine', 'ejs');
 
