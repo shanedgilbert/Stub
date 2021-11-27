@@ -50,6 +50,19 @@ app.get("/lists", function(req, res){
       res.render("lists", {titleHeader:listsHeader, newListItems:foundItems});
     }
   });
+});
+
+app.post("/delete", function(req,res){
+  const checkItemId = req.body.checkbox;
+
+
+    Item.findByIdAndRemove(checkItemId, function(err){
+      if(!err){
+          console.log("Successfully deleted item from DB");
+      }
+    });
+    res.redirect("/lists");
+
 
 
 });
