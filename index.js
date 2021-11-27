@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/Stub");
+mongoose.connect("mongodb+srv://scottsak:Feb!2193803@cluster0.w3za4.mongodb.net/Stub");
 
 const itemsSchema = {
   name:String
@@ -35,8 +35,13 @@ app.get("/", function(req, res){
 app.get("/lists", function(req, res){
   Item.find({}, function(err, foundItems){
     if(foundItems.length === 0){
-      const newItem = Item({
-        name:item1
+      Item.create(item1, function(err){
+        if(err){
+          console.log(err);
+        }
+          else{
+            console.log("Successfully saved default items to DB");
+        }
       });
       res.redirect("/lists");
       }
