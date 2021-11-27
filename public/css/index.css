@@ -4,6 +4,24 @@
   top: 130px;
   right: 10px;
 }
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  color: black;
+}
 
 html, body {
   font-family: 'Ubuntu', 'Open Sans', sans-serif;
@@ -12,7 +30,6 @@ html, body {
   scroll-behavior: smooth;
 }
 .navbar {
-  position: absolute;
   width: 100%;
   z-index: 1;
   background-color: #232424;

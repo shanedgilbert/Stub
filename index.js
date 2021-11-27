@@ -7,12 +7,22 @@ const ejs = require("ejs");
 
 const app = express();
 
-mongoose.connect("mongodb/localhost:3000/todolistDB");
-
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+
+mongoose.connect("mongodb://localhost:27017/Stub");
+
+const itemsSchema = {
+  name:String
+};
+
+const Item = mongoose.model("Item", itemsSchema);
+
+const item1 = new Item({
+  name: "Favorites"
+});
 
 const homeHeader="HOME";
 const listsHeader="LISTS";
@@ -23,14 +33,44 @@ app.get("/", function(req, res){
 });
 
 app.get("/lists", function(req, res){
-   res.render("lists", {titleHeader:listsHeader});
+  Item.find({}, function(err, foundItems){
+    if(foundItems.length === 0){
+      const newItem = Item({
+        name:item1
+      });
+      res.redirect("/lists");
+      }
+
+    else{
+      res.render("lists", {titleHeader:listsHeader, newListItems:foundItems});
+    }
+  });
+
+
+});
+
+app.post("/", function(req, res){
+
+  const itemName = req.body.newItem;
+
+  const newItem = new Item({
+    name: itemName
+  });
+
+  newItem.save();
+  res.redirect("/lists");
+
+
 });
 
 app.get("/settings", function(req, res){
    res.render("settings", {titleHeader:settingsHeader});
 });
 
-
+let port= process.env.PORT;
+if(port == null || port == ""){
+  port = 3000;
+}
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

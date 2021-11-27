@@ -1,26 +1,27 @@
 <%-include('partials/header.ejs')-%>
 
 <div id="adding-bar">
-  <button type="button" class="btn btn-outline-danger btn-lg btn-block">+</button>
+  <button type="button" class="btn btn-outline-danger btn-lg btn-block">edit</button>
 </div>
 
 <div class="box">
 
 
-      <%newListItems.forEach(function(item){%>
+      <%newListItems.forEach(function(litem){%>
         <form action="/delete" method="post">
           <div class="item">
             <input type="checkbox" name="checkbox" value="<%=litem._id%>" onChange="this.form.submit()">
             <p><%=litem.name%></p>
           </div>
-          <input type="hidden" name="listName" value="<%=listTitle%>"></input>
+          <input type="hidden" name="listName" value="Lists"></input>
         </form>
       <%});%>
 
       <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" name="list" value="<%=listTitle%>">+</button>
+        <button type="submit" name="list" value="<%=titleHeader%>">+</button>
       </form>
   </div>
+
 
 <%-include('partials/footer.ejs')-%>
