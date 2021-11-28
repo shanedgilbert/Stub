@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://scottsak:Feb!2193803@cluster0.w3za4.mongodb.net/Stub");
+mongoose.connect('mongodb://localhost:27017/Stub');
 
 const itemsSchema = {
   name:String
