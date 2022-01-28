@@ -5,10 +5,13 @@ body {
     scroll-behavior: smooth;
 }
 
-footer{
+footer {
     position: absolute;
     text-align: center;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
+    margin: 0 auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
