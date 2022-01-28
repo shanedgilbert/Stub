@@ -30,6 +30,9 @@ const Show = ({ show, setCurrentId }) => {
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography>
       </CardContent>
+      <CardActions className={classes.cardActions}>
+        <Button size="small" color="primary" onClick={() => dispatch(deleteShow(show._id))}><DeleteIcon fontSize="small" />Delete</Button>
+      </CardActions>
     </Card>
   );
 };
