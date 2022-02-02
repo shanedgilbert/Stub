@@ -12,7 +12,7 @@ const componentClicked = () =>
   console.log( "Click." )
 }
 
-export const LoginButton = () => (
+export const LoginButton = ({responseFacebook}) => (
     <FacebookLogin
       appId={apiKey}
       fields="name,email,picture"
