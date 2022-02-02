@@ -1,10 +1,6 @@
 import React,{ useState } from "react";
 import {  LoginButton,getLocalUser,setLocalUser } from "./actions/login";
 
-
-
-
-
 function Login() 
 {
   const [currentLoginData, setLoginDataState] = useState(getLocalUser());
