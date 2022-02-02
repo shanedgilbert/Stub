@@ -2,14 +2,12 @@ import FacebookLogin from 'react-facebook-login'
 import React from "react";
 export const apiKey = "1376624219436332"
 
-const responseFacebook = (response) => 
-{
-  console.log(response);
-}
-
 const componentClicked = () => 
 {
-  console.log( "Click." )
+  console.log("Clicked");
+}
+
+{
 }
 
 export const LoginButton = ({responseFacebook}) => (
