@@ -1,10 +1,10 @@
 import React from 'react';
-import './lists.css'
+import './lists.css';
 
 function List(prop){
     return (
-        <div class="item">
-        <img src={prop.imgURL}></img>
+        <div class="listItem">
+          <h3 class="listHeader">{prop.name}</h3>
         </div>
   );
 }
