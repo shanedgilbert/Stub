@@ -2,3 +2,4 @@ node_modules
 build
 client/package-lock.json
 server/package-lock.json
+client/src/components/StreamingAPI/StreamingAPIKey.js

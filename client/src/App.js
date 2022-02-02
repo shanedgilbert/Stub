@@ -7,6 +7,7 @@ import {
   Lists,
   Settings
 } from "./components/jsx";
+import ShowAPI from "./components/StreamingAPI/ShowAPI";
 
 const App = () => {
   return (
@@ -17,6 +18,8 @@ const App = () => {
       <Route path="/lists" element={<Lists />} />
       <Route path="/settings" element={<Settings />} />
     </Routes>
+    <ShowAPI />
+
     <Footer />
   </Router>
   );
