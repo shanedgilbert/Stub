@@ -6,7 +6,7 @@ import {
   Home,
   Lists,
   Settings
-} from "./components";
+} from "./components/jsx";
 
 const App = () => {
   return (

@@ -1,11 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import stublogo from '../../images/stublogo.png';
+import useStyles from './styles';
 
 function Navigation() {
+  const classes = useStyles();
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <div className="container">
+          <img className={classes.image} src={stublogo} alt="icon" height="60" />
           <NavLink className="navbar-brand" to="/">
             Stub
           </NavLink>
@@ -27,11 +31,11 @@ function Navigation() {
                   Settings
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link" to="/log-in">
                   Log in
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

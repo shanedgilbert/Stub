@@ -1,8 +1,8 @@
 import React from "react";
 // import shows from "../reducers/shows";
-import List from "./Lists/List";
-import './Lists/lists.css';
-import tvshows from './Lists/shows.js';
+import List from "../Lists/List";
+import '../Lists/lists.css';
+import tvshows from '../Lists/shows.js';
 
 function Lists() {
   return (
