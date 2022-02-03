@@ -8,30 +8,27 @@ import { useDispatch } from 'react-redux';
 import { rateShow, deleteShow } from '../../../actions/shows';
 import useStyles from './styles';
 
-const Show = ({ show, setCurrentId }) => {
+const Show = ({ show }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={show.posterURL || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={show.title} />
+      <CardMedia className={classes.media} image={show.posterURLs.original || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={show.title} />
       <div className={classes.overlay}>
-        <Typography variant="h6">{show.creator}</Typography>
-        <Typography variant="body2">{moment(show.createdAt).fromNow()}</Typography>
+        <Typography variant="h6">{show.originalTitle}</Typography>
+        <Typography variant="body2">{show.year}</Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button>
+        {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
       </div>
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">{show.tags.map((tag) => `#${tag} `)}</Typography>
+        <Typography variant="body2" color="textSecondary" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
       </div>
-      <Typography className={classes.title} gutterBottom variant="h5" component="h2">{show.title}</Typography>
+      <Typography className={classes.title} gutterBottom variant="h5" component="h2">{show.tagline}</Typography>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => dispatch(deleteShow(show._id))}><DeleteIcon fontSize="small" />Delete</Button>
-      </CardActions>
     </Card>
   );
 };

@@ -5,6 +5,7 @@ const DatabaseURL = 'http://localhost:5000/shows';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
 const key = StreamingAPIKey();
 
+//Create a dropdown for service and type and send the data here
 const options = {
   params: {
     country: 'us',
@@ -25,7 +26,7 @@ export const deleteShow = (id) => axios.delete(`${DatabaseURL}/${id}`);
 
 export const getShowsData = async () => {
   try {
-    const { data : results } = await axios.get(APIURL, options);
+    const { data : { results } } = await axios.get(APIURL, options);
     return results;
   } catch(error) {
     console.log(error);
