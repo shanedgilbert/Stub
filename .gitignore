@@ -2,3 +2,5 @@ node_modules
 build
 client/package-lock.json
 server/package-lock.json
+client/src/api/StreamingAPIKey.js
+client/src/api/ApiCall.png

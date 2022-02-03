@@ -1,20 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect, createRef } from 'react';
 import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import Show from './Show/Show';
 import useStyles from './styles';
 
-const Shows = ({ setCurrentId }) => {
-  const shows = useSelector((state) => state.shows);
+const Shows = ({ ShowsArray }) => {
   const classes = useStyles();
+  const [elRefs, setElRefs] = useState([]);
+
+  useEffect(() => {
+    setElRefs((refs) => Array(ShowsArray.length).fill().map((_, i) => refs[i] || createRef()));
+  }, [ShowsArray]);
 
   return (
-    !shows.length ? <CircularProgress /> : (
+    !ShowsArray.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
-        {shows.map((show) => (
-          <Grid key={show._id} item xs={12} sm={6} md={6}>
-            <Show show={show} setCurrentId={setCurrentId} />
+        {ShowsArray.map((show, i) => (
+          <Grid ref={elRefs[i]} key={i} item xs={12} sm={4} md={4}>
+            <Show show={show}/>
           </Grid>
         ))}
       </Grid>

@@ -1,34 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-// import Shows from './components/Shows/Shows';
-// import { getShows } from './actions/shows';
+import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
+import { getShowsData } from '../../api/index';
 
 function Home(){
+  const classes = useStyles();
+  const [shows, setShows] = useState([]);
 
-    // const [currentId, setCurrentId] = useState(0);
-    // const dispatch = useDispatch();
-    const classes = useStyles();
-  
-    // useEffect(() => {
-    //   dispatch(getShows());
-    // }, [currentId, dispatch]);
+  //Create a dropdown for service and type and send the data to api call
+  const [streamingService, setStreamingService] = useState('netflix');
+  const [contentType, setContentType] = useState('movie');
 
-    return (
-    <div>
-      <Grow in>
-        <Container>
-          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-            {/* <Grid item xs={12} sm={7}>
-              <Shows setCurrentId={setCurrentId} />
-            </Grid> */}
+  useEffect(() => {
+    getShowsData()
+      .then((data) => {
+        setShows(data);
+      })
+  }, []);
+
+  return (
+  <div>
+    <Grow in>
+      <Container>
+        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+          <Grid item xs={12}>
+            <Shows ShowsArray = {shows} />
           </Grid>
-        </Container>
-      </Grow>
-    </div>
-    )
+        </Grid>
+      </Container>
+    </Grow>
+  </div>
+  )
 };
 
 
