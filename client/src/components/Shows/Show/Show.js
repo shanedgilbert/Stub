@@ -17,16 +17,19 @@ const Show = ({ show }) => {
         <Typography variant="h6">{show.originalTitle}</Typography>
         <Typography variant="body2">{show.year}</Typography>
       </div>
+      <div className={classes.overlay3}>
+        <Typography variant="body2">IMDB Rating: {show.imdbRating}/100</Typography>
+      </div>
       <div className={classes.overlay2}>
         {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
       </div>
-      <div className={classes.details}>
+      {/* <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
       </div>
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{show.tagline}</Typography>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography>
-      </CardContent>
+      </CardContent> */}
     </Card>
   );
 };
