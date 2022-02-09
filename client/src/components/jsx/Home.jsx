@@ -24,7 +24,7 @@ function Home(){
   return (
   <div>
     <Grow in>
-      <Container>
+      <Container className="homeLists">
         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
             <Shows ShowsArray = {shows} />
