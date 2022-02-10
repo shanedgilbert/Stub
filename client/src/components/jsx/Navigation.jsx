@@ -1,10 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import stublogo from '../../images/stublogo.png';
 import useStyles from './styles';
+import Login from './Login'
 
-function Navigation() {
+function Navigation({LoggedInState}) {
   const classes = useStyles();
+
+  let navigate = useNavigate(); 
+  const handleLogout = () =>{ 
+    let path = '/'; 
+    navigate(path);
+    localStorage.removeItem('userLoginData');
+    window.location.reload();
+  }
+
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -21,21 +31,24 @@ function Navigation() {
                   <span className="sr-only">(current)</span>
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/lists">
+              {LoggedInState ? <li className="nav-item">
+              <NavLink className="nav-link" to="/lists">
                   Lists
                 </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/settings">
+              </li> :false }
+              {LoggedInState ? <li className="nav-item">
+              <NavLink className="nav-link" to="/settings">
                   Settings
                 </NavLink>
-              </li>
-              {/* <li className="nav-item">
-                <NavLink className="nav-link" to="/log-in">
-                  Log in
+              </li> :false }
+              {LoggedInState ? <li className="nav-item">
+              <NavLink className="nav-link" to="/logout" onClick = {handleLogout}>
+                  Log Out
                 </NavLink>
-              </li> */}
+              </li> :false }
+                 <li className="nav-item">
+                  <Login />
+              </li> 
             </ul>
           </div>
         </div>

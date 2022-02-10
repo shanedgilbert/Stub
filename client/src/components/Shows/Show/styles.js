@@ -33,6 +33,18 @@ export default makeStyles({
     right: '20px',
     color: 'white',
   },
+  overlay3: {
+    position: 'absolute',
+    bottom: '20px',
+    right: '20px',
+    color: 'white',
+  },
+  overlay4: {
+    position: 'absolute',
+    bottom: '20px',
+    left: '20px',
+    color: 'white',
+  },
   grid: {
     display: 'flex',
   },
@@ -48,5 +60,5 @@ export default makeStyles({
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
-  },
+  }
 });
