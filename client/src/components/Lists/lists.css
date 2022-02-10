@@ -10,6 +10,12 @@
   padding: 10px 30px;
 }
 
+.editButton{
+	padding: 10px 10px;
+	position: relative; top: 5px;
+	float: right;
+  
+}
 .homeLists{
   padding-top: 50px;
 }
