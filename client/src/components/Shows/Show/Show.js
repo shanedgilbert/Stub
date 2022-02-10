@@ -9,6 +9,7 @@ import useStyles from './styles';
 const Show = ({ show }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const imdbRatingNormalized = show.imdbRating/10;
 
   return (
     <Card className={classes.card}>
@@ -18,7 +19,7 @@ const Show = ({ show }) => {
         <Typography variant="body2">{show.year}</Typography>
       </div>
       <div className={classes.overlay3}>
-        <Typography variant="body2">IMDB Rating: {show.imdbRating}/100</Typography>
+        <Typography variant="body2">IMDB: {imdbRatingNormalized}/10</Typography>
       </div>
       <div className={classes.overlay2}>
         {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
