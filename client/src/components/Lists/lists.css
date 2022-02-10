@@ -12,7 +12,8 @@
 
 .editButton{
 	padding: 10px 10px;
-	position: absolute;
+	position: relative; top: 5px;
 	float: right;
+  
 }
 
