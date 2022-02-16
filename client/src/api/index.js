@@ -2,6 +2,7 @@ import axios from 'axios';
 import StreamingAPIKey from './StreamingAPIKey';
 
 const DatabaseURL = 'http://localhost:5000/shows';
+const DatabaseURLAccounts = 'http://localhost:5000/accounts';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
 const key = StreamingAPIKey();
 const pageNumber = 2;
@@ -40,3 +41,6 @@ export const getShowsData = async () => {
     console.log(error);
   }
 }
+
+export const fetchAccounts = () => axios.get(DatabaseURLAccounts);
+export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPost);
