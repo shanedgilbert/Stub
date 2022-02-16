@@ -1,15 +1,15 @@
 import React from 'react';
 import './lists.css';
-import editButton from '../../images/edit-icon.png';
+// import EditButton from 'react-edit-button'
 
 function List(prop){
     return (
         <div class="listItem">
           <h3 class="listHeader">{prop.name}</h3>
-          <button class ="editButton" src ={editButton} ></button>
-          <div class="editMenu">
-            <a href="#">Edit Name</a>
-            <a href="#">Delete List</a>
+          <button class ="editButton"></button>
+          <div class="editMenuContent">
+            <item href="#">Edit</item>
+            <item href="#">Delete</item>
           </div>
         </div>
   );
