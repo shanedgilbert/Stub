@@ -16,12 +16,19 @@ function Login()
 
   const responseFacebook = async (response) => 
   {
-    const userData = await response;
-    setLoginDataState(userData);
-    setLocalUser(userData);
-    //console.log('test');
-    createAccount(response);
-    window.location.reload();
+    if(response.status == 'unknown')
+    {
+      window.location.reload();
+    }
+    else
+    {
+      const userData = await response
+      console.log(response.status);
+      setLoginDataState(userData);
+      setLocalUser(userData);
+      createAccount(response);
+      window.location.reload();
+    }
   };
 
   const LoginButton = ({responseFacebook}) => (
