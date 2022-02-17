@@ -21,15 +21,21 @@
 .editMenuContent{
   display: none;
   position: absolute;
-  background-color: #FDF0D5;
-  min-width: 75px;
+  float: right;
+  background-color: #fdf0d5;
+  /* min-width: 75px; */
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
-  z-index:2;
+  z-index:1;
 }
 /* Displays dropdown once hovering mouse */
-.editButton:hover .editMenuContent{
+.editButton:hover {
   display: block;
-  background-color: aqua;
+  background-color: rgb(181, 24, 24);
+}
+
+/* should be done in edit hover  */
+.listItem:hover .editMenuContent {
+  display: inline-block;
 }
 
 .homeLists{
@@ -37,12 +43,12 @@
 }
 
 
-/* link dropdown specification */
-.editMenuContent item{
+/* link dropdown specification
+.editMenuContent {
   color: #212529;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-}
+} */
 
 

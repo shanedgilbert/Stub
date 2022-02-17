@@ -6,11 +6,11 @@ function List(prop){
     return (
         <div class="listItem">
           <h3 class="listHeader">{prop.name}</h3>
-          <button class ="editButton"></button>
-          <div class="editMenuContent">
-            <item href="#">Edit</item>
-            <item href="#">Delete</item>
-          </div>
+          <button class ="editButton">dropdown</button>
+            <div class="editMenuContent">
+             <a href="#">Edit</a>
+            <a href="#">Delete</a>
+            </div>
         </div>
   );
 }
