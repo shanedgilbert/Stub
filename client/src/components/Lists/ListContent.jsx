@@ -10,18 +10,17 @@ function ListContent(prop){
   const dispatch = useDispatch();
   const classes = useStyles();
   const imdbRatingNormalized = prop.imdbRating/10;
-  console.log("show: "+prop.title);
 
   return(
     <div>
-      <tr>
+      <tr class="listContent">
         <td>
-          <img src={prop.poster} alt="Girl in a jacket" width="500" height="600" />
+          <img class="moviePosterList" src={prop.poster} alt="Girl in a jacket" width="256" height="384" />
         </td>
-        <td>
-          <h2>{prop.title}</h2>
-          <h3>{prop.date}</h3>
-          <p>{prop.overview}</p>
+        <td class="listMovieInfo">
+          <p><b class="titleMovie">{prop.title}</b> {prop.date}</p>
+          <p><b>Cast:</b> {prop.cast}</p>
+          <p><b>Overview:</b> {prop.overview}</p>
         </td>
         </tr>
     </div>

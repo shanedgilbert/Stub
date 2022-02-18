@@ -26,21 +26,25 @@ function Settings() {
 
   return (
   <div>
-  <h1>List Title</h1>
+  <h1 class="titleOfList">List Title</h1>
+  <table>
   {shows.map((listItem, index) => {
       return (
-        <table>
+
         <ListContent
           key={index}
           id={index}
           title={listItem.originalTitle}
           poster={listItem.posterURLs.original}
           date = {listItem.year}
+          tagline = {listItem.tagline}
           overview = {listItem.overview}
+          cast = {listItem.cast.map((cast) => `${cast}, `)}
         />
-        </table>
+
       );
     })}
+    </table>
   </div>
   )
 }
