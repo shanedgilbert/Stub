@@ -59,7 +59,9 @@
 
 .listMovieInfo{
   width: 100%;
+  padding-top: 10px;
   padding-left: 20px;
+  vertical-align: top;
 }
 
 .moviePosterList{
@@ -67,7 +69,8 @@
   margin-left: 20px;
 }
 .titleMovie{
-  font-size: 20px;
+  font-size: 30px;
+  padding-right: 10px;
 }
 .taglineMovie{
   font-size: 15px;
