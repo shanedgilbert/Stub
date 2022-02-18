@@ -1,17 +1,31 @@
 import React from 'react';
 import './lists.css';
-// import EditButton from 'react-edit-button'
 
 function List(prop){
     return (
-        <div class="listItem">
+        <div>
           <h3 class="listHeader">{prop.name}</h3>
-          <button class ="editButton">dropdown</button>
-            <div class="editMenuContent">
-             <a href="#">Edit</a>
-            <a href="#">Delete</a>
+          <div class="listItem">
+            <div class="dropdown">
+              <button class ="editButton">dropdown</button>
+              <div class="editMenuContent">
+                <a class="dropdownLink" href="#">Edit</a>
+                <a class="dropdownLink" href="#">Delete</a>
+              </div>
             </div>
+          </div>
         </div>
+      //   <h3 class="listHeader">{prop.name}</h3>
+      //   <div class="listItem">
+      //   </div>
+      //   <div>
+      //     <button class ="editButton">dropdown</button>
+      //     <div class="editMenuContent">
+      //       <a href="#">Edit</a>
+      //       <a href="#">Delete</a>
+      //     </div>
+      //   </div>
+      // </div>
   );
 }
 

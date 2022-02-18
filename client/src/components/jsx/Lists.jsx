@@ -3,10 +3,13 @@ import React from "react";
 import List from "../Lists/List";
 import '../Lists/lists.css';
 import tvshows from '../Lists/shows.js';
+import makeStyles from './styles';
 
 function Lists() {
+  const classes = makeStyles;
   return (
-    <div class="listPage">
+    <div className="listPage">
+      <h1 className="listPageHeading">Your Lists</h1>
       <List 
         name = "favorites"
       />

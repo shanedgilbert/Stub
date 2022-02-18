@@ -1,32 +1,51 @@
 .listItem{
   height: 50px;
   background-color: red;
-  margin: 50px;
   border-radius: 8px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .listHeader{
   /* padding-left: 20px; */
   padding: 10px 30px;
 }
+
+.dropdown {
+  position: relative;
+  float: right;
+  height: 100%;
+}
+
 /*Drop button object for jsx */
 .editButton{
-	padding: 10px 10px;
-	position: relative; bottom: 48px; right: 20px;
-	float: right;
-  background-image: url('../../images/edit-icon.png') no-repeat 0 0;
+  border: none;
+  height: 100%;
+  cursor: pointer;
 }
 
 /*drop down window*/
 .editMenuContent{
   display: none;
   position: absolute;
-  float: right;
-  background-color: #fdf0d5;
-  /* min-width: 75px; */
+  background-color: white;
+  width: 100%;
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
-  z-index:1;
+  z-index: 1;
 }
+
+.dropdownLink {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownLink:hover {
+  background-color: rgb(181, 24, 24);
+  color: black;
+  text-decoration: none;
+}
+
 /* Displays dropdown once hovering mouse */
 .editButton:hover {
   display: block;
@@ -34,21 +53,11 @@
 }
 
 /* should be done in edit hover  */
-.listItem:hover .editMenuContent {
-  display: inline-block;
+.dropdown:hover .editMenuContent {
+  display: block;
 }
 
 .homeLists{
   padding-top: 50px;
 }
-
-
-/* link dropdown specification
-.editMenuContent {
-  color: #212529;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-} */
-
 
