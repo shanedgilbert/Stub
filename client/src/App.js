@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <Router>
-      <Navigation LoggedInState={LoggedIn} />
+      <Navigation LoggedInState={LoggedIn} setLoggedIn={setLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} /> {/*Test */}
         <Route path="/logout" element={<Navigate to="/" />} />
