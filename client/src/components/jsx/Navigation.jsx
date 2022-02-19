@@ -8,15 +8,7 @@ import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 function Navigation({LoggedInState, setLoggedIn}) {
   const classes = useStyles();
 
-  let navigate = useNavigate();
-  const handleLogout = () =>
-  {  
-    let path = '/';
-    navigate(path);
-    setLoggedIn(false);
-    localStorage.removeItem('userLoginData');
-    //window.location.reload();
-  }
+
 
   const getProfile = () =>
   {
@@ -52,7 +44,7 @@ function Navigation({LoggedInState, setLoggedIn}) {
                 </NavLink>
               </li> :false }
               {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/logout" onClick = {handleLogout}>
+              <NavLink className="nav-link" to="/logout">
                   Log Out
                 </NavLink>
               </li> :false }
