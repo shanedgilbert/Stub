@@ -18,6 +18,13 @@ function Navigation({LoggedInState, setLoggedIn}) {
     //window.location.reload();
   }
 
+  const getProfile = () =>
+  {
+    const user = getLocalUser()
+    return (
+      <h1><img id="loginImage" src={user.picture.data.url} height={user.picture.height} width={user.picture.width} alt="avatar"/></h1>
+    )
+  }
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
