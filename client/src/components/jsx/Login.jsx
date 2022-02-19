@@ -20,10 +20,18 @@ function Login({LoggedInState, setLoggedIn})
     else
     {
       const userData = await response
-      console.log(response.status);
-      setLocalUser(userData);
-      createAccount(response);
-      setLoggedIn(true);
+      if(userData == 'undefined')
+      {
+        console.log(response.status);
+        window.location.reload();
+      }
+      else
+      {
+        console.log(response.status);
+        setLocalUser(userData);
+        createAccount(response);
+        setLoggedIn(true);
+      }
     }
   };
 
