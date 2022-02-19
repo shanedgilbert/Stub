@@ -52,7 +52,7 @@ function Navigation({LoggedInState, setLoggedIn}) {
                 </NavLink>
               </li> :false }
               {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick = {handleLogout}>
+              <NavLink className="nav-link" to="/logout" onClick = {handleLogout}>
                   Log Out
                 </NavLink>
               </li> :false }
