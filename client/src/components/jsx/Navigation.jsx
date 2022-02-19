@@ -1,10 +1,11 @@
-import React from "react";
+import React,{setState} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import stublogo from '../../images/stublogo.png';
 import useStyles from './styles';
 import Login from './Login'
+import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 
-function Navigation({LoggedInState}) {
+function Navigation({LoggedInState, setLoggedIn}) {
   const classes = useStyles();
 
   let navigate = useNavigate(); 
