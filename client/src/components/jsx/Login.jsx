@@ -41,7 +41,7 @@ function Login({LoggedInState, setLoggedIn})
   return (
 
     <h1>
-    {currentLoginData ? (<img id="loginImage" src={currentLoginData.picture.data.url} height={currentLoginData.picture.height} width={currentLoginData.picture.width} alt="avatar"/>) : (<LoginButton responseFacebook = {responseFacebook}/>)}             
+    <LoginButton responseFacebook = {responseFacebook}/>  
 
 </h1>
   );
