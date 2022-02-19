@@ -9,11 +9,8 @@ const apiKey = FacebookAPIKey();
 
 
 
-function Login() 
+function Login({LoggedInState, setLoggedIn}) 
 {
-  const [currentLoginData, setLoginDataState] = useState(getLocalUser());
-  
-
   const responseFacebook = async (response) => 
   {
     if(response.status == 'unknown')
@@ -24,10 +21,10 @@ function Login()
     {
       const userData = await response
       console.log(response.status);
-      setLoginDataState(userData);
       setLocalUser(userData);
       createAccount(response);
       window.location.reload();
+      setLoggedIn(true);
     }
   };
 
