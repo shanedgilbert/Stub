@@ -57,7 +57,7 @@ function Navigation({LoggedInState, setLoggedIn}) {
                 </NavLink>
               </li> :false }
                  <li className="nav-item">
-                  <Login />
+                 {LoggedInState ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>}
               </li> 
             </ul>
           </div>
