@@ -23,7 +23,6 @@ function Login({LoggedInState, setLoggedIn})
       console.log(response.status);
       setLocalUser(userData);
       createAccount(response);
-      window.location.reload();
       setLoggedIn(true);
     }
   };
