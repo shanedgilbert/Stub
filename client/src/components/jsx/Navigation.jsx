@@ -8,12 +8,14 @@ import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 function Navigation({LoggedInState, setLoggedIn}) {
   const classes = useStyles();
 
-  let navigate = useNavigate(); 
-  const handleLogout = () =>{ 
-    let path = '/'; 
+  let navigate = useNavigate();
+  const handleLogout = () =>
+  {  
+    let path = '/';
     navigate(path);
+    setLoggedIn(false);
     localStorage.removeItem('userLoginData');
-    window.location.reload();
+    //window.location.reload();
   }
 
   return (
