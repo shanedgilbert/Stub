@@ -13,20 +13,25 @@ function Login({LoggedInState, setLoggedIn})
 {
   const responseFacebook = async (response) => 
   {
-    if(response.status == 'unknown')
+    if(response.status == 'unknown') //no response at all
     {
-      window.location.reload();
+      console.log(response.status);
+      setLoggedIn(false);
+      //window.location.reload();
     }
-    else
+    else //some response
     {
       const userData = await response
-      if(userData == 'undefined')
+      if(userData.error) //if userdata has error or interuption, like closing the login api screen during login
       {
+        console.log('test1')
         console.log(response.status);
-        window.location.reload();
+        setLoggedIn(false);
+        //window.location.reload();
       }
-      else
+      else //sucessful login, no interuptions 
       {
+        console.log('test')
         console.log(response.status);
         setLocalUser(userData);
         createAccount(response);
