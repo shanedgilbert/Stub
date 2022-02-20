@@ -22,9 +22,10 @@ const Lists = ({ListsArray}) => {
         !currentLists.length ? <div className={classes.listMessage}> Looks like you don't have any lists!</div> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {currentLists.map((list) => (
-                    <Grid /*ref={list} key={i}*/ item xs={12} sm={12} md={12}>
-                        <List list={list}/>
-                    </Grid>
+                    list.ownerID != JSON.parse(localStorage.getItem('userLoginData')).id ? null :
+                        <Grid /*ref={list} key={i}*/ item xs={12} sm={12} md={12}>
+                            <List list={list}/>
+                        </Grid>
                 ))}            
             </Grid>
         )
