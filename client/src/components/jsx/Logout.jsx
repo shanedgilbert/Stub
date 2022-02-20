@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { NavLink, useNavigate, Navigate } from "react-router-dom";
 
 
@@ -17,7 +17,11 @@ function Logout({LoggedInState, setLoggedIn})
       localStorage.removeItem('userLoginData');
     }
 
-    handleLogout();
+    useEffect(() => {
+      handleLogout();
+    }, []);
+  
+   
     return <Navigate to="/" />;
 
 }
