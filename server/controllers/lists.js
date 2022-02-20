@@ -28,11 +28,12 @@ export const getList = async (req, res) => {
 }
 
 export const createList = async (req, res) => {
-    const { name, shows } = req.body;
+    const { name, ownerID, shows } = req.body;
 
-    const newListContent = new ListContent({ name, shows })
+    const newListContent = new ListContent({ name, ownerID, shows,})
 
     try {
+        console.log('List Content ID:' + newListContent.ownerID);
         await newListContent.save();
 
         res.status(201).json(newListContent );

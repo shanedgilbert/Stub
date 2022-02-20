@@ -17,6 +17,7 @@ export const createList = (list) => async(dispatch) => {
     try {
         const {data} = await api.createList(list);
 
+        console.log(list.ownerID);
         dispatch({type: CREATE, payload: data});
     }
     catch(error){

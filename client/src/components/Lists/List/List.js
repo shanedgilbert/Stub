@@ -8,8 +8,8 @@ import ListDisplay from "../List";
 import '../lists.css';
 
 const List = ({list}) => {
-    const dispatch = useDispatch();
-    const classes = useStyles();
+    //const dispatch = useDispatch();
+    //const classes = useStyles();
 
     return (
         <ListDisplay name = {list.name}/>

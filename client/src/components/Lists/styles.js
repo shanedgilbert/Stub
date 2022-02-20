@@ -11,4 +11,8 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  listMessage: {
+    textAlign: 'left',
+    paddingLeft: '20px',
+  }
 }));
