@@ -13,7 +13,8 @@ function Lists() {
   return (
     <div className="listPage">
       <h1 className="listPageHeading">Your Lists</h1>
-      {/*Temporary placeholder lists*/}
+      {/*
+
       <List 
         name = "favorites"
       />
@@ -23,6 +24,7 @@ function Lists() {
       <List 
         name = "Funny"
       />
+      */}
 
       {/*Future actual list display*/}
       <ListsJS ListsArray={lists}/> 
