@@ -3,6 +3,7 @@ import StreamingAPIKey from './StreamingAPIKey';
 
 const DatabaseURL = 'http://localhost:5000/shows';
 const DatabaseURLAccounts = 'http://localhost:5000/accounts';
+const DatabaseURLLists = 'http://localhost:5000/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
 const key = StreamingAPIKey();
 const pageNumber = 2;
@@ -44,3 +45,9 @@ export const getShowsData = async () => {
 
 export const fetchAccounts = () => axios.get(DatabaseURLAccounts);
 export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPost);
+
+//List functions
+export const fetchLists = () => axios.get(DatabaseURLLists);
+export const createList = (newList) => axios.post(DatabaseURLLists, newList);
+export const removeList = (name) => axios.delete(`${DatabaseURLLists}/${name}`);
+export const updateList = (name, updatedList) => axios.patch(`${DatabaseURLLists}/${name}`, updatedList);

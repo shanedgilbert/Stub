@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import showRoutes from './routes/shows.js';
 import accountRoutes from './routes/accounts.js';
+import listRoutes from './routes/lists.js';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use('/shows', showRoutes);
 app.use('/accounts', accountRoutes);
+app.use('/listsdb', listRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://scottsak:Feb!2193803@cluster0.w3za4.mongodb.net/Stub';
 const PORT = process.env.PORT|| 5000;
