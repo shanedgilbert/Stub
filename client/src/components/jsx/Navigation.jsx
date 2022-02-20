@@ -1,20 +1,22 @@
-import React from "react";
+import React,{setState} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import stublogo from '../../images/stublogo.png';
 import useStyles from './styles';
 import Login from './Login'
+import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 
-function Navigation({LoggedInState}) {
+function Navigation({LoggedInState, setLoggedIn}) {
   const classes = useStyles();
 
-  let navigate = useNavigate(); 
-  const handleLogout = () =>{ 
-    let path = '/'; 
-    navigate(path);
-    localStorage.removeItem('userLoginData');
-    window.location.reload();
-  }
 
+
+  const getProfile = () =>
+  {
+    const user = getLocalUser()
+    return (
+      <h1><img id="loginImage" src={user.picture.data.url} height={user.picture.height} width={user.picture.width} alt="avatar"/></h1>
+    )
+  }
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -42,12 +44,12 @@ function Navigation({LoggedInState}) {
                 </NavLink>
               </li> :false }
               {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick = {handleLogout}>
+              <NavLink className="nav-link" to="/logout">
                   Log Out
                 </NavLink>
               </li> :false }
                  <li className="nav-item">
-                  <Login />
+                 {LoggedInState ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>}
               </li> 
             </ul>
           </div>

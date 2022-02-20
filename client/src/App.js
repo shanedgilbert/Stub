@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navigation, Footer, Home, Lists, Settings } from "./components/jsx";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { Navigation, Footer, Home, Lists, Settings, Logout } from "./components/jsx";
 import { isLoggedIn } from './actions/login';
 import PrivateRoute from './components/jsx/PrivateRoute';
 import ListAdder from './components/jsx/listAdder';
@@ -9,9 +9,10 @@ const App = () => {
 
   return (
     <Router>
-      <Navigation LoggedInState={LoggedIn} />
+      <Navigation LoggedInState={LoggedIn} setLoggedIn={setLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} /> {/*Test */}
+        <Route path="/logout" element={<Logout LoggedInState={LoggedIn} setLoggedIn={setLoggedIn}/>} />
         <Route
           path="/settings"
           element=

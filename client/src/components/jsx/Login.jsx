@@ -9,25 +9,34 @@ const apiKey = FacebookAPIKey();
 
 
 
-function Login() 
+function Login({LoggedInState, setLoggedIn}) 
 {
-  const [currentLoginData, setLoginDataState] = useState(getLocalUser());
-  
-
   const responseFacebook = async (response) => 
   {
-    if(response.status == 'unknown')
+    if(response.status == 'unknown') //no response at all
     {
-      window.location.reload();
+      console.log(response.status);
+      setLoggedIn(false);
+      //window.location.reload();
     }
-    else
+    else //some response
     {
       const userData = await response
-      console.log(response.status);
-      setLoginDataState(userData);
-      setLocalUser(userData);
-      createAccount(response);
-      window.location.reload();
+      if(userData.error) //if userdata has error or interuption, like closing the login api screen during login
+      {
+        console.log('test1')
+        console.log(response.status);
+        setLoggedIn(false);
+        //window.location.reload();
+      }
+      else //sucessful login, no interuptions 
+      {
+        console.log('test')
+        console.log(response.status);
+        setLocalUser(userData);
+        createAccount(response);
+        setLoggedIn(true);
+      }
     }
   };
 
@@ -45,7 +54,7 @@ function Login()
   return (
 
     <h1>
-    {currentLoginData ? (<img id="loginImage" src={currentLoginData.picture.data.url} height={currentLoginData.picture.height} width={currentLoginData.picture.width} alt="avatar"/>) : (<LoginButton responseFacebook = {responseFacebook}/>)}             
+    <LoginButton responseFacebook = {responseFacebook}/>  
 
 </h1>
   );
