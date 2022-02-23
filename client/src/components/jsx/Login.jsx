@@ -4,7 +4,7 @@ import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 import { createAccount } from '../../actions/accounts';
 import FacebookAPIKey from '../../api/FacebookAPIKey';
 import "../../index.css";
-
+import fblogo from '../../images/fb.png';
 const apiKey = FacebookAPIKey();
 
 
@@ -48,7 +48,9 @@ function Login({LoggedInState, setLoggedIn})
     fields="name,email,picture"
     callback={responseFacebook}
     render={renderProps => (
-      <button onClick={renderProps.onClick}>Sign In To Facebook</button>
+      <button class="button button1" onClick={renderProps.onClick}><img id="fbImage" src={fblogo} alt="avatar"/></button>
+      
+
     )}
   />
     )
