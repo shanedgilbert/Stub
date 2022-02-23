@@ -19,3 +19,25 @@ footer {
 #loginImage{
   border-radius: 50%;
 }
+
+#fbImage{
+  border-radius: 50%;
+  object-fit: cover;
+  height: 50px;  
+  width: 50px;
+}
+.button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+
+  
+}
+.button:focus{
+  outline: none;
+  box-shadow: none;
+}
+
