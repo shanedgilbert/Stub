@@ -30,23 +30,20 @@ const Show = ({ show }) => {
         <div className={classes.overlay2}>
           {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
         </div>
-        <Modal className={classes.modal} show={visibility} onHide={handleCloseModal}>
+        <Modal className={classes.modal} show={visibility} onHide={handleCloseModal} backdrop={true}>
           <Modal.Header>
             <Modal.Title>
               <Typography variant="h6">{show.originalTitle}</Typography>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Test
+            <Typography variant="body2" color="textSecondary" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
           </Modal.Body>
+          {/* <Modal.Body>
+            <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography> */}
+            {/* <Typography className={classes.title} variant="h5" component="h2">{show.tagline}</Typography> */}
+          {/* </Modal.Body> */}
         </Modal>
-        {/* <div className={classes.details}>
-          <Typography variant="body2" color="textSecondary" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
-        </div>
-        <Typography className={classes.title} gutterBottom variant="h5" component="h2">{show.tagline}</Typography>
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography>
-        </CardContent> */}
       </Card>
   );
 };
