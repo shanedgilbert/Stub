@@ -1,5 +1,6 @@
 import React from 'react';
 import './lists.css';
+import ListChange from '.components/jsx/ListChange';
 
 function List(prop){
     return (
