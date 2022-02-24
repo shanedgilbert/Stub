@@ -1,10 +1,10 @@
 import React,{ useState } from "react";
-import FacebookLogin from 'react-facebook-login'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 import { createAccount } from '../../actions/accounts';
 import FacebookAPIKey from '../../api/FacebookAPIKey';
 import "../../index.css";
-
+import fblogo from '../../images/fb.png';
 const apiKey = FacebookAPIKey();
 
 
@@ -43,20 +43,25 @@ function Login({LoggedInState, setLoggedIn})
   const LoginButton = ({responseFacebook}) => (
   
     <FacebookLogin
-      appId={apiKey}
-      fields="name,email,picture"
-      onClick={componentClicked}
-      callback={responseFacebook}
-      icon="fa-facebook"/>
+    appId={apiKey}
+    autoLoad={false}
+    fields="name,email,picture"
+    callback={responseFacebook}
+    render={renderProps => (
+      <button class="button button1" onClick={renderProps.onClick}><img id="fbImage" src={fblogo} alt="avatar"/></button>
+      
+
+    )}
+  />
     )
 
 
   return (
 
-    <h1>
+    
     <LoginButton responseFacebook = {responseFacebook}/>  
 
-</h1>
+
   );
 
 }
