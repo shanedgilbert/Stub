@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, setState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Modal from 'react-bootstrap/Modal'
@@ -31,13 +31,13 @@ const Show = ({ show }) => {
           {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
         </div>
         <Modal className={classes.modal} show={visibility} onHide={handleCloseModal} backdrop={true}>
-          <Modal.Header>
-            <Modal.Title>
+          <Modal.Header className={classes.modal}>
+            <Modal.Title className={classes.modal}>
               <Typography variant="h6">{show.originalTitle}</Typography>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Typography variant="body2" color="textSecondary" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
+          <Modal.Body className={classes.modal}>
+            <Typography variant="body2" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
           </Modal.Body>
           {/* <Modal.Body>
             <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography> */}
