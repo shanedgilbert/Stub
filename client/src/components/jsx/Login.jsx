@@ -58,10 +58,10 @@ function Login({LoggedInState, setLoggedIn})
 
   return (
 
-    <h1>
+    
     <LoginButton responseFacebook = {responseFacebook}/>  
 
-</h1>
+
   );
 
 }
