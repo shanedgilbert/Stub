@@ -21,7 +21,7 @@ footer {
 }
 
 #fbImage{
-  border-radius: 50%;
+
   object-fit: cover;
   height: 50px;  
   width: 50px;
@@ -37,12 +37,7 @@ footer {
   align-items:center;
   height: 50px;
   width: 50px;
-  border-radius: 50%;
-
   
 }
-.button:focus{
-  outline: none;
-  box-shadow: none;
-}
+
 
