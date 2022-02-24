@@ -3,22 +3,15 @@ import React from "react";
 import List from "../Lists/List";
 import '../Lists/lists.css';
 import tvshows from '../Lists/shows.js';
+import { Outlet } from "react-router-dom";
 
 function Lists() {
   return (
-    <div class="listPage">
-      <List 
-        name = "favorites"
-      />
-      <List 
-        name = "Best"
-      />
-      <List 
-        name = "Funny"
-      />
-
+    <div>
+    <h1>List Page</h1>
+    <Outlet />
     </div>
   );
-} 
+}
 
 export default Lists;
