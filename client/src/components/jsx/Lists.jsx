@@ -1,8 +1,8 @@
 import React from "react";
 // import shows from "../reducers/shows";
-import List from "../Lists/List";
-import '../Lists/lists.css';
-import tvshows from '../Lists/shows.js';
+import List from "../ListsFolder/List";
+import '../ListsFolder/lists.css';
+import tvshows from '../ListsFolder/shows.js';
 import { Outlet } from "react-router-dom";
 
 function Lists() {

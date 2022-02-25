@@ -5,7 +5,7 @@ import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
 import { getShowsData } from '../../api/index';
-import ListContent from '../Lists/ListContent.jsx';
+import ListContent from '../ListsFolder/ListContent.jsx';
 
 function Settings() {
   const classes = useStyles();
@@ -26,7 +26,6 @@ function Settings() {
 
   return (
   <div>
-  <h1 class="titleOfList">List Title</h1>
   <table>
   {shows.map((listItem, index) => {
       return (

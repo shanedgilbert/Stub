@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navigation, Footer, Home, Lists, Settings } from "./components/jsx";
-import {ListPage, List} from "./components/ListsFolder";
+import ListPage from "./components/ListsFolder/ListPage.jsx";
+import List from "./components/ListsFolder/List.jsx";
 
 import { isLoggedIn } from './actions/login';
 import PrivateRoute from './components/jsx/PrivateRoute';
