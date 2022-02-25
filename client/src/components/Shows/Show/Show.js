@@ -1,10 +1,8 @@
 import React, { useState, setState } from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import Modal from 'react-bootstrap/Modal'
+import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
+import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 
-import { rateShow } from '../../../actions/shows';
 import useStyles from './styles';
 
 const Show = ({ show }) => {
@@ -14,8 +12,14 @@ const Show = ({ show }) => {
 
   const [visibility, setVisibility] = useState(false);
 
-  const handleCloseModal = () => setVisibility(false);
-  const handleShowModal = () => setVisibility(true);
+  const handleCloseModal = () => {
+    setVisibility(false);
+    console.log(visibility);
+  }
+  const handleShowModal = () =>  {
+    setVisibility(true);
+    console.log('show!');
+  }
 
   return (
       <Card className={classes.card} onClick={handleShowModal}>
@@ -34,6 +38,7 @@ const Show = ({ show }) => {
           <Modal.Header className={classes.modal}>
             <Modal.Title className={classes.modal}>
               <Typography variant="h6">{show.originalTitle}</Typography>
+              <button onClick={handleCloseModal}>Exit</button>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className={classes.modal}>
