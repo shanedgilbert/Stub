@@ -1,8 +1,15 @@
 import React from 'react';
 import './lists.css';
-import ListChange from '.components/jsx/ListChange';
+import ListUpdate from '../jsx/ListChange';
 
 function List(prop){
+    const handle_submit = (e) => {
+    //e.preventDefault();
+   // ListUpdate.getListData({...ListUpdate.listData, ownerID: JSON.parse(localStorage.getItem('userLoginData')).id})
+    //listData.name = "people are great";
+    console.log("list updated");
+    //dispatch(updateList(listData));
+}
     return (
         <div>
           <h3 class="listHeader">{prop.name}</h3>
@@ -10,8 +17,8 @@ function List(prop){
             <div class="dropdown">
               <button class ="editButton">dropdown</button>
               <div class="editMenuContent">
-                <a class="dropdownLink" href="#">Edit</a>
-                <a class="dropdownLink" href="#">Delete</a>
+                <button class="dropdownLink" onClick={handle_submit}>Edit</button>
+                <a class="dropdownLink" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Delete</a>
               </div>
             </div>
           </div>

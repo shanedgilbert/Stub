@@ -65,7 +65,9 @@ export const editName = () => async(dispatch) => {
 
 export const deleteList = () => async(dispatch) => {
     try {
-
+        const {data} = await api.removeList(list);
+        console.log(list.ownerID);
+        dispatch({type: REMOVE, payload: data});
     }
     catch(error) {
         console.log(error.message);
