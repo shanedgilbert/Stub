@@ -3,7 +3,7 @@
   background-color: red;
   border-radius: 8px;
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right:18%;
 }
 
 .listHeader{
@@ -13,7 +13,7 @@
 
 .dropdown {
   position: relative;
-  float: right;
+  float: left;
   height: 100%;
 }
 
@@ -60,4 +60,42 @@
 .homeLists{
   padding-top: 50px;
 }
+
+.dropdown:hover .addListContent {
+  display: block;
+}
+
+.addListButton {
+  border:none;
+  cursor: pointer;
+  background-color: rgb(181, 24, 24);
+  text-align: center;
+}
+
+.addListContent {
+  display: none;
+  position: absolute;
+  background-color: rgb(181, 24, 24);
+  width: 100%;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.addListTextField {
+  margin: 10% 10%;
+  height: 50px;
+}
+
+.addListSubmit {
+  display: block;
+  margin: 5px 10%;
+  color: rgb(181, 24, 24);
+  background-color: white;
+  box-shadow: 0px;
+  width: 80%;
+  position: center;
+
+}
+
+
 
