@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
-import { getShowsData } from '../../api/index';
+import { createShow, getShowsData } from '../../api/index';
 
 function Home(){
   const classes = useStyles();
@@ -18,6 +18,8 @@ function Home(){
     getShowsData()
       .then((data) => {
         setShows(data);
+        data.forEach(element => {createShow(element)});
+        console.log(data)
       })
   }, []);
 
