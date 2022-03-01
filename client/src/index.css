@@ -16,6 +16,10 @@ footer {
     right: 0;
 }
 
+.nav-link{
+  margin-top: 20px;
+}
+
 #loginImage{
   border-radius: 50%;
 }
@@ -23,13 +27,13 @@ footer {
 #fbImage{
 
   object-fit: cover;
-  height: 50px;  
+  height: 50px;
   width: 50px;
   position:absolute;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  
+
 }
 .button {
   background-color: transparent;
@@ -37,7 +41,5 @@ footer {
   align-items:center;
   height: 50px;
   width: 50px;
-  
+
 }
-
-
