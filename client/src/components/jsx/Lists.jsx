@@ -13,20 +13,7 @@ function Lists() {
   return (
     <div className="listPage">
       <h1 className="listPageHeading">Your Lists</h1>
-      {/* legacy code
-
-      <List 
-        name = "favorites"
-      />
-      <List 
-        name = "Best"
-      />
-      <List 
-        name = "Funny"
-      />
-      */}
-
-      {/*Future actual list display*/}
+      
       <ListsJS ListsArray={lists}/> 
 
     </div>

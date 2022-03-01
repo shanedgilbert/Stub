@@ -23,9 +23,15 @@ function ListAdder()
         listData.ownerID = JSON.parse(localStorage.getItem('userLoginData')).id;
         console.log("list Added");
         dispatch(createList(listData));
+        clearText();
+    }
+
+    const clearText = () => {
+        setListData({name: '', ownerID: '', shows: []})
     }
 
     return (
+        /*
         <div>
             <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handle_submit}>
                 <Typography variant = 'h6' align = 'center'>
@@ -39,6 +45,23 @@ function ListAdder()
                 </div>
             </form>
         </div>
+        */
+        <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handle_submit}>
+            <div className = {classes.addListButton}>
+                <div class = 'dropdown'>
+                    <img src = {require("../../images/add-list.png")} height = "50px" width = "50px"/>
+                    <div class = 'addListContent'>
+                        <div className = {classes.addListButtonDropDown}>
+                        <TextField className = {classes.addListTextField} style = {{margin: '5% 10%'}} name = "name" variant = "filled" label = "Name" margin = "normal" InputLabel inputlabelprops = {{ shrink: true}} required value = {listData.name} onChange = {(e) => setListData({...listData, name: e.target.value})}/>
+                        <Button class = 'addListSubmit' variant = "contained" size = "large" type = "submit">
+                            Submit
+                        </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </form>
+       
     )
 }
 

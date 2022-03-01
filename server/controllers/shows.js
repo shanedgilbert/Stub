@@ -28,16 +28,21 @@ export const getShow = async (req, res) => {
 }
 
 export const createShow = async (req, res) => {
-    const { title, overview, year, imdbRating, tags, posterURL, userRating } = req.body;
-
-    const newShowContent = new ShowContent({ title, overview, year, imdbRating, tags, posterURL, userRating })
-
-    try {
-        await newShowContent.save();
-
-        res.status(201).json(newShowContent );
-    } catch (error) {
-        res.status(409).json({ message: error.message });
+    const imdbID = req.body.imdbID;
+    const foundShow = await ShowContent.findOne({ imdbID: imdbID });
+    if(!foundShow) //if show is not found in database
+    {
+        const { imdbID, title, overview, year, imdbRating, tags, posterURL, userRating } = req.body;
+        const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURL, userRating })
+        try 
+        {
+            await newShowContent.save();
+            res.status(201).json(newShowContent);
+        } 
+        catch (error) 
+        {
+            res.status(409).json({ message: error.message });
+        }
     }
 }
 

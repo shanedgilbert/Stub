@@ -25,7 +25,7 @@ const options = {
 };
 
 export const fetchShows = () => axios.get(DatabaseURL);
-export const createShow = (newPost) => axios.post(DatabaseURL, newPost);
+export const createShow = (newShow) => axios.post(DatabaseURL, newShow);
 export const rateShow = (id) => axios.patch(`${DatabaseURL}/${id}/rateShow`);
 export const updateShow = (id, updatedShow) => axios.patch(`${DatabaseURL}/${id}`, updatedShow);
 export const deleteShow = (id) => axios.delete(`${DatabaseURL}/${id}`);
@@ -36,6 +36,7 @@ export const getShowsData = async () => {
     const { data } = await axios.get(APIURL, options);
     // console.log(data.total_pages);
     const { results } = data;
+    console.log(results);
     // console.log(results);
     return results;
   } catch(error) {
