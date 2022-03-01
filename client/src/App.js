@@ -27,8 +27,8 @@ const App = () => {
           element=
           {
             <PrivateRoute>
-              <Lists />
               <ListAdder/>
+              <Lists />
             </PrivateRoute>
           }
         />
