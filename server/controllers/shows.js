@@ -29,7 +29,6 @@ export const getShow = async (req, res) => {
 
 export const createShow = async (req, res) => 
 {
-    console.log(3);
     const imdbID = req.body.imdbID;
     try
     {
