@@ -56,10 +56,12 @@ export const removeShow = () => async(dispatch) => {
 
 export const editName = () => async(dispatch) => {
     try {
-
+        const {data} = await api.updateList(list);
+        console.log(list.ownerID);
+        dispatch({type: EDIT, payload: data});
     }
     catch(error) {
-        console.log(error.message);
+        console.log('ACTIONS/LIST EDITNAME(): ' + error.message);
     }
 }
 
