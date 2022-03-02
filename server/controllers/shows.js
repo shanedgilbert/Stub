@@ -27,22 +27,33 @@ export const getShow = async (req, res) => {
     }
 }
 
-export const createShow = async (req, res) => {
+export const createShow = async (req, res) => 
+{
+    console.log(3);
     const imdbID = req.body.imdbID;
-    const foundShow = await ShowContent.findOne({ imdbID: imdbID });
-    if(!foundShow) //if show is not found in database
+    try
     {
-        const { imdbID, title, overview, year, imdbRating, tags, posterURL, userRating } = req.body;
-        const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURL, userRating })
-        try 
+        const foundShow = await ShowContent.findOne({ imdbID: imdbID });
+        res.status(200).json(foundShow);
+
+        if(!foundShow) //if show is not found in database
         {
-            await newShowContent.save();
-            res.status(201).json(newShowContent);
-        } 
-        catch (error) 
-        {
-            res.status(409).json({ message: error.message });
+            const { imdbID, title, overview, year, imdbRating, tags, posterURL, userRating } = req.body;
+            const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURL, userRating })
+            try 
+            {
+                await newShowContent.save();
+                res.status(201).json(newShowContent);
+            } 
+            catch (error) 
+            {
+                res.status(409).json({ message: error.message });
+            }
         }
+    }
+    catch
+    {
+        res.status(404).json({ message: error.message });
     }
 }
 
