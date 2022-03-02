@@ -50,5 +50,5 @@ export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPos
 //List functions
 export const fetchLists = () => axios.get(DatabaseURLLists);
 export const createList = (newList) => axios.post(DatabaseURLLists, newList);
-export const removeList = (name, ownerID) => axios.delete(`${DatabaseURLLists}/${ownerID}/${name}`);
+export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
 export const updateList = (updateName, ownerID) => axios.put(`${DatabaseURLLists}/${ownerID}/${updateName}`);

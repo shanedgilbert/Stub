@@ -4,7 +4,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import useStyles from './styles';
 
-import ListDisplay from "../List";
+import ListDisplay from "../List.jsx";
 import '../lists.css';
 
 const List = ({list}) => {
@@ -12,7 +12,7 @@ const List = ({list}) => {
     //const classes = useStyles();
 
     return (
-        <ListDisplay name = {list.name}/>
+        <ListDisplay name = {list.name} _id = {list._id}/>
     )
 }
 
