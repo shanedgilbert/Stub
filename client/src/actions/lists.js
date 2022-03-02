@@ -63,11 +63,10 @@ export const editName = () => async(dispatch) => {
     }
 }
 
-export const deleteList = (name, ownerID) => async(dispatch) => {
+export const deleteList = (id) => async(dispatch) => {
     try {
-        const {data} = await api.removeList(name, ownerID);
-        console.log(list.ownerID);
-        dispatch({type: REMOVE, payload: data});
+        await api.deleteList(id);
+        dispatch({type: REMOVE, payload: id});
     }
     catch(error) {
         console.log(error.message);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './lists.css';
 import {useDispatch} from 'react-redux';
 import ListUpdate from '../jsx/ListChange';
@@ -6,12 +6,11 @@ import {deleteList} from '../../actions/lists.js';
 
 function List(prop){
 
-  const dispatch = useDispatch({});
-  const handle_delete = () =>
-  {
-    var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
-    console.log("DELETE" + prop.name + ", " + userID);
-    dispatch(deleteList(prop.name, userID))
+  const dispatch = useDispatch();
+  
+  const handleDelete = (payload) => {
+    console.log("LIST.JSX: " + payload);
+    dispatch(deleteList(payload));
   }
 
     return (
@@ -22,7 +21,7 @@ function List(prop){
               <button class ="editButton">dropdown</button>
               <div class="editMenuContent">
                 <button class="dropdownLink" onClick={ListUpdate.handle_submit}>Edit</button>
-                <button class="dropdownLink" onClick={handle_delete}>Delete</button>
+                <button class="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
               </div>
             </div>
           </div>
