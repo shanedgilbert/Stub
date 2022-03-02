@@ -14,11 +14,9 @@ const Show = ({ show }) => {
 
   const handleCloseModal = () => {
     setVisibility(false);
-    console.log(visibility);
   }
   const handleShowModal = () =>  {
     setVisibility(true);
-    console.log('show!');
   }
 
   return (

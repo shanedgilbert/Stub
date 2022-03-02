@@ -41,7 +41,6 @@
 }
 
 .dropdownLink:hover {
-  background-color: rgb(181, 24, 24);
   color: black;
   text-decoration: none;
 }
@@ -49,7 +48,6 @@
 /* Displays dropdown once hovering mouse */
 .editButton:hover {
   display: block;
-  background-color: rgb(181, 24, 24);
 }
 
 /* should be done in edit hover  */
@@ -75,9 +73,7 @@
 .addListContent {
   display: none;
   position: absolute;
-  background-color: rgb(181, 24, 24);
   width: 100%;
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 

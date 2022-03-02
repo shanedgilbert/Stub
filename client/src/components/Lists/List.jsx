@@ -26,17 +26,6 @@ function List(prop){
             </div>
           </div>
         </div>
-      //   <h3 class="listHeader">{prop.name}</h3>
-      //   <div class="listItem">
-      //   </div>
-      //   <div>
-      //     <button class ="editButton">dropdown</button>
-      //     <div class="editMenuContent">
-      //       <a href="#">Edit</a>
-      //       <a href="#">Delete</a>
-      //     </div>
-      //   </div>
-      // </div>
   );
 }
 
