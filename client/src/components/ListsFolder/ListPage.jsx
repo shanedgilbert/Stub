@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import arrayOfLists from "./ListArray";
-import List from "./List"
+import List from "./List";
+import ListButton from './ListButton';
 
 
 function ListPage() {
@@ -11,7 +12,9 @@ function ListPage() {
       {arrayOfLists.map((listName, index) => {
           return (
             <Link to={"/lists/"+listName.name}>
-              <h2>{listName.name}</h2>
+              <ListButton
+                name={listName.name}
+              />
             </Link>
           );
         })}

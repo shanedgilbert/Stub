@@ -76,6 +76,20 @@
   font-size: 15px;
 }
 
+.listButton{
+  background-color: #9D1C41; /* Green */
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.listButton:hover{
+  background-color: #A42F51;
+   text-decoration: none;
+}
+
+a:hover { text-decoration: none; }
+
 /* link dropdown specification
 .editMenuContent {
   color: #212529;
