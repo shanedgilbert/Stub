@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 // import shows from "../reducers/shows";
+
 import List from "../ListsFolder/List";
 import ListsJS from "../ListsFolder/Lists.js";
 import '../ListsFolder/lists.css';
@@ -9,6 +10,7 @@ import makeStyles from './styles';
 import {Outlet} from 'react-router-dom'
 
 function Lists() {
+
   
 
   return (
