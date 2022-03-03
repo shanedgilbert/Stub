@@ -1,25 +1,25 @@
 import React, {useState} from "react";
 // import shows from "../reducers/shows";
-import List from "../Lists/List";
-import ListsJS from "../Lists/Lists.js";
-import '../Lists/lists.css';
-import tvshows from '../Lists/shows.js';
-import useStyles from './styles';
+
+import List from "../ListsFolder/List";
+import ListsJS from "../ListsFolder/Lists.js";
+import '../ListsFolder/lists.css';
+import tvshows from '../ListsFolder/shows.js';
+import makeStyles from './styles';
+
+import {Outlet} from 'react-router-dom'
 
 function Lists() {
-  const classes = useStyles();
-  const [lists, setLists] = useState([]);
+
+  
 
   return (
-    <div>
-      <div className={classes.listPageHeading}>
-        <h1>Your Lists</h1>
-      </div>
-      
-      <ListsJS ListsArray={lists}/> 
+    <div className="listPage">
+      <h1 className="listPageHeading">Your Lists</h1>
+      <Outlet />
 
     </div>
   );
-} 
+}
 
 export default Lists;

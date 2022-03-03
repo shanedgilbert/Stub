@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './lists.css';
+import { Link } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import ListUpdate from '../jsx/ListChange';
 import {deleteList} from '../../actions/lists.js';
@@ -14,10 +15,13 @@ function List(prop){
   }
 
     return (
+
         <div className="listButton">
+        <Link to={"/lists/"+prop.name}>
           <div className="listHeaderDiv">
           <h3 className="listHeader">{prop.name}</h3>
           </div>
+          </Link>
           <div className="listItem">
             <div className="dropdown">
               <button className ="editButton">dropdown</button>
