@@ -1,19 +1,32 @@
 .listItem{
   height: 50px;
-  background-color: red;
-  border-radius: 8px;
   margin-left: 5%;
   margin-right:18%;
+  display: inline;
 }
 
 .listHeader{
   /* padding-left: 20px; */
-  padding: 10px 30px;
+  padding-top: 20px;
+  /* padding: 10px 30px; */
+  display: inline;
+}
+
+.listButton{
+  background-color: #9F2D4D;
+  margin: 20px 40px;
+  border-radius: 10px;
+  height: 60px;
+}
+
+.listHeaderDiv{
+  display: inline;
+
 }
 
 .dropdown {
   position: relative;
-  float: left;
+  float: right;
   height: 100%;
 }
 
@@ -22,6 +35,7 @@
   border: none;
   height: 100%;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 /*drop down window*/
@@ -93,5 +107,6 @@
 
 }
 
-
-
+.listPageHeading{
+  text-align: center;
+}
