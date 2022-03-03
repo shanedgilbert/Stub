@@ -109,3 +109,43 @@
 .listPageHeading{
   text-align: center;
 }
+
+
+/*---------------------------------------*/
+.titleOfList{
+  text-align: center;
+  padding: 20px;
+}
+
+.listContent{
+  /* background-color: 	#954535; */
+  padding: 20px 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.listMovieInfo{
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 20px;
+  vertical-align: top;
+}
+
+.moviePosterList{
+  border-radius: 20px;
+  margin-left: 20px;
+}
+.titleMovie{
+  font-size: 30px;
+  padding-right: 10px;
+}
+.taglineMovie{
+  font-size: 15px;
+}
+
+.listButton{
+  background-color: #9D1C41; /* Green */
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
