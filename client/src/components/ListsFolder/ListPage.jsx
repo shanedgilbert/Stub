@@ -6,6 +6,7 @@ import Settings from "../jsx/Settings";
 
 
 function ListPage() {
+
   let { postSlug } = useParams();
 
   useEffect(() => {
