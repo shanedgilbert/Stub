@@ -4,3 +4,5 @@ export { default as Home } from "./Home";
 export { default as Lists } from "./Lists";
 export { default as Settings } from "./Settings";
 export { default as Logout } from "./Logout";
+export {default as ListsPage} from "../ListsFolder/ListPage";
+export {default as ListPage} from "../ListsFolder/ListPage";

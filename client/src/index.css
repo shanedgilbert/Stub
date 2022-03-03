@@ -16,6 +16,15 @@ footer {
     right: 0;
 }
 
+a{
+  color: white;
+}
+
+a:hover{
+  color: white;
+  text-decoration: none;
+}
+
 .nav-link{
   margin-top: 20px;
 }
