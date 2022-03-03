@@ -4,15 +4,17 @@ import List from "../Lists/List";
 import ListsJS from "../Lists/Lists.js";
 import '../Lists/lists.css';
 import tvshows from '../Lists/shows.js';
-import makeStyles from './styles';
+import useStyles from './styles';
 
 function Lists() {
-  const classes = makeStyles;
+  const classes = useStyles();
   const [lists, setLists] = useState([]);
 
   return (
-    <div className="listPage">
-      <h1 className="listPageHeading">Your Lists</h1>
+    <div>
+      <div className={classes.listPageHeading}>
+        <h1>Your Lists</h1>
+      </div>
       
       <ListsJS ListsArray={lists}/> 
 
