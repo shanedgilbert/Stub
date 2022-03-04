@@ -62,7 +62,9 @@ export const deleteList = async (req, res) => {
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    await ListContent.findByIdAndRemove(id);
+    //mongoose.set('useFindAndModify', false);
+    //await ListContent.findByIdAndRemove(id);
+    await ListContent.findByIdAndDelete(id);
 
     res.json({ message: "Show deleted successfully." });
 }

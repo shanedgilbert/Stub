@@ -31,31 +31,16 @@ function ListAdder()
     }
 
     return (
-        /*
-        <div>
-            <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handle_submit}>
-                <Typography variant = 'h6' align = 'center'>
-                    Add List
-                </Typography>
-                <div>
-                <TextField name = "name" variant = "outlined" label = "Name" margin = 'normal' InputLabelProps={{ shrink: true }} required fullWidth value = {listData.name} onChange = {(e) => setListData({...listData, name: e.target.value})}/>
-                <Button className = {classes.buttonSubmit} variant = "contained" color = "primary" size = "large" type = "submit" fullWidth>
-                    Submit
-                </Button>
-                </div>
-            </form>
-        </div>
-        */
         <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handle_submit}>
             <div className = {classes.addListButton}>
                 <div class = 'dropdown'>
-                    <img src = {require("../../images/add-list.png")} height = "50px" width = "50px"/>
+                    <img className = {classes.buttonImg} src = {require("../../images/listAdd.png")}/>
                     <div class = 'addListContent'>
                         <div className = {classes.addListButtonDropDown}>
-                        <TextField className = {classes.addListTextField} style = {{margin: '5% 10%'}} name = "name" variant = "filled" label = "Name" margin = "normal" InputLabel inputlabelprops = {{ shrink: true}} required value = {listData.name} onChange = {(e) => setListData({...listData, name: e.target.value})}/>
-                        <Button class = 'addListSubmit' variant = "contained" size = "large" type = "submit">
-                            Submit
-                        </Button>
+                            <TextField className = {classes.addListTextField} style = {{margin: '5% 10%'}} name = "name" variant = "filled" label = "List Name" margin = "normal" InputLabel inputlabelprops = {{ shrink: true}} required value = {listData.name} onChange = {(e) => setListData({...listData, name: e.target.value})}/>
+                            <Button className = {classes.addListSubmit} variant = "contained" size = "large" type = "submit">
+                                Submit
+                            </Button>
                         </div>
                     </div>
                 </div>

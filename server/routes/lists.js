@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/', getLists);
 router.post('/', createList);
+router.delete('/:id', deleteList)
 //Require updating once list identity is decided
 //Possibilities:
 //  /:userID/name

@@ -1,7 +1,7 @@
 import {FETCH_ALL, CREATE, UPDATE, DELETE, ADD, REMOVE, EDIT} from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
-import list from '../components/Lists/List/List';
+import list from '../components/ListsFolder/List/List';
 
 export const getLists = () => async(dispatch) => {
     try {
@@ -10,7 +10,7 @@ export const getLists = () => async(dispatch) => {
     }
     catch(error){
         console.log('ACTIONS/LIST GETLISTS(): ' + error.message);
-    }    
+    }
 }
 
 export const createList = (list) => async(dispatch) => {
@@ -65,11 +65,10 @@ export const editName = () => async(dispatch) => {
     }
 }
 
-export const deleteList = () => async(dispatch) => {
+export const deleteList = (id) => async(dispatch) => {
     try {
-        const {data} = await api.removeList(list);
-        console.log(list.ownerID);
-        dispatch({type: REMOVE, payload: data});
+        await api.deleteList(id);
+        dispatch({type: REMOVE, payload: id});
     }
     catch(error) {
         console.log(error.message);

@@ -21,21 +21,32 @@ export default makeStyles(() => ({
   addListButton: {
     height: '100%',
     float: 'right',
-    padding: '20px 20px'
+    padding: '3rem 5rem 0 0',
+    cursor: 'pointer'
+  },
+  buttonImg: {
+    height: '50px', 
+    width: '50px'
   },
   addListButtonDropDown: {
     height: '100%',
     width: '400%',
-    background: 'white',
-    float: 'right'
+    background: '#343a40',
+    float: 'right',
+    justifyContent: 'center',
+    position: 'relative',
+    borderRadius: '10px !important',
+    cursor: 'default'
   },
   addListSubmit: {
     height: '100%',
-    margin: '10%',
-    background: 'blue',
-    borderRadius: '2px'
+    borderRadius: '10px !important',
+    left: '25%',
+    marginBottom: '0.5rem !important',
+    backgroundColor: 'lightgray !important'
   },
   addListTextField: {
+    backgroundColor: 'lightgray !important'
     height: '100%',
     margin: '100px',
     alignSelf: 'center'

@@ -1,19 +1,31 @@
 .listItem{
   height: 50px;
-  background-color: red;
-  border-radius: 8px;
   margin-left: 5%;
   margin-right:18%;
+  display: inline;
 }
 
 .listHeader{
   /* padding-left: 20px; */
-  padding: 10px 30px;
+  padding-top: 20px;
+  /* padding: 10px 30px; */
+  display: inline;
+}
+
+.listButton{
+  background-color: #9F2D4D;
+  margin: 20px 40px;
+  border-radius: 10px;
+  height: 60px;
+}
+
+.listHeaderDiv{
+  display: inline;
 }
 
 .dropdown {
   position: relative;
-  float: left;
+  float: right;
   height: 100%;
 }
 
@@ -22,6 +34,7 @@
   border: none;
   height: 100%;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 /*drop down window*/
@@ -41,7 +54,6 @@
 }
 
 .dropdownLink:hover {
-  background-color: rgb(181, 24, 24);
   color: black;
   text-decoration: none;
 }
@@ -49,7 +61,6 @@
 /* Displays dropdown once hovering mouse */
 .editButton:hover {
   display: block;
-  background-color: rgb(181, 24, 24);
 }
 
 /* should be done in edit hover  */
@@ -75,9 +86,7 @@
 .addListContent {
   display: none;
   position: absolute;
-  background-color: rgb(181, 24, 24);
   width: 100%;
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -97,5 +106,39 @@
 
 }
 
+.listPageHeading{
+  text-align: center;
+}
 
 
+/*---------------------------------------*/
+.titleOfList{
+  text-align: center;
+  padding: 20px;
+}
+
+.listContent{
+  /* background-color: 	#954535; */
+  padding: 20px 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.listMovieInfo{
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 20px;
+  vertical-align: top;
+}
+
+.moviePosterList{
+  border-radius: 20px;
+  margin-left: 20px;
+}
+.titleMovie{
+  font-size: 30px;
+  padding-right: 10px;
+}
+.taglineMovie{
+  font-size: 15px;
+}

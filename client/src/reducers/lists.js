@@ -10,9 +10,9 @@ export default (lists = [], action) => {
         /*
         case UPDATE:
             return shows.map((list) => (list.name === action.payload.name ? action.payload : list));
-        case DELETE:
-            return shows.filter((list) => list.name !== action.payload);
         */
+        case REMOVE:
+            return lists.filter((list) => list._id !== action.payload);
         default:
             return lists;
     }
