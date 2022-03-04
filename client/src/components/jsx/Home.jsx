@@ -5,11 +5,11 @@ import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
 import { createShow, getShowsData } from '../../api/index';
-
+import './loader.css'
 function Home(){
   const classes = useStyles();
   const [shows, setShows] = useState([]);
-
+  const [isLoading, setIsLoading] = useState();
   //Create a dropdown for service and type and send the data to api call
   const [streamingService, setStreamingService] = useState('netflix');
   const [contentType, setContentType] = useState('movie');
@@ -20,6 +20,7 @@ function Home(){
 
   async function loadMoreShows() 
   {
+    setIsLoading(true);
     console.log('load more shows!')
     await getShowsData(page.current)
       .then((data) => {
@@ -29,13 +30,15 @@ function Home(){
           createShow(element)
         },this);
         console.log(moreShows)
+        
         setShows((shows) => [...shows, ...moreShows]);
         console.log(shows)
 
         console.log(data)
       });
       page.current = page.current + 1;
-   
+      setIsLoading(false);
+      
   }
 
   const observer = new IntersectionObserver((entries) => {
@@ -87,7 +90,7 @@ function Home(){
                   </Container>
               </Grow>
      
-        <div class={classes.test} ref={ref}>testin</div>
+        <div class={classes.test} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
 
 
     </div>
