@@ -20,8 +20,8 @@ const Show = ({ show }) => {
   }
 
   return (
-      <Card className={classes.card} onClick={handleShowModal}>
-        <CardMedia className={classes.media} image={show.posterURLs.original || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={show.title} />
+      <Card className={classes.card}>
+        <CardMedia className={classes.media} onClick={handleShowModal} image={show.posterURLs.original || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={show.title} />
         <div className={classes.overlay}>
           <Typography variant="h6">{show.originalTitle}</Typography>
           <Typography variant="body2">{show.year}</Typography>
@@ -36,7 +36,6 @@ const Show = ({ show }) => {
           <Modal.Header className={classes.modal}>
             <Modal.Title className={classes.modal}>
               <Typography variant="h6">{show.originalTitle}</Typography>
-              <button onClick={handleCloseModal}>Exit</button>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className={classes.modal}>
