@@ -19,6 +19,7 @@ function ListContent(prop){
         </td>
         <td class="listMovieInfo">
           <p><b class="titleMovie">{prop.title}</b> {prop.date}</p>
+          <p>IMDB Rating: {prop.imdbRating/10}/10</p>
           <p><b>Cast:</b> {prop.cast}</p>
           <p><b>Overview:</b> {prop.overview}</p>
         </td>

@@ -34,6 +34,7 @@ function Settings() {
         <ListContent
           key={index}
           id={index}
+          imdbRating = {listItem.imdbRating}
           title={listItem.originalTitle}
           poster={listItem.posterURLs.original}
           date = {listItem.year}
