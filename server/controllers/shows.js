@@ -29,11 +29,11 @@ export const getShow = async (req, res) => {
 
 export const createShow = async (req, res) => 
 {
-    const imdbID = req.body.imdbID;
     try
     {
+        const imdbID = req.body.imdbID;
         const foundShow = await ShowContent.findOne({ imdbID: imdbID });
-        res.status(200).json(foundShow);
+       
 
         if(!foundShow) //if show is not found in database
         {
@@ -50,7 +50,7 @@ export const createShow = async (req, res) =>
             }
         }
     }
-    catch
+    catch(error)
     {
         res.status(404).json({ message: error.message });
     }
