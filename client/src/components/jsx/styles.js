@@ -25,7 +25,7 @@ export default makeStyles(() => ({
     cursor: 'pointer'
   },
   buttonImg: {
-    height: '50px', 
+    height: '50px',
     width: '50px'
   },
   addListButtonDropDown: {
@@ -46,7 +46,7 @@ export default makeStyles(() => ({
     backgroundColor: 'lightgray !important'
   },
   addListTextField: {
-    backgroundColor: 'lightgray !important'
+    backgroundColor: 'lightgray !important',
     height: '100%',
     margin: '100px',
     alignSelf: 'center'
