@@ -12,7 +12,7 @@ router.delete('/:id', deleteList)
 //  /:userID/name
 //  /:listID
 //router.get('/:id', getList);
-//router.patch('/:id', updateList);
+router.patch('/:id', updateList);
 //router.delete('/:id', deleteList);
 
 export default router;
