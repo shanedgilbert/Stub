@@ -6,11 +6,10 @@ export default (lists = [], action) => {
             return action.payload;
         case CREATE:
             return [...lists, action.payload];
-        //Not yet changed functions
-        /*
+        //Not yet changed functions edit: updated following MERN tutorial
         case UPDATE:
-            return shows.map((list) => (list.name === action.payload.name ? action.payload : list));
-        */
+            return lists.map((list) => (list.name === action.payload.name ? action.payload : list));
+        
         case REMOVE:
             return lists.filter((list) => list._id !== action.payload);
         default:

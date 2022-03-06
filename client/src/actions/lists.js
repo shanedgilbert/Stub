@@ -25,10 +25,12 @@ export const createList = (list) => async(dispatch) => {
     }
 }
 //Created updatelist information within for the try
-export const updateList = () => async(dispatch) => {
+export const updateList = (id, listName) => async(dispatch) => {
+    console.log("ladies and gentlemen we're in");
+    console.log(listName);
     try {
-        const {data} = await api.updateList(list);
-        console.log(list.ownerID);
+        const {data} = await api.updateList(id,listName);
+        console.log("list.js in ACTIONS: "+ id + " " + listName);
         dispatch({type: UPDATE, payload: data});
     }
     catch(error) {
@@ -51,17 +53,6 @@ export const removeShow = () => async(dispatch) => {
     }
     catch(error) {
         console.log(error.message);
-    }
-}
-
-export const editName = () => async(dispatch) => {
-    try {
-        const {data} = await api.updateList(list);
-        console.log(list.ownerID);
-        dispatch({type: EDIT, payload: data});
-    }
-    catch(error) {
-        console.log('ACTIONS/LIST EDITNAME(): ' + error.message);
     }
 }
 

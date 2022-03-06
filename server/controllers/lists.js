@@ -23,7 +23,7 @@ export const getList = async (req, res) => {
         
         res.status(200).json(show);
     } catch (error) {
-        res.status(404).json({ message: 'SERVER/CONTROLLERS/LISTS GETLIST(): ' + error.message });
+        res.status(404).json({ message: 'SERVER/CONTROLLERS/LIST GETLIST(): ' + error.message });
     }
 }
 
@@ -42,18 +42,21 @@ export const createList = async (req, res) => {
     }
 }
 
-//Not yet properly updated
+//Not yet properly updated edit: updated following fill stack mern tutorial
 export const updateList = async (req, res) => {
-    const { id } = req.params;
+    const { id: _id } = req.params;
     const { name, shows } = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
+    if (shows == null)
+    {
+        shows = {};
+    }
     const updatedShow = { name, shows };
+    const newNameList = await ListContent.findByIdAndUpdate(_id, updatedShow, { new: true });
 
-    await ListContent.findByIdAndUpdate(id, updatedShow, { new: true });
-
-    res.json(updatedShow);
+    res.json(newNameList);
 }
 
 //Not yet properly updated
