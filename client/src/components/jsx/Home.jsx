@@ -20,7 +20,11 @@ function Home(){
 
   async function loadMoreShows() 
   {
-    setIsLoading(true);
+    console.log('page', page.current)
+    if(page.current > 1)
+    {
+      setIsLoading(true);
+    }
     console.log('load more shows!')
     await getShowsData(page.current)
       .then((data) => {
@@ -29,12 +33,12 @@ function Home(){
           moreShows.push(element) 
           createShow(element)
         },this);
-        console.log(moreShows)
+        //console.log(moreShows)
         
         setShows((shows) => [...shows, ...moreShows]);
-        console.log(shows)
+        //console.log(shows)
 
-        console.log(data)
+        //console.log(data)
       });
       page.current = page.current + 1;
       setIsLoading(false);
@@ -45,8 +49,11 @@ function Home(){
     entries.forEach((entry) => {
       if(entry.isIntersecting)
       {
-        console.log('observed')
-        loadMoreShows();
+        if(page.current != 1)
+        {
+          console.log('observed')
+          loadMoreShows();
+        }
       }
     }
     )
@@ -62,23 +69,21 @@ function Home(){
   {
     if(page.current == null)
     {
+      page.current = 1;
       console.log('first load')
-   
       loadMoreShows();
-      page.current = 2;
     }
       if(ref.current)
-        
+      {
         observer.observe(ref.current)
-    
+      }
   
   }, [ref]);
 
   return (
     <div>
 
-     {
-     console.log('p', page)}       
+ 
         <Grow in>
         <Container className="homeLists">
                   <Grid container justify="space-between" alignItems="stretch" spacing={3}>
