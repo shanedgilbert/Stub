@@ -18,14 +18,14 @@ function Home(){
 
 
 
-  async function loadMoreShows() 
+  async function loadMoreShows()
   {
     console.log('load more shows!')
     await getShowsData(page.current)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
-          moreShows.push(element) 
+          moreShows.push(element)
           createShow(element)
         },this);
         console.log(moreShows)
@@ -35,7 +35,7 @@ function Home(){
         console.log(data)
       });
       page.current = page.current + 1;
-   
+
   }
 
   const observer = new IntersectionObserver((entries) => {
@@ -47,35 +47,35 @@ function Home(){
       }
     }
     )
-  
+
   },
     { rootMargin: '100px' }
   )
 
 
 
-  
-  useEffect(() => 
+
+  useEffect(() =>
   {
     if(page.current == null)
     {
       console.log('first load')
-   
+
       loadMoreShows();
       page.current = 2;
     }
       if(ref.current)
-        
+
         observer.observe(ref.current)
-    
-  
+
+
   }, [ref]);
 
   return (
     <div>
 
      {
-     console.log('p', page)}       
+     console.log('p', page)}
         <Grow in>
         <Container className="homeLists">
                   <Grid container justify="space-between" alignItems="stretch" spacing={3}>
@@ -86,7 +86,7 @@ function Home(){
 
                   </Container>
               </Grow>
-     
+
         <div class={classes.test} ref={ref}>testin</div>
 
 
