@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux';
 import ListUpdate from '../jsx/ListChange';
 import {deleteList} from '../../actions/lists.js';
 import {updateList} from '../../actions/lists.js';
+import {addListShow} from '../../actions/lists.js';
 
 function List(prop){
 
@@ -18,6 +19,10 @@ function List(prop){
     
     console.log("List.jsx update fn" + payload + " E: " + e);
     dispatch(updateList(payload, e));
+  }
+  const handleAddShow = (payload) => {
+    console.log("LIST.JSX HANDLEADDSHOW(): " + payload);
+    dispatch(addListShow(payload, ["hello"]));
   }
 
     return (
@@ -34,6 +39,7 @@ function List(prop){
               <div className="editMenuContent">
                 <button className="dropdownLink" onClick={() => handleUpdate(prop._id, "default")}>Edit</button>
                 <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
+                <button className="dropdownLink" onClick={() => handleAddShow(prop._id)}>Show</button>
               </div>
             </div>
           </div>

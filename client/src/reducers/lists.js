@@ -1,4 +1,4 @@
-import {FETCH_ALL, CREATE, UPDATE, DELETE, ADD, REMOVE, EDIT} from  '../constants/actionTypes';
+import {FETCH_ALL, CREATE, UPDATE, DELETE, ADD, REMOVE, EDIT, ADDSHOW, REMOVESHOW} from  '../constants/actionTypes';
 
 export default (lists = [], action) => {
     switch (action.type) {
@@ -12,6 +12,10 @@ export default (lists = [], action) => {
         
         case REMOVE:
             return lists.filter((list) => list._id !== action.payload);
+        case ADDSHOW:
+            return lists.map((list) => list._id === action.payload._id)
+        case REMOVESHOW:
+            ///
         default:
             return lists;
     }

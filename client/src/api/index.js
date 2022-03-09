@@ -55,3 +55,9 @@ export const fetchLists = () => axios.get(DatabaseURLLists);
 export const createList = (newList) => axios.post(DatabaseURLLists, newList);
 export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
 export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);
+
+export const addListShow = (listID, newShows) => {
+  console.log("INDEX.JS ADDLISTSHOW: " + newShows);
+  axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
+} 
+export const removeListShow = (listID, newShows) => axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
