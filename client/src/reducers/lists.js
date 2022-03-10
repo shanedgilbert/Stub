@@ -13,7 +13,7 @@ export default (lists = [], action) => {
         case REMOVE:
             return lists.filter((list) => list._id !== action.payload);
         case ADDSHOW:
-            return lists.map((list) => list._id === action.payload._id)
+            return lists.map((list) => list._id === action.payload._id ? action.payload : list);
         case REMOVESHOW:
             ///
         default:

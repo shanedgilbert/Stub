@@ -57,7 +57,7 @@ export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
 export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);
 
 export const addListShow = (listID, newShows) => {
-  console.log("INDEX.JS ADDLISTSHOW: " + newShows);
-  axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
+  console.log("INDEX.JS ADDLISTSHOW: " + newShows + ", " + listID);
+  axios.patch(`${DatabaseURLLists}/${listID}`, {shows: newShows});
 } 
 export const removeListShow = (listID, newShows) => axios.patch(`${DatabaseURLLists}/${listID}`, newShows);

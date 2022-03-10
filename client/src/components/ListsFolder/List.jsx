@@ -21,8 +21,8 @@ function List(prop){
     dispatch(updateList(payload, e));
   }
   const handleAddShow = (payload) => {
-    console.log("LIST.JSX HANDLEADDSHOW(): " + payload);
-    dispatch(addListShow(payload, ["hello"]));
+    console.log("LIST.JSX HANDLEADDSHOW(): " + payload + ", " + prop.shows);
+    dispatch(addListShow(payload, ["object1", "object2"]));
   }
 
     return (
