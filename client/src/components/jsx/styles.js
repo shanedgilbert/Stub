@@ -53,18 +53,11 @@ export default makeStyles(() => ({
   },
 
   test: {
-
+    margin: 'auto',
     width: '300px',
-    border: '15px solid green',
     padding: '50px',
-    margin: '20px'
   },
 
-  test1: {
 
-    width: '300px',
-    border: '15px solid green',
-    padding: '50px',
-    margin: '20px'
-  }
+  
 }));

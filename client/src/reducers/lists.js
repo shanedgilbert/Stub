@@ -7,9 +7,10 @@ export default (lists = [], action) => {
         case CREATE:
             return [...lists, action.payload];
         //Not yet changed functions edit: updated following MERN tutorial
-        case UPDATE:
+        // case UPDATE:
+        //     return lists.map((list) => (list.name === action.payload.name ? action.payload : list));
+        case EDIT:
             return lists.map((list) => (list.name === action.payload.name ? action.payload : list));
-        
         case REMOVE:
             return lists.filter((list) => list._id !== action.payload);
         case ADDSHOW:

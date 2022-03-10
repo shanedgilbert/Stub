@@ -6,6 +6,8 @@ import ListUpdate from '../jsx/ListChange';
 import {deleteList} from '../../actions/lists.js';
 import {updateList} from '../../actions/lists.js';
 import {addListShow} from '../../actions/lists.js';
+import {editListName} from '../../actions/lists.js';
+//import { editListName } from '../../api';
 
 function List(prop){
 
@@ -15,10 +17,10 @@ function List(prop){
     console.log("LIST.JSX: " + payload);
     dispatch(deleteList(payload));
   }
-  const handleUpdate = (payload, e) => {
+  const handleEdit = (payload, e) => {
     
     console.log("List.jsx update fn" + payload + " E: " + e);
-    dispatch(updateList(payload, e));
+    dispatch(editListName(payload, e));
   }
   const handleAddShow = (payload) => {
     console.log("LIST.JSX HANDLEADDSHOW(): " + payload + ", " + prop.name + ", " + prop.ownerID);
@@ -37,7 +39,7 @@ function List(prop){
             <div className="dropdown">
               <button className ="editButton">dropdown</button>
               <div className="editMenuContent">
-                <button className="dropdownLink" onClick={() => handleUpdate(prop._id, "default")}>Edit</button>
+                <button className="dropdownLink" onClick={() => handleEdit(prop._id, "default")}>Edit</button>
                 <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
                 <button className="dropdownLink" onClick={() => handleAddShow(prop._id)}>Show</button>
               </div>

@@ -42,23 +42,37 @@ export const createList = async (req, res) => {
     }
 }
 
-//Not yet properly updated edit: updated following fill stack mern tutorial
+//updateList deals with changes inside list
 export const updateList = async (req, res) => {
+    try {
+        const listContent = await ListContent.find();
+                
+        res.status(200).json(listContent);
+    } catch (error) {
+        res.status(404).json({ message: 'SERVER/CONTROLLERS/LISTS GETLISTS(): ' + error.message });
+    }
+}
+//editListName here deals with changing the name of the list
+//find where i can use this to update the 
+//
+export const editListName = async (req, res) => {
     const { id: _id } = req.params;
     const { name, shows } = req.body;
     
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+    // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    if (shows == null)
-    {
-        shows = {};
-    }
-    const updatedShow = { name, shows };
-    const newNameList = await ListContent.findByIdAndUpdate(_id, updatedShow, { new: true });
+    // if (shows == null)
+    // {
+    //     shows = {};
+    // }
+    // const updatedShow = { name, shows };
+    // const newNameList = await ListContent.findByIdAndUpdate(_id, updatedShow, { new: true });
 
-    res.json(newNameList);
+    // res.json(newNameList);
+    console.log(req);
 }
 
+//Not yet properly updated
 export const deleteList = async (req, res) => {
     const { id } = req.params;
 
