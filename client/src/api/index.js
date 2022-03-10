@@ -54,4 +54,5 @@ export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPos
 export const fetchLists = () => axios.get(DatabaseURLLists);
 export const createList = (newList) => axios.post(DatabaseURLLists, newList);
 export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
-export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);
+export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);// old code here 
+export const editListName = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}/ `);// need to find correct api call here

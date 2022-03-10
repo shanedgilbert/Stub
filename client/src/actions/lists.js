@@ -26,15 +26,24 @@ export const createList = (list) => async(dispatch) => {
 }
 //Created updatelist information within for the try
 export const updateList = (id, listName) => async(dispatch) => {
-    console.log("ladies and gentlemen we're in");
-    console.log(listName);
     try {
-        const {data} = await api.updateList(id,listName);
-        console.log("list.js in ACTIONS: "+ id + " " + listName);
-        dispatch({type: UPDATE, payload: data});
+       
     }
     catch(error) {
         console.log('ACTIONS/LIST UPDATELIST(): ' + error.message);
+    }
+}
+// crreated editListName to function as the 'edit' in list pages
+export const editListName = (id, newListName) => async(dispatch) =>{
+    console.log("ladies and gentlemen we're in");
+    console.log(newListName);
+    try {
+        await api.editListName(id,newListName);
+        console.log("list.js in ACTIONS: "+ id + " " + newListName);
+        //dispatch({type: EDIT, payload: data});
+    }
+    catch(error) {
+        console.log('ACTIONS/LIST EDITLIST(): ' + error.message);
     }
 }
 
