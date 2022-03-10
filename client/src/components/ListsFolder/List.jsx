@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import ListUpdate from '../jsx/ListChange';
 import {deleteList} from '../../actions/lists.js';
+import {updateList} from '../../actions/lists.js';
+import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
 //import { editListName } from '../../api';
 
@@ -20,6 +22,10 @@ function List(prop){
     console.log("List.jsx update fn" + payload + " E: " + e);
     dispatch(editListName(payload, e));
   }
+  const handleAddShow = (payload) => {
+    console.log("LIST.JSX HANDLEADDSHOW(): " + payload + ", " + prop.name + ", " + prop.ownerID);
+    dispatch(addListShow(payload, ["object1", "object2"]));
+  }
 
     return (
 
@@ -35,6 +41,7 @@ function List(prop){
               <div className="editMenuContent">
                 <button className="dropdownLink" onClick={() => handleEdit(prop._id, "default")}>Edit</button>
                 <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
+                <button className="dropdownLink" onClick={() => handleAddShow(prop._id)}>Show</button>
               </div>
             </div>
           </div>

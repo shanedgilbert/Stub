@@ -1,4 +1,4 @@
-import {FETCH_ALL, CREATE, UPDATE, DELETE, ADD, REMOVE, EDIT} from '../constants/actionTypes';
+import {FETCH_ALL, CREATE, UPDATE, DELETE, ADD, REMOVE, EDIT, ADDSHOW} from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 import list from '../components/ListsFolder/List/List';
@@ -17,7 +17,8 @@ export const createList = (list) => async(dispatch) => {
     try {
         const {data} = await api.createList(list);
 
-        console.log(list.ownerID);
+        console.log("ACTIONS CREATELIST ID: " + data.ownerID);
+        console.log("ACTIONS CREATELIST SHOWS: " + data.shows);
         dispatch({type: CREATE, payload: data});
     }
     catch(error){
@@ -47,16 +48,20 @@ export const editListName = (id, newListName) => async(dispatch) =>{
     }
 }
 
-export const addShow = () => async(dispatch) => {
+export const addListShow = (id, showsList) => async(dispatch) => {
     try {
-
+        
+        console.log("ACTIONS ADDLISTSHOW: " + id);
+        const {data} = await api.addListShow(id, showsList);
+        console.log("ACTIONS ADDLISTSHOW DATA: " + data.name);
+        dispatch({type: ADDSHOW, payload: data})
     }
     catch(error) {
         console.log(error.message);
     }
 }
 
-export const removeShow = () => async(dispatch) => {
+export const removeListShow = () => async(dispatch) => {
     try {
 
     }
