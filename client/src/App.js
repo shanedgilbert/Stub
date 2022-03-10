@@ -6,6 +6,7 @@ import PrivateRoute from './components/jsx/PrivateRoute';
 import ListAdder from './components/jsx/listAdder';
 import ListsPage from "./components/ListsFolder/ListsPage.jsx";
 import ListPage from "./components/ListsFolder/ListPage.jsx"
+import DevPage from "./components/jsx/DevPage.jsx"
 const App = () => {
   const [LoggedIn, setLoggedIn] = useState(isLoggedIn)
 
@@ -33,10 +34,12 @@ const App = () => {
               <Lists />
             </PrivateRoute>
           }
-        >
+        > 
         <Route path="" element={<ListsPage />} />
         <Route path=":postSlug" element={<ListPage />} />
         </Route>
+
+        <Route path = "/dev" element = {<DevPage/>}/>
     </Routes>
     <Footer />
   </Router>

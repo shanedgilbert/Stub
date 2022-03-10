@@ -12,7 +12,7 @@ const List = ({list}) => {
     //const classes = useStyles();
 
     return (
-        <ListDisplay name = {list.name} _id = {list._id}/>
+        <ListDisplay name = {list.name} _id = {list._id} shows = {list.shows}/>
     )
 }
 
