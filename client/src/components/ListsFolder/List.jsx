@@ -23,14 +23,6 @@ function List(prop){
     dispatch(editListName(payload, e));
   }
 
-  //FOR USE ONCE SHOW MODALS ARE UP AND RUNNING
-  /*
-  const handleAddShow = (showID, listID) => {
-    console.log("LIST.JSX HANDLEADDSHOW(): " + payload + ", " + prop.name + ", " + prop.shows);
-    dispatch(addListShow(payload, [...prop.shows, "object1", "object2"]));
-  }
-  */
-
     return (
 
         <div className="listButton">
