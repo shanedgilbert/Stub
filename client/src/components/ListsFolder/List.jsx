@@ -23,6 +23,11 @@ function List(prop){
     dispatch(editListName(payload, e));
   }
 
+  const handleAddShow = () => {
+    console.log("List.jsx handleAddShow: " + prop.shows + ", " + prop._id);
+    dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
+  }
+
     return (
 
         <div className="listButton">
@@ -37,6 +42,7 @@ function List(prop){
               <div className="editMenuContent">
                 <button className="dropdownLink" onClick={() => handleEdit(prop._id, "default")}>Edit</button>
                 <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
+                <button className="dropdownLink" onClick={() => handleAddShow(prop._id)}>Show</button>
               </div>
             </div>
           </div>
