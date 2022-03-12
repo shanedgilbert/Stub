@@ -73,14 +73,14 @@ function Home(){
       <Grow in>
       <Container className="homeLists">
         <ServiceChanger></ServiceChanger>
-        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+        <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
             <Shows ShowsArray = {shows} />
           </Grid>
         </Grid>
         </Container>
       </Grow>
-      <div class={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
+      <div className={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
     </div>
   );
 };
