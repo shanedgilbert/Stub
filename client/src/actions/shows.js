@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, RATE } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, RATE, ADDSHOW } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
@@ -51,3 +51,14 @@ export const deleteShow = (id) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const addToList = (show, listID) => async(dispatch) => {
+  try {
+      
+      const data = await api.addListShow(listID, show);
+      //dispatch({type: ADDSHOW, payload: data})
+  }
+  catch(error) {
+      console.log(error.message);
+  }
+}
