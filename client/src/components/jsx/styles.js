@@ -54,7 +54,8 @@ export default makeStyles(() => ({
   loadingRoller: {
     textAlign: 'center',
     margin: 'auto',
-    width: '100vw',
+    width: '100%',
+    box_Sizing: 'border-box',
     padding: '50px',
   },
 }));
