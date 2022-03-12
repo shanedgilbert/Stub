@@ -88,7 +88,6 @@ export const deleteList = async (req, res) => {
 export const addListShow = async (req, res) => {
     const { id } = req.params;
     const newList = req.body;
-    console.log(newList);
 
     mongoose.set('useFindAndModify', false);
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);

@@ -54,6 +54,8 @@ const Show = ({ show }) => {
             <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography> */}
             {/* <Typography className={classes.title} variant="h5" component="h2">{show.tagline}</Typography> */}
           {/* </Modal.Body> */}
+          
+          {/*TODO: List ID is currently hard coded. A drop down selector is needed here */}
           <button onClick={() => handleAddToList(show, "622c5288938bef55f4070ef2")}>Add to list</button>
         </Modal>
       </Card>

@@ -60,10 +60,9 @@ export const addListShow = async (listID, newShows) => {
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list => {
     if (list._id == listID) {
-      list.shows.push(newShows)
-      console.log(list)
+      list.shows.push(newShows);
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
-      console.log(res)
+      console.log("Show added!");
     }
   });
   
