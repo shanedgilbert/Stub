@@ -69,16 +69,16 @@ function Home(){
 
   return (
     <div>
-        <Grow in>
-        <Container className="homeLists">
-                  <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12}>
-                      <Shows ShowsArray = {shows} />
-                    </Grid>
-                  </Grid>
-                  </Container>
-              </Grow>
-        <div class={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
+      <Grow in>
+      <Container className="homeLists">
+        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+          <Grid item xs={12}>
+            <Shows ShowsArray = {shows} />
+          </Grid>
+        </Grid>
+        </Container>
+      </Grow>
+      <div class={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
     </div>
   );
 };
