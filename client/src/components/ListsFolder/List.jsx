@@ -14,22 +14,17 @@ function List(prop){
   const dispatch = useDispatch();
 
   const handleDelete = (payload) => {
-    console.log("LIST.JSX: " + payload);
     dispatch(deleteList(payload));
   }
   const handleEdit = (payload, e) => {
-    
     console.log("List.jsx update fn" + payload + " E: " + e);
     dispatch(editListName(payload, e));
   }
 
-  //FOR USE ONCE SHOW MODALS ARE UP AND RUNNING
-  /*
-  const handleAddShow = (showID, listID) => {
-    console.log("LIST.JSX HANDLEADDSHOW(): " + payload + ", " + prop.name + ", " + prop.shows);
-    dispatch(addListShow(payload, [...prop.shows, "object1", "object2"]));
+  const handleAddShow = () => {
+    console.log("List.jsx handleAddShow: " + prop.shows + ", " + prop._id);
+    dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
   }
-  */
 
     return (
 
@@ -45,6 +40,7 @@ function List(prop){
               <div className="editMenuContent">
                 <button className="dropdownLink" onClick={() => handleEdit(prop._id, "default")}>Edit</button>
                 <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
+                <button className="dropdownLink" onClick={() => handleAddShow(prop._id)}>Show</button>
               </div>
             </div>
           </div>

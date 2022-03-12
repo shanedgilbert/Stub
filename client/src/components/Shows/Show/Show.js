@@ -2,6 +2,8 @@ import React, { useState, setState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
+import {addToList} from "../../../actions/shows";
+import handleAddShow from "../../ListsFolder/List.jsx";
 
 import useStyles from './styles';
 
@@ -18,6 +20,13 @@ const Show = ({ show }) => {
   const handleShowModal = () =>  {
     setVisibility(true);
   }
+
+  //ADD SHOW TO LIST
+  const handleAddToList = (show, listID) => {
+    dispatch(addToList(show, listID));
+  }
+
+  ////
 
   return (
       <Card className={classes.card}>
@@ -45,6 +54,9 @@ const Show = ({ show }) => {
             <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography> */}
             {/* <Typography className={classes.title} variant="h5" component="h2">{show.tagline}</Typography> */}
           {/* </Modal.Body> */}
+          
+          {/*TODO: List ID is currently hard coded. A drop down selector is needed here */}
+          <button onClick={() => handleAddToList(show, "622c5288938bef55f4070ef2")}>Add to list</button>
         </Modal>
       </Card>
   );
