@@ -14,11 +14,9 @@ function List(prop){
   const dispatch = useDispatch();
 
   const handleDelete = (payload) => {
-    console.log("LIST.JSX: " + payload);
     dispatch(deleteList(payload));
   }
   const handleEdit = (payload, e) => {
-    
     console.log("List.jsx update fn" + payload + " E: " + e);
     dispatch(editListName(payload, e));
   }

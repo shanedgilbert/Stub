@@ -23,7 +23,6 @@ const Show = ({ show }) => {
 
   //ADD SHOW TO LIST
   const handleAddToList = (show, listID) => {
-    console.log("SHOW.JS ADD TO LIST: " + listID);
     dispatch(addToList(show, listID));
   }
 
@@ -55,7 +54,7 @@ const Show = ({ show }) => {
             <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography> */}
             {/* <Typography className={classes.title} variant="h5" component="h2">{show.tagline}</Typography> */}
           {/* </Modal.Body> */}
-          <button onClick={() => handleAddToList(show, "622a95e7414be83ae887a88b")}>Add to list</button>
+          <button onClick={() => handleAddToList(show, "622c5288938bef55f4070ef2")}>Add to list</button>
         </Modal>
       </Card>
   );

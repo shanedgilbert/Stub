@@ -55,10 +55,7 @@ export const deleteShow = (id) => async (dispatch) => {
 export const addToList = (show, listID) => async(dispatch) => {
   try {
       
-      console.log("ACTIONS ADDLISTSHOW: " + show + ", " + listID);
-      const {data} = await api.addListShow(listID, show);
-      console.log("ACTIONS ADDLISTSHOW: " + data);
-      //console.log("ACTIONS ADDLISTSHOW DATA: " + data.name);
+      const data = await api.addListShow(listID, show);
       //dispatch({type: ADDSHOW, payload: data})
   }
   catch(error) {

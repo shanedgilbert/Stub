@@ -3,7 +3,7 @@ import StreamingAPIKey from './StreamingAPIKey';
 
 const DatabaseURL = 'http://localhost:5000/shows';
 const DatabaseURLAccounts = 'http://localhost:5000/accounts';
-const DatabaseURLLists = 'http://localhost:5000/listsdb';
+const DatabaseURLLists = '/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
 const key = StreamingAPIKey();
 const streamingService = 'netflix';
@@ -54,9 +54,19 @@ export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPos
 export const fetchLists = () => axios.get(DatabaseURLLists);
 export const createList = (newList) => axios.post(DatabaseURLLists, newList);
 export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
-export const addListShow = (listID, newShows) => {
-  console.log("INDEX.JS ADDLISTSHOW: " + newShows + ", " + listID);
-  axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
+
+//Adds shows to a list with matching listID in database
+export const addListShow = async (listID, newShows) => {
+  const listGet = await axios.get(DatabaseURLLists)
+  listGet.data.forEach(async list => {
+    if (list._id == listID) {
+      list.shows.push(newShows)
+      console.log(list)
+      const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
+      console.log(res)
+    }
+  });
+  
 } 
 export const removeListShow = (listID, newShows) => axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
 export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);// old code here 
