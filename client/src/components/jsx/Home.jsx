@@ -78,7 +78,7 @@ function Home(){
                   </Grid>
                   </Container>
               </Grow>
-        <div class={classes.test} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
+        <div class={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
     </div>
   );
 };

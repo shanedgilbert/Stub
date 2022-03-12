@@ -38,9 +38,6 @@ export const getShowsData = async (pageNumber) => {
     const { data } = await axios.get(APIURL, options);
     // console.log(data.total_pages);
     const { results } = data;
-  
-    console.log(results);
-    // console.log(results);
     return results;
   } catch(error) {
     console.log(error);

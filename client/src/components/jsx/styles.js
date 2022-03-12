@@ -51,9 +51,10 @@ export default makeStyles(() => ({
     margin: '100px',
     alignSelf: 'center'
   },
-  test: {
+  loadingRoller: {
+    textAlign: 'center',
     margin: 'auto',
-    width: '300px',
+    width: '100vw',
     padding: '50px',
   },
 }));
