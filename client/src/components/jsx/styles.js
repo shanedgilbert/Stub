@@ -51,13 +51,9 @@ export default makeStyles(() => ({
     margin: '100px',
     alignSelf: 'center'
   },
-
   test: {
     margin: 'auto',
     width: '300px',
     padding: '50px',
   },
-
-
-  
 }));

@@ -16,16 +16,12 @@ function Home(){
   let page = useRef();
   const ref = useRef();
 
-
-
   async function loadMoreShows() 
   {
-    console.log('page', page.current)
-    if(page.current > 1)
+    if(page.current > 2)
     {
       setIsLoading(true);
     }
-    console.log('load more shows!')
     await getShowsData(page.current)
       .then((data) => {
         const moreShows = [];
@@ -33,57 +29,46 @@ function Home(){
           moreShows.push(element) 
           createShow(element)
         },this);
-        //console.log(moreShows)
-        
         setShows((shows) => [...shows, ...moreShows]);
-        //console.log(shows)
-
-        //console.log(data)
       });
-      page.current = page.current + 1;
-      setIsLoading(false);
-      
+    page.current = page.current + 1;
+    setIsLoading(false);
   }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if(entry.isIntersecting)
       {
-        if(page.current != 1)
+        if(page.current > 2)
         {
-          console.log('observed')
           loadMoreShows();
         }
       }
-    }
-    )
-  
+    })
   },
     { rootMargin: '100px' }
   )
 
-
-
-  
   useEffect(() => 
   {
     if(page.current == null)
     {
-      page.current = 1;
-      console.log('first load')
+      page.current = 1;   //Pre-fills home page with first page of api calls
+      loadMoreShows();
+    }
+    if(page.current == 1) 
+    {
+      page.current += 1;  //Pre-fills home page with another set of api calls
       loadMoreShows();
     }
       if(ref.current)
       {
         observer.observe(ref.current)
       }
-  
   }, [ref]);
 
   return (
     <div>
-
- 
         <Grow in>
         <Container className="homeLists">
                   <Grid container justify="space-between" alignItems="stretch" spacing={3}>
@@ -91,16 +76,11 @@ function Home(){
                       <Shows ShowsArray = {shows} />
                     </Grid>
                   </Grid>
-
                   </Container>
               </Grow>
-     
         <div class={classes.test} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
-
-
     </div>
   );
 };
-
 
 export default Home;
