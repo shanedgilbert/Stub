@@ -55,7 +55,7 @@ export default makeStyles(() => ({
     textAlign: 'center',
     margin: 'auto',
     width: '100%',
-    box_Sizing: 'border-box',
+    boxSizing: 'border-box',
     padding: '50px',
   },
 }));

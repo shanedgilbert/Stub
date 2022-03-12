@@ -5,6 +5,7 @@ import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
 import { createShow, getShowsData } from '../../api/index';
+import ServiceChanger from './ServiceChanger';
 import './loader.css'
 function Home(){
   const classes = useStyles();
@@ -71,6 +72,7 @@ function Home(){
     <div>
       <Grow in>
       <Container className="homeLists">
+        <ServiceChanger></ServiceChanger>
         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
             <Shows ShowsArray = {shows} />
