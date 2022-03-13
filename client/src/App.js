@@ -16,6 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} /> {/*Test */}
         <Route path="/logout" element={<Logout LoggedInState={LoggedIn} setLoggedIn={setLoggedIn}/>} />
+        {/*
         <Route
           path="/settings"
           element=
@@ -25,6 +26,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        */}
         <Route
           path="/lists"
           element=

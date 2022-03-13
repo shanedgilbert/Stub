@@ -1,9 +1,11 @@
-import React, { useState, setState } from 'react';
+import React, { useState, setState, useEffect } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import {addToList} from "../../../actions/shows";
 import handleAddShow from "../../ListsFolder/List.jsx";
+import {fetchLists} from "../../../api/index.js";
+import "./Show.css";
 
 import useStyles from './styles';
 
@@ -12,6 +14,7 @@ const Show = ({ show }) => {
   const classes = useStyles();
   const imdbRatingNormalized = show.imdbRating/10;
 
+  const [lists, setLists] = useState([]);
   const [visibility, setVisibility] = useState(false);
 
   const handleCloseModal = () => {
@@ -25,6 +28,27 @@ const Show = ({ show }) => {
   const handleAddToList = (show, listID) => {
     dispatch(addToList(show, listID));
   }
+
+  useEffect(() => {
+    /*getShowsData()
+      .then((data) => {
+        setShows(data);
+      })
+    */
+      async function getList() {
+        const listGet = await fetchLists();
+        var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
+        listGet.data.forEach(async listElement => {
+          if (listElement.ownerID == userID)
+          {
+            lists.push(listElement);
+          }
+        })
+        console.log(lists);
+      }
+      getList();
+  }, []);
+
 
   ////
 
@@ -48,7 +72,7 @@ const Show = ({ show }) => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className={classes.modal}>
-            <Typography variant="body2" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>
+            <Typography variant="body2" component="h2">{show.cast.map((cast) => `${cast}, `)}</Typography>            
           </Modal.Body>
           {/* <Modal.Body>
             <Typography variant="body2" color="textSecondary" component="p">{show.overview}</Typography> */}
@@ -56,7 +80,17 @@ const Show = ({ show }) => {
           {/* </Modal.Body> */}
           
           {/*TODO: List ID is currently hard coded. A drop down selector is needed here */}
-          <button onClick={() => handleAddToList(show, "622c5288938bef55f4070ef2")}>Add to list</button>
+          <div className = "dropdown">
+            <button className = "editButton">Add To List</button>
+            <div className = "editMenuContent">
+              {lists.map((listItem, index) => {
+                return (
+                  <button key = {listItem} className = "dropdownLink" onClick={() => handleAddToList(show, listItem._id)}>Add to {listItem.name}</button>
+                )
+              })}
+            </div>
+          </div>
+          {/*<button onClick={() => handleAddToList(show, "622da00f66a3720ab8c40dd5")}>Add to list</button>*/}
         </Modal>
       </Card>
   );

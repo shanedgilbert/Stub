@@ -39,7 +39,7 @@ function Navigation({LoggedInState, setLoggedIn}) {
                 </NavLink>
               </li> :false }
               {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/settings">
+              <NavLink className="nav-link" to="/">
                   Settings
                 </NavLink>
               </li> :false }
