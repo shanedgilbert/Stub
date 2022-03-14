@@ -26,9 +26,7 @@ const Modal = props => {
     >
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
-          <div className="modal-header">
 
-          </div>
 
           <div className="modal-body">
 
@@ -37,12 +35,13 @@ const Modal = props => {
               x
             </button>
             <img src={props.movieImage} alt={props.title} width="899px"></img>
-
+            <h2 className="modal-title">{props.title}</h2>
           </div>
+
 
           <tr className="modalTable">
             <td className="modalOverview">
-              <h2 className="modal-title">{props.title}</h2>
+
               <p>Release Date: {props.date} Runtime: {props.runtime} minutes</p>
               <p>{props.overview}</p>
             </td>
