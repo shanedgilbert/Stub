@@ -18,6 +18,8 @@ const Modal = props => {
     };
   }, []);
 
+
+  
   return ReactDOM.createPortal(
     <CSSTransition
       in={props.show}
@@ -35,24 +37,26 @@ const Modal = props => {
               x
             </button>
             <img src={props.movieImage} alt={props.title} width="899px"></img>
-            <h2 className="modal-title">{props.title}</h2>
+            
           </div>
 
 
           <tr className="modalTable">
+          
             <td className="modalOverview">
-
-              <p>Release Date: {props.date} Runtime: {props.runtime} minutes</p>
+              <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" alt="streaming logo" width="30"></img></a></h2>
+              
+              <p><b>Release Date: </b>{props.date} <b>Runtime: </b> {props.runtime} minutes</p>
               <p>{props.overview}</p>
             </td>
             <td className="modalInfo">
-              <p>cast: {props.cast}</p>
+              <p><b>Cast: </b> {props.cast}</p>
             </td>
             </tr>
           <p>{props.children}</p>
           </div>
           <div className="modal-footer">
-            </div>
+          </div>
         </div>
       </div>
     </CSSTransition>,

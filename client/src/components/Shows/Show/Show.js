@@ -42,6 +42,7 @@ const Show = ({ show }) => {
         movieImage = {show.backdropURLs.original}
         overview = {show.overview}
         cast = {show.cast}
+        link = {show.streamingInfo.netflix.us.link}
         />
       </Card>
   );

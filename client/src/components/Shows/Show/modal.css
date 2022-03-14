@@ -39,16 +39,15 @@
 }
 
 .modal-header,
-.modal-footer {
+.modal-footer,
+.modal-body {
+  border: none;
 
 }
 
 .modal-title {
-  /* padding: 10px 20px; */
   font-weight: bold;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+  padding-bottom: 5px;
 }
 
 .modal-body {
@@ -58,12 +57,14 @@
 
 .modalInfo{
   width: 200px;
-  padding-right: 20px;
+  padding-right: 5px;
 
 }
 
 .modalOverview{
-  padding: 20px 20px;
+  padding-left: 20px;
+  padding-right: 10px;
+  width: 700px;
 }
 
 .closeButton {
@@ -72,4 +73,8 @@
     position: absolute;
     top: 0px;
     right: 0px;
+}
+
+.streamingLink{
+  background-color: #4B4C4D;
 }
