@@ -5,11 +5,12 @@ import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
 import { createShow, getShowsData } from '../../api/index';
-
+import ServiceChanger from './ServiceChanger';
+import './loader.css'
 function Home(){
   const classes = useStyles();
   const [shows, setShows] = useState([]);
-
+  const [isLoading, setIsLoading] = useState();
   //Create a dropdown for service and type and send the data to api call
   const [streamingService, setStreamingService] = useState('netflix');
   const [contentType, setContentType] = useState('movie');
@@ -17,10 +18,13 @@ function Home(){
   const ref = useRef();
 
 
-
   async function loadMoreShows()
+
   {
-    console.log('load more shows!')
+    if(page.current > 2)
+    {
+      setIsLoading(true);
+    }
     await getShowsData(page.current)
       .then((data) => {
         const moreShows = [];
@@ -28,71 +32,64 @@ function Home(){
           moreShows.push(element)
           createShow(element)
         },this);
-        console.log(moreShows)
         setShows((shows) => [...shows, ...moreShows]);
-        console.log(shows)
-
-        console.log(data)
       });
-      page.current = page.current + 1;
 
+    page.current = page.current + 1;
+    setIsLoading(false);
   }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if(entry.isIntersecting)
       {
-        console.log('observed')
-        loadMoreShows();
+        if(page.current > 2)
+        {
+          loadMoreShows();
+        }
       }
     }
     )
-
   },
     { rootMargin: '100px' }
   )
 
-
-
-
-  useEffect(() =>
+  useEffect(() => 
   {
     if(page.current == null)
     {
-      console.log('first load')
-
+      page.current = 1;   //Pre-fills home page with first page of api calls
       loadMoreShows();
-      page.current = 2;
+    }
+    if(page.current == 1) 
+    {
+      page.current += 1;  //Pre-fills home page with another set of api calls
+      
+      loadMoreShows();
     }
       if(ref.current)
-
+      {
         observer.observe(ref.current)
-
+      }
 
   }, [ref]);
 
   return (
     <div>
-
-     {
-     console.log('p', page)}
-        <Grow in>
-        <Container className="homeLists">
-                  <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12}>
-                      <Shows ShowsArray = {shows} />
-                    </Grid>
-                  </Grid>
-
-                  </Container>
-              </Grow>
-
-        <div class={classes.test} ref={ref}>testin</div>
-
+      <Grow in>
+      <Container className="homeLists">
+        <ServiceChanger></ServiceChanger>
+        <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+          <Grid item xs={12}>
+            <Shows ShowsArray = {shows} />
+          </Grid>
+        </Grid>
+        </Container>
+      </Grow>
+      <div className={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
 
     </div>
   );
 };
-
 
 export default Home;

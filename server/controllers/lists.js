@@ -23,7 +23,7 @@ export const getList = async (req, res) => {
         
         res.status(200).json(show);
     } catch (error) {
-        res.status(404).json({ message: 'SERVER/CONTROLLERS/LISTS GETLIST(): ' + error.message });
+        res.status(404).json({ message: 'SERVER/CONTROLLERS/LIST GETLIST(): ' + error.message });
     }
 }
 
@@ -42,18 +42,34 @@ export const createList = async (req, res) => {
     }
 }
 
-//Not yet properly updated
+//updateList deals with changes inside list
 export const updateList = async (req, res) => {
-    const { id } = req.params;
+    try {
+        const listContent = await ListContent.find();
+                
+        res.status(200).json(listContent);
+    } catch (error) {
+        res.status(404).json({ message: 'SERVER/CONTROLLERS/LISTS GETLISTS(): ' + error.message });
+    }
+}
+//editListName here deals with changing the name of the list
+//find where i can use this to update the 
+//
+export const editListName = async (req, res) => {
+    const { id: _id } = req.params;
     const { name, shows } = req.body;
     
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+    // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    const updatedShow = { name, shows };
+    // if (shows == null)
+    // {
+    //     shows = {};
+    // }
+    // const updatedShow = { name, shows };
+    // const newNameList = await ListContent.findByIdAndUpdate(_id, updatedShow, { new: true });
 
-    await ListContent.findByIdAndUpdate(id, updatedShow, { new: true });
-
-    res.json(updatedShow);
+    // res.json(newNameList);
+    console.log(req);
 }
 
 //Not yet properly updated
@@ -69,8 +85,15 @@ export const deleteList = async (req, res) => {
     res.json({ message: "Show deleted successfully." });
 }
 
-//export const addListShow
-//export const removeListShow
-//export const editListName
+export const addListShow = async (req, res) => {
+    const { id } = req.params;
+    const newList = req.body;
+
+    mongoose.set('useFindAndModify', false);
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+    await ListContent.findByIdAndUpdate(id, newList);
+    res.json({ message: "Show added successfully"});
+}
 
 export default router;

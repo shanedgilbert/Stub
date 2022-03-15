@@ -51,20 +51,11 @@ export default makeStyles(() => ({
     margin: '100px',
     alignSelf: 'center'
   },
-
-  test: {
-
-    width: '300px',
-    border: '15px solid green',
+  loadingRoller: {
+    textAlign: 'center',
+    margin: 'auto',
+    width: '100%',
+    boxSizing: 'border-box',
     padding: '50px',
-    margin: '20px'
   },
-
-  test1: {
-
-    width: '300px',
-    border: '15px solid green',
-    padding: '50px',
-    margin: '20px'
-  }
 }));
