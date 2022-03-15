@@ -29,7 +29,7 @@ const Modal = props => {
           lists.push(listElement);
         }
       })
-      console.log("LISTS:");
+      console.log(props.title + " LISTS:");
       console.log(lists);
     }
     getList();
