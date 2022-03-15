@@ -9,7 +9,7 @@ import {createList} from '../../actions/lists.js';
 
 function ListAdder()
 {
-    const [listData, setListData] = useState({name: '', ownerID: '', shows: ['']});
+    const [listData, setListData] = useState({name: '', ownerID: '', shows: []});
     const classes = useStyles();
     const dispatch = useDispatch({});
 
@@ -21,7 +21,6 @@ function ListAdder()
         e.preventDefault();
         //setListData({...listData, ownerID: JSON.parse(localStorage.getItem('userLoginData')).id})
         listData.ownerID = JSON.parse(localStorage.getItem('userLoginData')).id;
-        listData.shows = ['Filler Object'];
         console.log("list Added");
         dispatch(createList(listData));
         clearText();

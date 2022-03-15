@@ -51,13 +51,11 @@ export default makeStyles(() => ({
     margin: '100px',
     alignSelf: 'center'
   },
-
-  test: {
+  loadingRoller: {
+    textAlign: 'center',
     margin: 'auto',
-    width: '300px',
+    width: '100%',
+    boxSizing: 'border-box',
     padding: '50px',
   },
-
-
-  
 }));

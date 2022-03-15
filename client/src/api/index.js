@@ -38,9 +38,6 @@ export const getShowsData = async (pageNumber) => {
     const { data } = await axios.get(APIURL, options);
     // console.log(data.total_pages);
     const { results } = data;
-  
-    console.log(results);
-    // console.log(results);
     return results;
   } catch(error) {
     console.log(error);
@@ -54,9 +51,18 @@ export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPos
 export const fetchLists = () => axios.get(DatabaseURLLists);
 export const createList = (newList) => axios.post(DatabaseURLLists, newList);
 export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
-export const addListShow = (listID, newShows) => {
-  console.log("INDEX.JS ADDLISTSHOW: " + newShows + ", " + listID);
-  axios.patch(`${DatabaseURLLists}/${listID}`, {newShows});
+
+//Adds shows to a list with matching listID in database
+export const addListShow = async (listID, newShows) => {
+  const listGet = await axios.get(DatabaseURLLists)
+  listGet.data.forEach(async list => {
+    if (list._id == listID) {
+      list.shows.push(newShows);
+      const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
+      console.log("Show added!");
+    }
+  });
+  
 } 
 export const removeListShow = (listID, newShows) => axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
 //export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);// old code here outdated code rip updates

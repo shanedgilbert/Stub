@@ -16,9 +16,6 @@ export const getLists = () => async(dispatch) => {
 export const createList = (list) => async(dispatch) => {
     try {
         const {data} = await api.createList(list);
-
-        console.log("ACTIONS CREATELIST ID: " + data.ownerID);
-        console.log("ACTIONS CREATELIST SHOWS: " + data.shows);
         dispatch({type: CREATE, payload: data});
     }
     catch(error){
@@ -53,10 +50,12 @@ export const addListShow = (id, showsList) => async(dispatch) => {
         
         console.log("ACTIONS ADDLISTSHOW: " + id);
         const {data} = await api.addListShow(id, showsList);
-        console.log("ACTIONS ADDLISTSHOW DATA: " + data.name);
+        console.log(data);
+        // console.log("ACTIONS ADDLISTSHOW DATA: " + data.name);
         dispatch({type: ADDSHOW, payload: data})
     }
     catch(error) {
+        console.log("error encountered");
         console.log(error.message);
     }
 }

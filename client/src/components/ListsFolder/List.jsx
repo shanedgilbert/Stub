@@ -14,17 +14,16 @@ function List(prop){
   const dispatch = useDispatch();
 
   const handleDelete = (payload) => {
-    console.log("LIST.JSX: " + payload);
     dispatch(deleteList(payload));
   }
   const handleEdit = (payload, e) => {
-    
     console.log("List.jsx update fn" + payload + " E: " + e);
     dispatch(editListName(payload, e));
   }
-  const handleAddShow = (payload) => {
-    console.log("LIST.JSX HANDLEADDSHOW(): " + payload + ", " + prop.name + ", " + prop.ownerID);
-    dispatch(addListShow(payload, ["object1", "object2"]));
+
+  const handleAddShow = () => {
+    console.log("List.jsx handleAddShow: " + prop.shows + ", " + prop._id);
+    dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
   }
 
     return (

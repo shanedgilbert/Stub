@@ -88,18 +88,14 @@ export const deleteList = async (req, res) => {
 }
 
 export const addListShow = async (req, res) => {
-    console.log("CONTROLLERS LISTS.JS: " + req.params);
     const { id } = req.params;
-    const { name, newShows } = req.body;
+    const newList = req.body;
 
     mongoose.set('useFindAndModify', false);
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    await ListContent.findByIdAndUpdate(id, {shows: newShows})
-
+    await ListContent.findByIdAndUpdate(id, newList);
     res.json({ message: "Show added successfully"});
 }
-//export const removeListShow
-//export const editListName
 
 export default router;
