@@ -2,9 +2,14 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./modal.css";
+import { useDispatch } from 'react-redux';
+import {addToList} from "../../../actions/shows";
 
 
 const Modal = props => {
+
+  const dispatch = useDispatch();
+
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
       props.onClose();
@@ -17,6 +22,14 @@ const Modal = props => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
+
+
+  //ADD SHOW TO LIST
+  const handleAddToList = (show, listID) => {
+    dispatch(addToList(show, listID));
+  }
+
+  ////
 
 
   
@@ -56,6 +69,7 @@ const Modal = props => {
           <p>{props.children}</p>
           </div>
           <div className="modal-footer">
+          <button onClick={() => handleAddToList(props.showInfo, "622c5288938bef55f4070ef2")}>Add to list</button>
           </div>
         </div>
       </div>

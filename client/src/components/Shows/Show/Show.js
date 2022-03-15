@@ -52,6 +52,7 @@ const Show = ({ show }) => {
         overview = {show.overview}
         cast = {show.cast}
         link = {show.streamingInfo.netflix.us.link}
+        showInfo = {show}
         />
       </Card>
   );
