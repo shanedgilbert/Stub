@@ -22,6 +22,9 @@ export default makeStyles({
     position: 'relative',
     cursor: 'pointer',
   },
+  lengthofthing:{
+    width: '90%',
+  },
   overlay: {
     position: 'absolute',
     top: '20px',

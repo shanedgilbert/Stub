@@ -17,7 +17,9 @@ function Home(){
   let page = useRef();
   const ref = useRef();
 
-  async function loadMoreShows() 
+
+  async function loadMoreShows()
+
   {
     if(page.current > 2)
     {
@@ -27,11 +29,12 @@ function Home(){
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
-          moreShows.push(element) 
+          moreShows.push(element)
           createShow(element)
         },this);
         setShows((shows) => [...shows, ...moreShows]);
       });
+
     page.current = page.current + 1;
     setIsLoading(false);
   }
@@ -45,7 +48,8 @@ function Home(){
           loadMoreShows();
         }
       }
-    })
+    }
+    )
   },
     { rootMargin: '100px' }
   )
@@ -60,12 +64,14 @@ function Home(){
     if(page.current == 1) 
     {
       page.current += 1;  //Pre-fills home page with another set of api calls
+      
       loadMoreShows();
     }
       if(ref.current)
       {
         observer.observe(ref.current)
       }
+
   }, [ref]);
 
   return (
@@ -81,6 +87,7 @@ function Home(){
         </Container>
       </Grow>
       <div className={classes.loadingRoller} ref={ref}>{isLoading ? <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
+
     </div>
   );
 };
