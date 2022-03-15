@@ -1,3 +1,4 @@
+import e from 'express';
 import express from 'express';
 import mongoose from 'mongoose';
 
@@ -57,19 +58,20 @@ export const updateList = async (req, res) => {
 //
 export const editListName = async (req, res) => {
     const { id: _id } = req.params;
-    const { name, shows } = req.body;
+    const { name, shows, ownerID } = req.body;
     
-    // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    // if (shows == null)
-    // {
-    //     shows = {};
-    // }
-    // const updatedShow = { name, shows };
-    // const newNameList = await ListContent.findByIdAndUpdate(_id, updatedShow, { new: true });
+    try {
+        console.log("Server controller List name: "+ name);
+        const listObj = await ListContent.findByIdAndUpdate(id, {name : name});
+        await listObj.save();
+        res.status(200).json(listObj);  
 
-    // res.json(newNameList);
-    console.log(req);
+    } catch (error) {
+        res.status(404).json({message: 'SERVER/CONTROLLERS/LISTS EDITLISTNAME() '+ error.message});
+    }
+    console.log("just to see what req looks like"+ req);
 }
 
 //Not yet properly updated
