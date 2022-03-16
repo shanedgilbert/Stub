@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./modal.css";
 import { useDispatch } from 'react-redux';
 import {addToList} from "../../../actions/shows";
+import { fetchLists } from "../../../api";
 
 
 const Modal = props => {
 
   const dispatch = useDispatch();
+  const [lists, setLists] = useState([]);
+
 
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
@@ -17,6 +20,20 @@ const Modal = props => {
   };
 
   useEffect(() => {
+    async function getList() {
+      const listGet = await fetchLists();
+      var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
+      listGet.data.forEach(async listElement => {
+        if (listElement.ownerID == userID)
+        {
+          lists.push(listElement);
+        }
+      })
+      console.log(props.title + " LISTS:");
+      console.log(lists);
+    }
+    getList();
+
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
     return function cleanup() {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
@@ -69,7 +86,18 @@ const Modal = props => {
           <p>{props.children}</p>
           </div>
           <div className="modal-footer">
-          <button onClick={() => handleAddToList(props.showInfo, "622c5288938bef55f4070ef2")}>Add to list</button>
+
+            <div className = "dropdown">
+              <div className = "editMenuContent">
+                  {lists.map((listItem, index) => {
+                    return (
+                      <button key = {listItem} className = "dropdownLink" onClick={() => handleAddToList(props, listItem._id)}>Add to {listItem.name}</button>
+                    )
+                  })}
+                </div>
+              <button className = "editButton">Add To List</button>
+            </div>
+
           </div>
         </div>
       </div>

@@ -38,9 +38,8 @@ function List(prop){
             <div className="dropdown">
               <button className ="editButton">dropdown</button>
               <div className="editMenuContent">
-                <button className="dropdownLink" onClick={() => handleEdit(prop._id, "default")}>Edit</button>
+                <button className="dropdownLink" onClick={() => handleEdit(prop, "pls fucking work")}>Edit</button>
                 <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
-                <button className="dropdownLink" onClick={() => handleAddShow(prop._id)}>Show</button>
               </div>
             </div>
           </div>
