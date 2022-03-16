@@ -56,7 +56,7 @@ export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
 export const addListShow = async (listID, newShows) => {
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list => {
-    if (list._id == listID) {
+    if (list._id === listID) {
       list.shows.push(newShows);
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
       console.log("Show added!");
