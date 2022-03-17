@@ -32,12 +32,12 @@ export const updateList = (id, listName) => async(dispatch) => {
     }
 }
 // crreated editListName to function as the 'edit' in list pages
-export const editListName = (list, newListName) => async(dispatch) =>{
+export const editListName = (listID, newListName) => async(dispatch) =>{
     console.log("ladies and gentlemen we're in");
     console.log(newListName);
     try {
-        console.log("list.js in ACTIONS: "+ list.id + " new name: " + newListName);
-        const data = await api.editListName(list.id, newListName);
+        console.log("list.js in ACTIONS: "+ listID + " new name: " + newListName);
+        const data = await api.editListName(listID, newListName);
         dispatch({type: EDIT, payload: data});
     }
     catch(error) {

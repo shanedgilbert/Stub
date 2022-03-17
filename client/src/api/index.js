@@ -64,6 +64,19 @@ export const addListShow = async (listID, newShows) => {
   });
   
 } 
+
+export const editListName = async(listID, newListName) =>{
+  const listGet = await axios.get(DatabaseURLLists)
+  listGet.data.forEach(async list =>{
+    if (list._id == listID){
+      list.name = newListName;//maybeee
+      const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
+      console.log("SRC/API/INDEX : New Name updated");
+    }
+  });
+
+}
+
 export const removeListShow = (listID, newShows) => axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
 //export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);// old code here outdated code rip updates
-export const editListName = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`, newName);// need to find correct api call here
+//export const editListName = (listID, newName) => axios.get(`${DatabaseURLLists}/${listID}`, newName);// need to find correct api call here this here is def wrong right?
