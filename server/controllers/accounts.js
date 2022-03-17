@@ -10,7 +10,6 @@ export const getAccounts = async (req, res) =>
     try 
     {
         const accountContent = await AccountContent.find(); 
-        console.log(accountContent);
         res.status(200).json(accountContent);
     } 
     catch (error) 
