@@ -4,28 +4,24 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Shows from '../../components/Shows/Shows';
 import { createShow, getShowsData } from '../../api/index';
-
+let page = 1;
 function DevPage() {
 
     //SHOW TESTING
     ////////////////////////////////////////////////////////////////////////////////////////
     const [isLoading, setIsLoading] = useState();
     const [shows, setShows] = useState([]);
-    let page = useRef();
+    
     const ref = useRef();
 
     async function loadMoreShows() 
   {
-    console.log('page', page.current)
-    if(page.current > 1)
-    {
-      setIsLoading(true);
-    }
-    console.log('load more shows!')
-    await getShowsData(page.current)
+    console.log('page', page)
+    await getShowsData(page)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
+          console.log(element)
           moreShows.push(element) 
           createShow(element)
         },this);
@@ -36,43 +32,22 @@ function DevPage() {
 
         //console.log(data)
       });
-      page.current = page.current + 1;
-      setIsLoading(false);     
+      
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting)
-      {
-        if(page.current != 1)
-        {
-          console.log('observed')
-          loadMoreShows();
-        }
-      }
-    }
-    )
-  
-  },
-    { rootMargin: '100px' }
-  )
+
 
 
 
   
   useEffect(() => 
   {
-    if(page.current == null)
-    {
-      page.current = 1;
-      console.log('first load')
-      loadMoreShows();
-    }
-      if(ref.current)
-      {
-        observer.observe(ref.current)
-      }
+     while(true)
+     {
+       loadMoreShows();
+       page = page+1;
+     }
   
-  }, [ref]);
+  });
   ////////////////////////////////////////////////////////////////////////////////////////
 
 
