@@ -5,6 +5,7 @@ import "./modal.css";
 import { useDispatch } from 'react-redux';
 import {addToList} from "../../../actions/shows";
 import { fetchLists } from "../../../api";
+import genreNames from "../genre";
 
 
 const Modal = props => {
@@ -24,7 +25,7 @@ const Modal = props => {
       const listGet = await fetchLists();
       var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
       listGet.data.forEach(async listElement => {
-        if (listElement.ownerID == userID)
+        if (listElement.ownerID === userID)
         {
           lists.push(listElement);
         }
@@ -47,6 +48,14 @@ const Modal = props => {
   }
 
   ////
+
+  function findMovieGenres(genre){
+    let movieGenres = []
+    for(let i=0; i<genre.length; i++){
+      movieGenres.push(genreNames[genre[i]])
+    }
+    return movieGenres.join(", ")
+  }
 
 
   
@@ -80,7 +89,12 @@ const Modal = props => {
               <p>{props.overview}</p>
             </td>
             <td className="modalInfo">
-              <p><b>Cast: </b> {props.cast}</p>
+              
+
+              {props.cast.length===0 ? null : <p> <b>Cast: </b> {props.cast.join(", ")}</p>}
+              {/* {props.cast.join(", ")} */}
+
+              <p><b>Genre: </b> {findMovieGenres(props.showInfo.genres)}</p>
             </td>
             </tr>
           <p>{props.children}</p>
@@ -89,6 +103,7 @@ const Modal = props => {
 
             <div className = "dropdown">
               <div className = "editMenuContent">
+                  {/* {console.log(genreNames[props.showInfo.genres])} */}
                   {lists.map((listItem, index) => {
                     return (
                       <button key = {listItem} className = "dropdownLink" onClick={() => handleAddToList(props, listItem._id)}>Add to {listItem.name}</button>
