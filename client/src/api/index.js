@@ -2,10 +2,10 @@ import axios from 'axios';
 import StreamingAPIKey from './StreamingAPIKey';
 
 const DatabaseURL = 'http://localhost:5000/shows';
-const DatabaseURLAccounts = 'http://localhost:5000/accounts';
+const DatabaseURLAccounts = '/accounts';
 const DatabaseURLLists = 'http://localhost:5000/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
-const key = StreamingAPIKey();
+const key = StreamingAPIKey(); 
 const streamingService = 'netflix';
 const contentType = 'movie';
 
@@ -45,7 +45,12 @@ export const getShowsData = async (pageNumber) => {
 }
 
 export const fetchAccounts = () => axios.get(DatabaseURLAccounts);
-export const createAccount = (newPost) => axios.post(DatabaseURLAccounts, newPost);
+export const createAccount = (newPost) => {
+  axios.post(DatabaseURLAccounts, newPost)
+  .then(function (response) {
+    console.log(response);
+  });
+}
 
 //List functions
 export const fetchLists = () => axios.get(DatabaseURLLists);

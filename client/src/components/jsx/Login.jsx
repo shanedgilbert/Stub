@@ -7,15 +7,12 @@ import "../../index.css";
 import fblogo from '../../images/fb.png';
 const apiKey = FacebookAPIKey();
 
-
-
 function Login({LoggedInState, setLoggedIn}) 
 {
   const responseFacebook = async (response) => 
   {
     if(response.status == 'unknown') //no response at all
     {
-      console.log(response.status);
       setLoggedIn(false);
       //window.location.reload();
     }
@@ -24,15 +21,11 @@ function Login({LoggedInState, setLoggedIn})
       const userData = await response
       if(userData.error) //if userdata has error or interuption, like closing the login api screen during login
       {
-        console.log('test1')
-        console.log(response.status);
         setLoggedIn(false);
         //window.location.reload();
       }
       else //sucessful login, no interuptions 
       {
-        console.log('test')
-        console.log(response.status);
         setLocalUser(userData);
         createAccount(response);
         setLoggedIn(true);
@@ -41,7 +34,6 @@ function Login({LoggedInState, setLoggedIn})
   };
 
   const LoginButton = ({responseFacebook}) => (
-  
     <FacebookLogin
     appId={apiKey}
     autoLoad={false}
@@ -49,23 +41,13 @@ function Login({LoggedInState, setLoggedIn})
     callback={responseFacebook}
     render={renderProps => (
       <button class="button button1" onClick={renderProps.onClick}><img id="fbImage" src={fblogo} alt="avatar"/></button>
-      
-
     )}
   />
     )
-
-
-  return (
-
     
+  return (
     <LoginButton responseFacebook = {responseFacebook}/>  
-
-
   );
-
 }
 
 export default Login;
-
-

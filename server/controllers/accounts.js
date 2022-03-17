@@ -19,12 +19,10 @@ export const getAccounts = async (req, res) =>
     }
 }
 
-
 export const createAccount = async (req, res) => {
     const id  = req.body.id;
     const name = req.body.name;
     const lastLoggedIn = (new Date()).toString();
-    
  
     const foundUser = await AccountContent.findOne({ id: id }); //find account where database entry's id == id that is being created
     if (foundUser) //if there is an account matching the id, update lastLoggedIn field
@@ -58,7 +56,5 @@ export const createAccount = async (req, res) => {
         }
     }
 }
-
-
 
 export default router;

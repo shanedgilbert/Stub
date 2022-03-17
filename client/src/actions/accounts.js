@@ -15,9 +15,7 @@ export async function getAccounts()
 };
 
 export async function createAccount(account)
-{
- 
-  //console.log(account);
+{ 
   try 
   {
     await fetch(api.createAccount(account), {method: CREATE});
