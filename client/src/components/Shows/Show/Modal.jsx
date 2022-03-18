@@ -12,7 +12,7 @@ const Modal = props => {
 
   const dispatch = useDispatch();
   const [lists, setLists] = useState([]);
-
+  const imdbRatingNormalized = props.showInfo.imdbRating/10;
 
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
@@ -30,8 +30,6 @@ const Modal = props => {
           lists.push(listElement);
         }
       })
-      console.log(props.title + " LISTS:");
-      console.log(lists);
     }
     getList();
 
@@ -47,8 +45,6 @@ const Modal = props => {
     dispatch(addToList(show, listID));
   }
 
-  ////
-
   function findMovieGenres(genre){
     let movieGenres = []
     for(let i=0; i<genre.length; i++){
@@ -56,8 +52,6 @@ const Modal = props => {
     }
     return movieGenres.join(", ")
   }
-
-
   
   return ReactDOM.createPortal(
     <CSSTransition
@@ -67,32 +61,26 @@ const Modal = props => {
     >
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
-
-
           <div className="modal-body">
-
           <div>
             <button onClick={props.onClose} className="button closeButton">
               x
             </button>
             <img src={props.movieImage} alt={props.title} width="899px"></img>
-            
           </div>
-
-
           <tr className="modalTable">
           
             <td className="modalOverview">
-              <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" alt="streaming logo" width="30"></img></a></h2>
-              
+              <div className="modal-title-div">
+                <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" alt="streaming logo" width="30"></img></a></h2>
+                <h3 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h3>
+              </div>
               <p><b>Release Date: </b>{props.date} <b>Runtime: </b> {props.runtime} minutes</p>
               <p>{props.overview}</p>
             </td>
             <td className="modalInfo">
-              
 
               {props.cast.length===0 ? null : <p> <b>Cast: </b> {props.cast.join(", ")}</p>}
-              {/* {props.cast.join(", ")} */}
 
               <p><b>Genre: </b> {findMovieGenres(props.showInfo.genres)}</p>
             </td>

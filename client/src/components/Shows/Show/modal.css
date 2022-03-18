@@ -25,7 +25,7 @@
 
 .modal-content {
   width: 900px;
-  background-color: #4B4C4D;
+  background-color: #343a40;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
 }
@@ -42,23 +42,23 @@
 .modal-footer,
 .modal-body {
   border: none;
-
 }
 
 .modal-title {
   font-weight: bold;
-  padding-bottom: 5px;
+}
+
+.modal-rating {
+  color: #46d369;
 }
 
 .modal-body {
   padding: 0px;
-
 }
 
 .modalInfo{
   width: 200px;
   padding-right: 5px;
-
 }
 
 .modalOverview{
