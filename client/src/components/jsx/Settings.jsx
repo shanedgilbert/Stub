@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
-import { getShowsData } from '../../api/index';
+import { fetchLists, getShowsData } from '../../api/index';
 import ListContent from '../ListsFolder/ListContent.jsx';
 
 
@@ -17,32 +17,41 @@ function Settings() {
   const [contentType, setContentType] = useState('movie');
 
   useEffect(() => {
-    getShowsData()
-      .then((data) => {
-        setShows(data);
+    async function getListShows() {
+      var URL = decodeURI(window.location.href).split("/");
+      const listGet = await fetchLists();
+      var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
+      listGet.data.forEach(listElement => {
+        if (listElement.ownerID === userID && listElement.name === URL[4]) {
+          if (listElement.shows == null) {
+            console.log("NULL");
+            setShows([]);
+          }
+          else {
+            setShows(listElement.shows);
+          }
+        }
       })
-  }, []);
-
-  console.log(shows);
+    }
+    getListShows();
+  }, [shows]);
 
   return (
   <div>
   <table>
   {shows.map((listItem, index) => {
       return (
-
         <ListContent
           key={index}
           id={index}
-          imdbRating = {listItem.imdbRating}
+          imdbRating = {listItem.showInfo.imdbRating}
           title={listItem.originalTitle}
-          poster={listItem.posterURLs.original}
+          poster={listItem.showInfo.posterURLs.original}
           date = {listItem.year}
           tagline = {listItem.tagline}
           overview = {listItem.overview}
           cast = {listItem.cast.map((cast) => `${cast}, `)}
         />
-
       );
     })}
     </table>
