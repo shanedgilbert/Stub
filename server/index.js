@@ -14,7 +14,7 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-app.use('/shows', showRoutes);
+app.use('/showsDB', showRoutes);
 app.use('/accounts', accountRoutes);
 app.use('/listsdb', listRoutes);
 

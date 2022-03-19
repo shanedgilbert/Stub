@@ -22,6 +22,7 @@ function DevPage() {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
           console.log(element)
+          console.log(element.title)
           moreShows.push(element) 
           createShow(element)
         },this);
@@ -31,8 +32,7 @@ function DevPage() {
         //console.log(shows)
 
         //console.log(data)
-      });
-      
+      });    
   }
 
 
@@ -41,11 +41,11 @@ function DevPage() {
   
   useEffect(() => 
   {
-     while(true)
-     {
+  
        loadMoreShows();
        page = page+1;
-     }
+       setTimeout(10000);
+     
   
   });
   ////////////////////////////////////////////////////////////////////////////////////////

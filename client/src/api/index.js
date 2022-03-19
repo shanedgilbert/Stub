@@ -1,7 +1,7 @@
 import axios from 'axios';
 import StreamingAPIKey from './StreamingAPIKey';
 
-const DatabaseURL = 'http://localhost:5000/shows';
+const DatabaseURL = 'http://localhost:5000/showsDB';
 const DatabaseURLAccounts = 'http://localhost:5000/accounts';
 const DatabaseURLLists = 'http://localhost:5000/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
@@ -13,7 +13,7 @@ const contentType = 'movie';
 
 
 export const fetchShows = () => axios.get(DatabaseURL);
-export const createShow = (newShow) => axios.post(DatabaseURL, newShow);
+export const createShow = async (newShow) => {await axios.post(DatabaseURL, newShow);}
 export const rateShow = (id) => axios.patch(`${DatabaseURL}/${id}/rateShow`);
 export const updateShow = (id, updatedShow) => axios.patch(`${DatabaseURL}/${id}`, updatedShow);
 export const deleteShow = (id) => axios.delete(`${DatabaseURL}/${id}`);

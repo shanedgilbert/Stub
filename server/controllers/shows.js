@@ -31,6 +31,7 @@ export const createShow = async (req, res) =>
 {
     try
     {
+        console.log('add', req.body.title)
         const imdbID = req.body.imdbID;
         const foundShow = await ShowContent.findOne({ imdbID: imdbID });
        
@@ -52,6 +53,7 @@ export const createShow = async (req, res) =>
     }
     catch(error)
     {
+        console.log(error)
         res.status(404).json({ message: error.message });
     }
 }

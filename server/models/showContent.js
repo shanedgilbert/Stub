@@ -14,6 +14,6 @@ const postSchema = mongoose.Schema({
     },
 })
 
-var ShowContent = mongoose.model('ShowContent', postSchema);
+var ShowContent = mongoose.model('ShowContentDB', postSchema);
 
 export default ShowContent;
