@@ -50,6 +50,8 @@
 
 .modal-rating {
   color: #46d369;
+  display: inline-block;
+  padding-right: 10px;
 }
 
 .modal-body {

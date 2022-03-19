@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import {addToList} from "../../../actions/shows";
 import { fetchLists } from "../../../api";
 import genreNames from "../genre";
+import imdbLogo from "../../../images/imdblogo.png";
 
 
 const Modal = props => {
@@ -74,6 +75,7 @@ const Modal = props => {
               <div className="modal-title-div">
                 <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" alt="streaming logo" width="30"></img></a></h2>
                 <h3 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h3>
+                <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID}><img src={imdbLogo} alt="imdb logo" width="50px"></img></a>
               </div>
               <p><b>Release Date: </b>{props.date} <b>Runtime: </b> {props.runtime} minutes</p>
               <p>{props.overview}</p>
