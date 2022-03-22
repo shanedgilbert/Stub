@@ -12,7 +12,7 @@ function Home(){
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState();
   const [contentType, setContentType] = useState('series');
-  const [service, setService] = useState('netflix');
+  const [service, setService] = useState('paramount');
 
   //Create a dropdown for service and type and send the data to api call
   let page = useRef();
@@ -26,7 +26,7 @@ function Home(){
       setIsLoading(true);
     }
     console.log(page.current);
-    await fetchNineShows(contentType, page.current)
+    await fetchNineShows(contentType, service, page.current)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
