@@ -1,7 +1,7 @@
 import axios from 'axios';
 import StreamingAPIKey from './StreamingAPIKey';
 
-const DatabaseURL = 'http://localhost:5000/showsDB';
+const DatabaseURL = 'http://localhost:5000/shows';
 const DatabaseURLAccounts = 'http://localhost:5000/accounts';
 const DatabaseURLLists = 'http://localhost:5000/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
