@@ -51,9 +51,6 @@ function Navigation({LoggedInState, setLoggedIn}) {
                  <li className="nav-item">
                  {LoggedInState ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>}
               </li> 
-              <NavLink className = "nav-link" to = "/dev">
-                DevPage
-              </NavLink>
             </ul>
           </div>
         </div>
