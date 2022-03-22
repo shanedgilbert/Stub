@@ -23,7 +23,8 @@ const postSchema = mongoose.Schema({
     type: {
         type: String,
         default: 'series'
-    }
+    },
+    service: [String]
 
 })
 
