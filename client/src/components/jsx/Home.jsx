@@ -11,8 +11,8 @@ function Home(){
   const classes = useStyles();
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState();
-  const [contentType, setContentType] = useState('series');
-  const [service, setService] = useState('paramount');
+  const [contentType, setContentType] = useState('series'); //movie or series
+  const [service, setService] = useState('paramount'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
 
   //Create a dropdown for service and type and send the data to api call
   let page = useRef();
@@ -83,7 +83,7 @@ function Home(){
       <ServiceChanger></ServiceChanger>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
-            <Shows ShowsArray = {shows} />
+            <Shows ShowsArray = {shows} service={service} />
             </Grid>
           </Grid>
         </Container>
