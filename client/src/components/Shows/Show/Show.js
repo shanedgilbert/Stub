@@ -7,7 +7,7 @@ import handleAddShow from "../../ListsFolder/List.jsx";
 
 import useStyles from './styles';
 
-const Show = ({ show }) => {
+const Show = ({ show, service }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const imdbRatingNormalized = show.imdbRating/10;
@@ -28,6 +28,10 @@ const Show = ({ show }) => {
     dispatch(addToList(show, listID));
   }
 
+  const getServiceLink = (show) =>
+  {
+    return show.streamingInfo[service].us.link
+  }
   ////
 
   return (
@@ -44,6 +48,7 @@ const Show = ({ show }) => {
           {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
         </div>
         <Modal onClose={() => setVisibility(false)}
+        service = {service}
         show={visibility}
         date= {show.year}
         runtime = {show.runtime}
@@ -51,7 +56,7 @@ const Show = ({ show }) => {
         movieImage = {show.backdropURLs.original}
         overview = {show.overview}
         cast = {show.cast}
-        link = {show.streamingInfo.netflix.us.link}
+        link = {getServiceLink(show)}
         showInfo = {show}
         />
       </Card>

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Show from './Show/Show';
 import useStyles from './styles';
 
-const Shows = ({ ShowsArray }) => {
+const Shows = ({ ShowsArray, service }) => {
   const classes = useStyles();
   const [elRefs, setElRefs] = useState([]);
 
@@ -18,7 +18,7 @@ const Shows = ({ ShowsArray }) => {
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {ShowsArray.map((show, i) => (
           <Grid ref={elRefs[i]} key={i} item xs={12} sm={4} md={4}>
-            <Show show={show}/>
+            <Show show={show} service = {service}/>
           </Grid>
         ))}
       </Grid>
