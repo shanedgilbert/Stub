@@ -10,6 +10,7 @@ import ListContent from '../ListsFolder/ListContent.jsx';
 
 function Settings() {
   const classes = useStyles();
+  const [pageList, setPageList] = useState(null)
   const [shows, setShows] = useState([]);
 
   //Create a dropdown for service and type and send the data to api call
@@ -23,6 +24,7 @@ function Settings() {
       var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
       listGet.data.forEach(listElement => {
         if (listElement.ownerID === userID && listElement.name === URL[4]) {
+          setPageList(listElement);
           if (listElement.shows == null) {
             console.log("NULL");
             setShows([]);
@@ -51,6 +53,8 @@ function Settings() {
           tagline = {listItem.tagline}
           overview = {listItem.overview}
           cast = {listItem.cast.map((cast) => `${cast}, `)}
+          showID = {listItem.showInfo._id}
+          listID = {pageList._id}
         />
       );
     })}

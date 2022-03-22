@@ -60,9 +60,10 @@ export const addListShow = (id, showsList) => async(dispatch) => {
     }
 }
 
-export const removeListShow = () => async(dispatch) => {
+export const removeListShow = (id, showRemove) => async(dispatch) => {
     try {
-
+        await api.removeListShow(id, showRemove);
+        console.log("Show removed");
     }
     catch(error) {
         console.log(error.message);

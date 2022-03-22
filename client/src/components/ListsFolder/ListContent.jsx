@@ -6,13 +6,21 @@ import { useDispatch } from 'react-redux';
 import { rateShow } from '../../actions/shows';
 import useStyles from '../Shows/Show/styles';
 
+import {removeListShow} from "../../actions/lists";
+
 function ListContent(prop){
   const dispatch = useDispatch();
   const classes = useStyles();
   const imdbRatingNormalized = prop.imdbRating/10;
 
+  const removeFromList = () => {
+    console.log("Removing list...")
+    dispatch(removeListShow(prop.listID, prop.showID));
+  }
+
   return(
     <div>
+      <button onClick = {removeFromList}> Remove from list </button>
       <tr class="listContent">
         <td>
           <img class="moviePosterList" src={prop.poster} alt="Girl in a jacket" width="256" height="384" />

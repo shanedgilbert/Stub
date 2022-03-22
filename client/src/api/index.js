@@ -82,6 +82,25 @@ export const addListShow = async (listID, newShows) => {
   
 } 
 
+export const removeListShow = async (listID, showRemove) => {
+  const listGet = await axios.get(DatabaseURLLists)
+  listGet.data.forEach(async list => {
+    if (list._id === listID) {
+      //console.log("List" + list._id + " removes" + showRemove.showInfo._id);
+      list.shows.map(currShow => {
+        var tempArray = [];
+        if(currShow.showInfo._id != showRemove)
+        {
+          tempArray.push(currShow);
+        }
+        list.shows = tempArray;
+      })
+      const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
+      console.log("Show removed!");
+    }
+  });
+}
+
 export const editListName = async(listID, newListName) =>{
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list =>{
@@ -94,6 +113,5 @@ export const editListName = async(listID, newListName) =>{
 
 }
 
-export const removeListShow = (listID, newShows) => axios.patch(`${DatabaseURLLists}/${listID}`, newShows);
 //export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);// old code here outdated code rip updates
 //export const editListName = (listID, newName) => axios.get(`${DatabaseURLLists}/${listID}`, newName);// need to find correct api call here this here is def wrong right?
