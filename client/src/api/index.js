@@ -7,13 +7,24 @@ const DatabaseURLLists = 'http://localhost:5000/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
 const key = StreamingAPIKey();
 const streamingService = 'netflix';
-const contentType = 'movie';
+const contentType = 'series';
 
 //Create a dropdown for service and type and send the data here
 
 
 export const fetchShows = () => axios.get(DatabaseURL);
-export const createShow = async (newShow) => {await axios.post(DatabaseURL, newShow);}
+export const fetchNineShows = async (type,page) => 
+{
+  try {
+    // const { data : { results } } = await axios.get(APIURL, options);
+    const { data } = await axios.get(`${DatabaseURL}/${type}/${page}`);
+    console.log(data);
+    return data;
+  } catch(error) {
+    console.log(error);
+  }
+}
+export const createShow = async (newShow) =>  axios.post(DatabaseURL, newShow);
 export const rateShow = (id) => axios.patch(`${DatabaseURL}/${id}/rateShow`);
 export const updateShow = (id, updatedShow) => axios.patch(`${DatabaseURL}/${id}`, updatedShow);
 export const deleteShow = (id) => axios.delete(`${DatabaseURL}/${id}`);
