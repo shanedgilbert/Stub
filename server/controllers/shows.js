@@ -18,16 +18,20 @@ export const getShows = async (req, res) => {
 export const getShow = async (req, res) => { 
     console.log(req.params.type)
     const { type } = req.params.type;
+    const  { service }  = req.params;
     const page = req.params.page
-   
+    
+
+
     try {
         if(page == 1)
         {
-            var show = await ShowContent.find({type : req.params.type}).limit(9);
+            var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9);
+           
         }
         else
         {
-            var show = await ShowContent.find({type : req.params.type}).limit(9).skip((page-1)*9);
+            var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9).skip((page-1)*9);
         }
         
         res.status(200).json(show);
@@ -49,7 +53,13 @@ export const createShow = async (req, res) =>
         if(!foundShow) //if show is not found in database
         {
             const { imdbID, title, overview, year, imdbRating, tags, posterURLs, userRating, streamingInfo, runtime, originalTitle, genres, backdropURLs, cast, significants, tagline,  } = req.body;
-            const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURLs, userRating, streamingInfo, runtime, originalTitle, genres, backdropURLs, cast, significants, tagline  })
+           
+            const service = [];
+            Object.keys(req.body.streamingInfo).forEach(function pushAndCreate(element) {
+              service.push(element)
+            },this);
+
+            const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURLs, userRating, streamingInfo, runtime, originalTitle, genres, backdropURLs, cast, significants, tagline, service  })
             await newShowContent.save();
             console.log('if', newShowContent.title);
             //console.log('if', Object.keys(newShowContent.streamingInfo)[0]);
