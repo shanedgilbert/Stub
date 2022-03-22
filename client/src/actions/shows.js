@@ -12,9 +12,9 @@ export const getShows = () => async (dispatch) => {
   }
 };
 
-export const getShow = (type, page) => async (dispatch) => {
+export const getShow = (type, service, page) => async (dispatch) => {
   try {
-    const { data } = await api.fetchNineShows(type,page);
+    const { data } = await api.fetchNineShows(type, service, page);
 
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
