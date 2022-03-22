@@ -7,13 +7,27 @@ const postSchema = mongoose.Schema({
     year: Number,
     imdbRating: Number,
     tags: [String],
-    posterURL: String,
+    streamingInfo: {type: mongoose.Mixed},
+    posterURLs: {type: Map, of: String},
     userRating: {
         type: Number,
         default: 0,
     },
+    runtime: Number,
+    originalTitle: String,
+    genres: [Number],
+    backdropURLs: {type: Map, of: String},
+    cast: [String],
+    significants: [String],
+    tagline: String,
+    type: {
+        type: String,
+        default: 'series'
+    }
+
 })
 
 var ShowContent = mongoose.model('ShowContent', postSchema);
 
 export default ShowContent;
+

@@ -4,30 +4,30 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Shows from '../../components/Shows/Shows';
 import { createShow, getShowsData } from '../../api/index';
-
+let page = 1;
+let showCount = 0;
 function DevPage() {
 
     //SHOW TESTING
     ////////////////////////////////////////////////////////////////////////////////////////
     const [isLoading, setIsLoading] = useState();
     const [shows, setShows] = useState([]);
-    let page = useRef();
+    
     const ref = useRef();
 
     async function loadMoreShows() 
   {
-    console.log('page', page.current)
-    if(page.current > 1)
-    {
-      setIsLoading(true);
-    }
-    console.log('load more shows!')
-    await getShowsData(page.current)
+    console.log('page', page)
+    await getShowsData(page)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
+          console.log(element)
+          console.log(element.title)
           moreShows.push(element) 
           createShow(element)
+          showCount = showCount +1;
+          console.log('showCount:', showCount);
         },this);
         //console.log(moreShows)
         
@@ -35,44 +35,28 @@ function DevPage() {
         //console.log(shows)
 
         //console.log(data)
-      });
-      page.current = page.current + 1;
-      setIsLoading(false);     
+      });    
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting)
-      {
-        if(page.current != 1)
-        {
-          console.log('observed')
-          loadMoreShows();
-        }
-      }
-    }
-    )
-  
-  },
-    { rootMargin: '100px' }
-  )
+
 
 
 
   
   useEffect(() => 
   {
-    if(page.current == null)
-    {
-      page.current = 1;
-      console.log('first load')
-      loadMoreShows();
-    }
-      if(ref.current)
-      {
-        observer.observe(ref.current)
-      }
+       try
+       {
+       loadMoreShows();
+       page = page+1;
+       setTimeout(10000);
+       }
+       catch(error)
+       {
+         console.log(error);
+       }
+     
   
-  }, [ref]);
+  });
   ////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -82,7 +66,7 @@ function DevPage() {
         <Container className="homeLists">
                   <Grid container justify="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12}>
-                      <Shows ShowsArray = {shows} />
+              
                     </Grid>
                   </Grid>
                   </Container>

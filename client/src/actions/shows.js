@@ -12,10 +12,20 @@ export const getShows = () => async (dispatch) => {
   }
 };
 
+export const getShow = (type, page) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchNineShows(type,page);
+
+    dispatch({ type: FETCH_ALL, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const createShow = (show) => async (dispatch) => {
   try {
     const { data } = await api.createShow(show);
-
+    console.log('cccc')
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
     console.log(error.message);
