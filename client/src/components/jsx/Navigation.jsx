@@ -2,13 +2,12 @@ import React,{setState} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import stublogo from '../../images/stublogo.png';
 import useStyles from './styles';
-import Login from './Login'
+import Login from './Login';
 import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
+import './Navigation.css';
 
 function Navigation({LoggedInState, setLoggedIn}) {
   const classes = useStyles();
-
-
 
   const getProfile = () =>
   {
@@ -19,7 +18,7 @@ function Navigation({LoggedInState, setLoggedIn}) {
   }
   return (
     <div className="navigation">
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="navbar navbar-expand navbar-dark navStyling">
         <div className="container">
           <img className={classes.image} src={stublogo} alt="icon" height="60" />
           <NavLink className="navbar-brand" to="/">
