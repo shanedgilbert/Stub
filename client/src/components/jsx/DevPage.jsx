@@ -5,6 +5,7 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Shows from '../../components/Shows/Shows';
 import { createShow, getShowsData } from '../../api/index';
 let page = 1;
+let showCount = 0;
 function DevPage() {
 
     //SHOW TESTING
@@ -25,6 +26,8 @@ function DevPage() {
           console.log(element.title)
           moreShows.push(element) 
           createShow(element)
+          showCount = showCount +1;
+          console.log('showCount:', showCount);
         },this);
         //console.log(moreShows)
         
@@ -41,10 +44,16 @@ function DevPage() {
   
   useEffect(() => 
   {
-  
+       try
+       {
        loadMoreShows();
        page = page+1;
        setTimeout(10000);
+       }
+       catch(error)
+       {
+         console.log(error);
+       }
      
   
   });
@@ -57,7 +66,7 @@ function DevPage() {
         <Container className="homeLists">
                   <Grid container justify="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12}>
-                      <Shows ShowsArray = {shows} />
+              
                     </Grid>
                   </Grid>
                   </Container>
