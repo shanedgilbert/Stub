@@ -7,6 +7,7 @@ import {addToList} from "../../../actions/shows";
 import { fetchLists } from "../../../api";
 import genreNames from "../genre";
 import imdbLogo from "../../../images/imdblogo.png";
+import {getLocalUser} from "../../../actions/login";
 
 
 const Modal = props => {
@@ -32,7 +33,10 @@ const Modal = props => {
         }
       })
     }
-    getList();
+    if (getLocalUser() != null)
+    {
+      getList();
+    }
 
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
     return function cleanup() {
@@ -101,7 +105,7 @@ const Modal = props => {
           <p>{props.children}</p>
           </div>
           <div className="modal-footer">
-
+          {!(getLocalUser() == null) ?
             <div className = "dropdown">
               <div className = "editMenuContent">
                   {/* {console.log(genreNames[props.showInfo.genres])} */}
@@ -113,7 +117,7 @@ const Modal = props => {
                 </div>
               <button className = "editButton">Add To List</button>
             </div>
-
+          :null} 
           </div>
         </div>
       </div>

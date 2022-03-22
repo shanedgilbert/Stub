@@ -23,6 +23,7 @@ export const getLocalUser = () =>
 export const setLocalUser = (userData) => 
 {
   localStorage.setItem('userLoginData', JSON.stringify(userData));
+  window.location.reload(true);
 }
 
 export const isLoggedIn = () =>
