@@ -89,8 +89,8 @@ const Modal = props => {
                     'apple' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://cdn.iconscout.com/icon/free/png-256/apple-tv-1859952-1575940.png" alt="streaming logo" width="30"></img></a></h2>
                   }[props.service]
                 }
-                <h3 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h3>
-                <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID}><img src={imdbLogo} alt="imdb logo" width="50px"></img></a>
+                <h5 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h5>
+                <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID}><img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a>
               </div>
               <p><b>Release Date: </b>{props.date} <b>Runtime: </b> {props.runtime} minutes</p>
               <p>{props.overview}</p>
