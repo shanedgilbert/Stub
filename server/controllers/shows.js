@@ -18,17 +18,14 @@ export const getShows = async (req, res) => {
 
 export const getShow = async (req, res) => 
 { 
-    console.log(req.params.type)
     const { type } = req.params.type;
     const  { service }  = req.params;
     const { sort } = req.params;
     const page = req.params.page
-    console.log(sort)
     try 
     {
         if(sort == 'true')
         {
-            console.log('sort is true!!')
             if(page == 1)
             {
                 var show = await ShowContent.find({type : req.params.type, service: req.params.service}).sort({imdbRating: -1, _id: 1}).limit(9);
@@ -40,7 +37,6 @@ export const getShow = async (req, res) =>
         }
         else
         {
-            console.log('sort is false!!')
              if(page == 1)
             {
                 var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9);
