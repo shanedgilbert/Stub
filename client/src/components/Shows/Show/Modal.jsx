@@ -92,7 +92,12 @@ const Modal = props => {
                 <h5 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h5>
                 <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID}><img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a>
               </div>
-              <p><b>Release Date: </b>{props.date} <b>Runtime: </b> {props.runtime} minutes</p>
+              {
+                {
+                  'movie' : <p><b>Release Date: </b>{props.date} <b>Runtime: </b> {props.runtime} minutes</p>,
+                  'series': ''
+                }[props.type]
+              }
               <p>{props.overview}</p>
             </td>
             <td className="modalInfo">

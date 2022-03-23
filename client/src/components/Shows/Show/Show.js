@@ -58,6 +58,7 @@ const Show = ({ show, service }) => {
         cast = {show.cast}
         link = {getServiceLink(show)}
         showInfo = {show}
+        type = {show.type}
         />
       </Card>
   );
