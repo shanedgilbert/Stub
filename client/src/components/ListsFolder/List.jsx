@@ -7,6 +7,10 @@ import {deleteList} from '../../actions/lists.js';
 import {updateList} from '../../actions/lists.js';
 import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
+import { getThemeProps } from '@material-ui/styles';
+
+import white from '../../images/white.jpeg';
+import axios from 'axios';
 //import { editListName } from '../../api';
 
 function List(prop){
@@ -26,12 +30,50 @@ function List(prop){
     dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
   }
 
-    return (
+  function CreatePoster(prop){
+    console.log(prop.shows)
+    return <img className='listImagePosters' src={prop.shows[prop.i].showInfo.posterURLs.original} alt="movie poster"></img>
+  }
 
+
+  function getListImages(shows){
+    console.log("djakhjfaesjjaf")
+    console.log(shows)
+    if(shows.length >= 1){
+      if(3===shows.length){
+        return (<><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {1} shows = {prop.shows} /><CreatePoster i = {2} shows = {prop.shows} /></>)
+      }
+      else if(2===shows.length){
+        return (<><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {1} shows = {prop.shows} /><CreatePoster i = {0} shows = {prop.shows} /></>)
+      }
+      else if(1===shows.length){
+        return (<><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {0} shows = {prop.shows} /></>)
+      }
+      
+    }
+    else{
+      return (<img className='listImagePosters' src={white} alt="blank image"></img>)
+    }
+    console.log('hello')
+    // console.log("posters: "+imagePosters)
+      
+  }
+
+
+  // console.log("testing "+ JSON.stringify(prop.shows[0].showInfo))
+
+    return (
+        
         <div className="listButton">
         <Link to={"/lists/"+prop.name}>
           <div className="listHeaderDiv">
-          <h3 className="listHeader">{prop.name}</h3>
+            <div className='listButtonImages'>
+              {getListImages(prop.shows)}
+            </div>
+            
+            <div className='listName'>
+              <h1 className="listHeader">{prop.name}</h1>
+            </div>
           </div>
           </Link>
           <div className="listItem">

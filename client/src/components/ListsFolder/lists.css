@@ -16,11 +16,12 @@
   background-color: #9F2D4D;
   margin: 20px 40px;
   border-radius: 10px;
-  height: 60px;
+  display: flex;
+  /* height: 60px; */
 }
 
 .listHeaderDiv{
-  display: inline;
+  /* display: inline; */
 }
 
 .dropdown {
@@ -141,4 +142,16 @@
 }
 .taglineMovie{
   font-size: 15px;
+}
+
+.listButtonImages{
+  width: 300px;
+}
+
+.listImagePosters{
+  /* padding-right: 30px; */
+  float: left;
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
 }
