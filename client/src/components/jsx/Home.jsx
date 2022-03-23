@@ -12,8 +12,8 @@ function Home(){
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState();
   const [contentType, setContentType] = useState('series'); //movie or series
-  const [service, setService] = useState('paramount'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
-
+  const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
+  const [sort, setSort] = useState(true);
   //Create a dropdown for service and type and send the data to api call
   let page = useRef();
   const ref = useRef();
@@ -26,7 +26,7 @@ function Home(){
       setIsLoading(true);
     }
     console.log(page.current);
-    await fetchNineShows(contentType, service, page.current)
+    await fetchNineShows(contentType, service, sort, page.current)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
