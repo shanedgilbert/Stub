@@ -1,3 +1,6 @@
-.navStyling {
+.nav-styling {
     background-color: #222831;
+}
+.navbar-right {
+    float: right;
 }

@@ -5,6 +5,7 @@ import useStyles from './styles';
 import Login from './Login';
 import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
 import './Navigation.css';
+import { Nav, Navbar, Container } from "react-bootstrap"
 
 function Navigation({LoggedInState, setLoggedIn}) {
   const classes = useStyles();
@@ -17,44 +18,22 @@ function Navigation({LoggedInState, setLoggedIn}) {
     )
   }
   return (
-    <div className="navigation">
-      <nav className="navbar navbar-expand navbar-dark navStyling">
-        <div className="container">
+    <Navbar className="nav-styling" variant="dark" expand="lg">
+      <Container>
+        <Nav>
           <img className={classes.image} src={stublogo} alt="icon" height="60" />
-          <NavLink className="navbar-brand" to="/">
-            Stub
-          </NavLink>
-          <div>
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/">
-                  Home
-                  <span className="sr-only">(current)</span>
-                </NavLink>
-              </li>
-              {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/lists">
-                  Lists
-                </NavLink>
-              </li> :false }
-              {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/settings">
-                  Settings
-                </NavLink>
-              </li> :false }
-              {LoggedInState ? <li className="nav-item">
-              <NavLink className="nav-link" to="/logout">
-                  Log Out
-                </NavLink>
-              </li> :false }
-                 <li className="nav-item">
-                 {LoggedInState ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>}
-              </li> 
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+        </Nav>
+        <Navbar.Brand href="/">Stub</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="me-auto navbar-right">
+            {LoggedInState ? <Nav.Link href="/lists">Lists</Nav.Link> : false}
+            {LoggedInState ? <Nav.Link href="/logout">Logout</Nav.Link> : false}
+            {LoggedInState ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
