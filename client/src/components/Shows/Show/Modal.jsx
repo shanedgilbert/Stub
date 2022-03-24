@@ -172,7 +172,7 @@ const Modal = props => {
                   {/* {console.log(genreNames[props.showInfo.genres])} */}
                   {lists.map((listItem, index) => {
                     return (
-                      <button key = {listItem} className = "dropdownLink" onClick={() => handleAddToList(props, listItem._id)}>Add to {listItem.name}</button>
+                      <button key = {listItem._id} className = "dropdownLink" onClick={() => handleAddToList(props, listItem._id)}>Add to {listItem.name}</button>
                     )
                   })}
                 </div>
