@@ -31,7 +31,7 @@ export default makeStyles(() => ({
   addListButtonDropDown: {
     height: '100%',
     width: '400%',
-    background: '#343a40',
+    background: '#222831',
     float: 'right',
     justifyContent: 'center',
     position: 'relative',

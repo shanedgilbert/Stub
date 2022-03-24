@@ -39,6 +39,7 @@ export const editListName = (listID, newListName) => async(dispatch) =>{
         console.log("list.js in ACTIONS: "+ listID + " new name: " + newListName);
         const data = await api.editListName(listID, newListName);
         dispatch({type: EDIT, payload: data});
+        //reload page here
     }
     catch(error) {
         console.log('ACTIONS/LIST EDITLIST(): ' + error.message);
