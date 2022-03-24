@@ -86,14 +86,17 @@ export const removeListShow = async (listID, showRemove) => {
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list => {
     if (list._id === listID) {
+      var tempArray = [];
       //console.log("List" + list._id + " removes" + showRemove.showInfo._id);
       list.shows.map(currShow => {
-        var tempArray = [];
-        if(currShow.showInfo._id != showRemove)
+        console.log(currShow.showInfo._id + " === " + showRemove);
+        if(currShow.showInfo._id !== showRemove)
         {
           tempArray.push(currShow);
+          console.log("add");
         }
         list.shows = tempArray;
+        console.log(list.shows);
       })
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
       console.log("Show removed!");

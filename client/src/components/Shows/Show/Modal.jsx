@@ -23,16 +23,6 @@ const Modal = props => {
   };
 
   useEffect(() => {
-    async function getList() {
-      const listGet = await fetchLists();
-      var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
-      listGet.data.forEach(async listElement => {
-        if (listElement.ownerID === userID)
-        {
-          lists.push(listElement);
-        }
-      })
-    }
     if (getLocalUser() != null)
     {
       getList();
@@ -44,10 +34,36 @@ const Modal = props => {
     };
   }, []);
 
+  async function getList() {
+
+    console.log("GET LIST");
+    var tempList = [];
+    const listGet = await fetchLists();
+    var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
+    listGet.data.forEach(async listElement => {
+      if (listElement.ownerID === userID)
+      {
+        var addList = true;
+        listElement.shows.map(currShow => {
+          if (currShow.title === props.title)
+          {
+            addList = false;
+            console.log("DON'T ADD LIST: " + listElement.name + ", " + props.title)
+          }
+        })
+        if (addList == true)
+        {
+          tempList.push(listElement);
+        }
+      }
+    })
+    setLists(tempList);
+  }
 
   //ADD SHOW TO LIST
   const handleAddToList = (show, listID) => {
-    dispatch(addToList(show, listID));
+    dispatch(addToList(show, listID))
+    .then(getList())
   }
 
   function findMovieGenres(genre){
