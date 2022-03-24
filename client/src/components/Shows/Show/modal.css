@@ -25,7 +25,7 @@
 
 .modal-content {
   width: 900px;
-  background-color: #343a40;
+  background-color: #222831;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
 }
@@ -77,11 +77,14 @@
     right: 0px;
 }
 
-.streamingLink{
+.streamingLink {
   background-color: #4B4C4D;
 }
 
-
+.imdbLogo {
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+}
 /*
 ADDING TO LISTS
 */

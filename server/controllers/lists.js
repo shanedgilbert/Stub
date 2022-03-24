@@ -98,4 +98,8 @@ export const addListShow = async (req, res) => {
     res.json({ message: "Show added successfully"});
 }
 
+export const removeListShow = async(req, res) => {
+    const {id} = req.params;
+}
+
 export default router;

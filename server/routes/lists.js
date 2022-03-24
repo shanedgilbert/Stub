@@ -1,6 +1,6 @@
 import express from 'express';
 //import { editListName } from '../../client/src/api/index.js';
-import { getLists, getList, createList, updateList, deleteList, editListName, addListShow } from '../controllers/lists.js';
+import { getLists, getList, createList, updateList, deleteList, editListName, addListShow, removeListShow } from '../controllers/lists.js';
 
 const router = express.Router();
 
@@ -13,6 +13,7 @@ router.delete('/:id', deleteList)
 //  /:listID
 //router.get('/:id', getList);
 router.patch('/:id', addListShow);
+router.patch('/id', removeListShow);
 router.patch('/:id', editListName);
 //router.delete('/:id', deleteList);
 

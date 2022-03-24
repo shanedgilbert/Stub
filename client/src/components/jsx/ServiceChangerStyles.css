@@ -1,11 +1,12 @@
-.selectorContainer {
-}
 .selectorDropdown {
     float: left !important;
     padding-right: 1rem;
 }
+.selectorDropdown button {
+  background-color: #222831;
+}
 .dropdownMenu {
-  background-color: #343a40;
+  background-color: #393e46;
 }
 .dropdownMenu a {
   color: white;
