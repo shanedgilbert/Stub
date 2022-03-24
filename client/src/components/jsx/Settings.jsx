@@ -19,21 +19,27 @@ function Settings() {
 
   useEffect(() => {
     async function getListShows() {
-      var URL = decodeURI(window.location.href).split("/");
-      const listGet = await fetchLists();
-      var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
-      listGet.data.forEach(listElement => {
-        if (listElement.ownerID === userID && listElement.name === URL[4]) {
-          setPageList(listElement);
-          if (listElement.shows == null) {
-            console.log("NULL");
-            setShows([]);
+      try {
+        var URL = decodeURI(window.location.href).split("/");
+        const listGet = await fetchLists();
+        var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
+        listGet.data.forEach(listElement => {
+          if (listElement.ownerID === userID && listElement.name === URL[4]) {
+            setPageList(listElement);
+            if (listElement.shows == null) {
+              console.log("NULL");
+              setShows([]);
+            }
+            else {
+              setShows(listElement.shows);
+            }
           }
-          else {
-            setShows(listElement.shows);
-          }
-        }
-      })
+        })
+      }
+      catch (error)
+      {
+        console.log(error.message);
+      }
     }
     getListShows();
   }, [shows]);
