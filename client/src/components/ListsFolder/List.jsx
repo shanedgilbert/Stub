@@ -19,6 +19,7 @@ function List(prop){
   const handleEdit = (payload, e) => {
     console.log("List.jsx update fn" + payload + " E: " + e);
     dispatch(editListName(payload, e));
+    window.location.reload(false);//code here refreshes
   }
 
   const handleAddShow = () => {
@@ -46,5 +47,19 @@ function List(prop){
         </div>
   );
 }
-
+  // <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handle_submit}>
+  //     <div className = {classes.addListButton}>
+  //         <div class = 'dropdown'>
+  //             <div class = 'addListContent'>
+  //                 <div className = {classes.addListButtonDropDown}>
+  //                     <TextField className = {classes.addListTextField} style = {{margin: '5% 10%'}} name = "name" variant = "filled" label = "List Name" margin = "normal" InputLabel inputlabelprops = {{ shrink: true}} required value = {prop._id} onChange = {(e) => name}/>
+  //                     <Button className = {classes.addListSubmit} variant = "contained" size = "large" type = "submit">
+  //                         Submit
+  //                     </Button>
+  //                 </div>
+  //             </div>
+  //         </div>
+  //     </div>
+ //</form>
+ 
 export default List;
