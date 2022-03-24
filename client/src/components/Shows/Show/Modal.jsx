@@ -74,23 +74,63 @@ const Modal = props => {
             <img src={props.movieImage} alt={props.title} width="899px"></img>
           </div>
           <tr className="modalTable">
-          
             <td className="modalOverview">
               <div className="modal-title-div">
                 {
                   {
-                    'netflix': <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" alt="streaming logo" width="30"></img></a></h2>,
-                    'prime' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://www.pngfind.com/pngs/m/394-3944103_amazon-prime-video-logo-png-transparent-png.png" alt="streaming logo" width="30"></img></a></h2>,
-                    'disney' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://cdn.icon-icons.com/icons2/2657/PNG/256/disney_plus_icon_161064.png" alt="streaming logo" width="30"></img></a></h2>,
-                    'hbo' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://cdn-icons-png.flaticon.com/512/5968/5968668.png" alt="streaming logo" width="30"></img></a></h2>,
-                    'hulu' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38688/preview.svg" alt="streaming logo" width="30"></img></a></h2>,
-                    'peacock' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://play-lh.googleusercontent.com/IdHOrlnq_yC9w5NGHollnGnunojuEW1_-8g32VaETN3kkXkTOTi001XN2TBykRC3Tg" alt="streaming logo" width="30"></img></a></h2>,
-                    'paramount' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://cdn.mos.cms.futurecdn.net/UFo74BuGo7FYxhAE3DrWUP.jpg" alt="streaming logo" width="30"></img></a></h2>,
-                    'apple' : <h2 className="modal-title">{props.title} <a href={props.link}><img className="streamingLink" src="https://cdn.iconscout.com/icon/free/png-256/apple-tv-1859952-1575940.png" alt="streaming logo" width="30"></img></a></h2>
+                    'netflix': 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                        src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" 
+                        alt="netflix logo" width="30"></img></a></h2>,
+                    'prime' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                        src="https://www.pngfind.com/pngs/m/394-3944103_amazon-prime-video-logo-png-transparent-png.png" 
+                        alt="prime video logo" width="30"></img></a></h2>,
+                    'disney' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                          src="https://cdn.icon-icons.com/icons2/2657/PNG/256/disney_plus_icon_161064.png" 
+                          alt="disney logo" width="30"></img></a></h2>,
+                    'hbo' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                          src="https://cdn-icons-png.flaticon.com/512/5968/5968668.png" 
+                          alt="hbo logo" width="30"></img></a></h2>,
+                    'hulu' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                        src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38688/preview.svg" 
+                        alt="hulu logo" width="30"></img></a></h2>,
+                    'peacock' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                        src="https://play-lh.googleusercontent.com/IdHOrlnq_yC9w5NGHollnGnunojuEW1_-8g32VaETN3kkXkTOTi001XN2TBykRC3Tg" 
+                        alt="peacock logo" width="30"></img></a></h2>,
+                    'paramount' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                        src="https://cdn.mos.cms.futurecdn.net/UFo74BuGo7FYxhAE3DrWUP.jpg" 
+                        alt="paramount logo" width="30"></img></a></h2>,
+                    'apple' : 
+                      <h2 className="modal-title">{props.title} 
+                      <a href={props.link} target="_blank">
+                        <img className="streamingLink" 
+                        src="https://cdn.iconscout.com/icon/free/png-256/apple-tv-1859952-1575940.png" 
+                        alt="apple logo" width="30"></img></a></h2>
                   }[props.service]
                 }
                 <h5 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h5>
-                <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID}><img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a>
+                <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID} target="_blank">
+                  <img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a>
               </div>
               {
                 {
