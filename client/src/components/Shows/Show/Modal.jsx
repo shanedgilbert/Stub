@@ -74,7 +74,6 @@ const Modal = props => {
             <img src={props.movieImage} alt={props.title} width="899px"></img>
           </div>
           <tr className="modalTable">
-          
             <td className="modalOverview">
               <div className="modal-title-div">
                 {

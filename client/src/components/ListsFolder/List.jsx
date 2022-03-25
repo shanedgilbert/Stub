@@ -52,7 +52,13 @@ function List(prop){
       
     }
     else{
-      return (<img className='listImagePosters' src={white} alt="blank image"></img>)
+      return (
+      <>
+      <img className='listImagePosters' src={white} alt="blank image"></img>
+      <img className='listImagePosters' src={white} alt="blank image"></img>
+      <img className='listImagePosters' src={white} alt="blank image"></img>
+      </>
+      )
     }
     console.log('hello')
     // console.log("posters: "+imagePosters)
@@ -65,26 +71,26 @@ function List(prop){
     return (
         
         <div className="listButton">
-        <Link to={"/lists/"+prop.name}>
-          <div className="listHeaderDiv">
-            <div className='listButtonImages'>
-              {getListImages(prop.shows)}
-            </div>
-            
-            <div className='listName'>
+          <Link className="link-list" to={"/lists/"+prop.name}>
+            <div className="areaOfButton">
+              <div className="listHeaderDiv">
+                  <div className='listButtonImages'>
+                    {getListImages(prop.shows)}
+                  </div>
+              </div>
               <h1 className="listHeader">{prop.name}</h1>
             </div>
-          </div>
+              
           </Link>
-          <div className="listItem">
-            <div className="dropdown">
-              <button className ="editButton">dropdown</button>
-              <div className="editMenuContent">
-                <button className="dropdownLink" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
-                <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
+            <div className="listItem">
+              <div className="dropdown">
+                <button className ="editButton">v</button>
+                <div className="editMenuContent">
+                  <button className="dropdownLink" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
+                  <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
+                </div>
               </div>
             </div>
-          </div>
         </div>
   );
 }

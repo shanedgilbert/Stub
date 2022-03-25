@@ -23,7 +23,7 @@ const Lists = ({ListsArray}) => {
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {currentLists.map((list) => (
                     list.ownerID !== JSON.parse(localStorage.getItem('userLoginData')).id ? null :
-                        <Grid /*ref={list} key={i}*/ item xs={12} sm={12} md={12}>
+                        <Grid item xs={12} sm={12} md={12}>
                             <List list={list}/>
                         </Grid>
                 ))}            
