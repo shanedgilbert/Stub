@@ -40,7 +40,7 @@ function List(prop){
     console.log("djakhjfaesjjaf")
     console.log(shows)
     if(shows.length >= 1){
-      if(3===shows.length){
+      if(3<=shows.length){
         return (<>
           <CreatePoster i = {0} shows = {prop.shows} />
           <CreatePoster i = {1} shows = {prop.shows} />
