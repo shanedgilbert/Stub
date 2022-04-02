@@ -41,13 +41,25 @@ function List(prop){
     console.log(shows)
     if(shows.length >= 1){
       if(3===shows.length){
-        return (<><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {1} shows = {prop.shows} /><CreatePoster i = {2} shows = {prop.shows} /></>)
+        return (<>
+          <CreatePoster i = {0} shows = {prop.shows} />
+          <CreatePoster i = {1} shows = {prop.shows} />
+          <CreatePoster i = {2} shows = {prop.shows} />
+        </>)
       }
       else if(2===shows.length){
-        return (<><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {1} shows = {prop.shows} /><CreatePoster i = {0} shows = {prop.shows} /></>)
+        return (<>
+          <CreatePoster i = {0} shows = {prop.shows} />
+          <CreatePoster i = {1} shows = {prop.shows} />
+          <CreatePoster i = {0} shows = {prop.shows} />
+        </>)
       }
       else if(1===shows.length){
-        return (<><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {0} shows = {prop.shows} /><CreatePoster i = {0} shows = {prop.shows} /></>)
+        return (<>
+          <CreatePoster i = {0} shows = {prop.shows} />
+          <CreatePoster i = {0} shows = {prop.shows} />
+          <CreatePoster i = {0} shows = {prop.shows} />
+        </>)
       }
       
     }
@@ -60,7 +72,6 @@ function List(prop){
       </>
       )
     }
-    console.log('hello')
     // console.log("posters: "+imagePosters)
       
   }
