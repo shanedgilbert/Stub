@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, AppBar, Typography, Grow, Grid, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import { Navigation } from '.';
 import { createShow, getShowsData, fetchNineShows, fetchShows } from '../../api/index';
-import ServiceChanger from './ServiceChanger';
 import './loader.css'
 function Home(){
   const classes = useStyles();
@@ -18,14 +17,11 @@ function Home(){
   let page = useRef();
   const ref = useRef();
   
-  async function loadMoreShows()
-
-  {
+  async function loadMoreShows() {
     if(page.current > 2)
     {
       setIsLoading(true);
     }
-    console.log(page.current);
     await fetchNineShows(contentType, service, sort, page.current)
       .then((data) => {
         const moreShows = [];
@@ -41,55 +37,67 @@ function Home(){
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if(entry.isIntersecting)
-      {
+      if(entry.isIntersecting) {
         if(page.current > 2)
         {
           loadMoreShows();
         }
       }
-    }
-    )
+    })
   },
     { rootMargin: '100px' }
   )
 
   useEffect(() => 
   {
-
-    if(page.current == null)
-    {
+    if(page.current == null) {
       page.current = 1;   //Pre-fills home page with first page of api calls
       loadMoreShows();
     }
-    if(page.current == 1) 
-    {
+    if(page.current == 1) {
       page.current += 1;  //Pre-fills home page with another set of api calls
       
       loadMoreShows();
     }
-      if(ref.current)
-      {
+      if(ref.current) {
         observer.observe(ref.current)
       }
-
   }, [ref]);
 
   return (
-   
     <div>
       <Grow in>
       <Container className="homeLists">
-      <ServiceChanger></ServiceChanger>
+      <div className="selectorContainer">
+      <FormControl>
+        <InputLabel>Service</InputLabel>
+        <Select id="service">
+          <MenuItem value="netflix">Netflix</MenuItem>
+          <MenuItem value="prime">Prime</MenuItem>
+          <MenuItem value="disney">Disney</MenuItem>
+          <MenuItem value="hbo">HBO</MenuItem>
+          <MenuItem value="hulu">Hulu</MenuItem>
+          <MenuItem value="peacock">Peacock</MenuItem>
+          <MenuItem value="paramount">Paramount</MenuItem>
+          <MenuItem value="apple">Apple</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl>
+        <InputLabel>Type</InputLabel>
+        <Select id="type">
+          <MenuItem value="movie">Movie</MenuItem>
+          <MenuItem value="show">Show</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
-            <Shows ShowsArray = {shows} service={service} />
+            <Shows ShowsArray={shows} service={service}/>
             </Grid>
           </Grid>
         </Container>
       </Grow>
       <div className={classes.loadingRoller} ref={ref}>{isLoading ? <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}</div>
-
     </div>
   );
 };
