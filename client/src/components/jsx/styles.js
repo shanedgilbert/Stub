@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
     margin: '30px 0',
-    display: 'flex',
+    display: 'flex', 
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -57,5 +57,12 @@ export default makeStyles(() => ({
     width: '100%',
     boxSizing: 'border-box',
     padding: '50px',
+  },
+  formControl: {
+    margin: theme.spacing(1), minWidth: 120, marginBottom: '30px',
+    color: 'white !important',
+  },
+  selectorContainer: {
+    paddingBottom: '0.5rem',
   },
 }));

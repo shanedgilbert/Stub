@@ -6,7 +6,8 @@ import useStyles from './styles';
 import { Navigation } from '.';
 import { createShow, getShowsData, fetchNineShows, fetchShows } from '../../api/index';
 import './loader.css'
-function Home(){
+
+function Home() {
   const classes = useStyles();
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState();
@@ -68,28 +69,28 @@ function Home(){
     <div>
       <Grow in>
       <Container className="homeLists">
-      <div className="selectorContainer">
-      <FormControl>
-        <InputLabel>Service</InputLabel>
-        <Select id="service">
-          <MenuItem value="netflix">Netflix</MenuItem>
-          <MenuItem value="prime">Prime</MenuItem>
-          <MenuItem value="disney">Disney</MenuItem>
-          <MenuItem value="hbo">HBO</MenuItem>
-          <MenuItem value="hulu">Hulu</MenuItem>
-          <MenuItem value="peacock">Peacock</MenuItem>
-          <MenuItem value="paramount">Paramount</MenuItem>
-          <MenuItem value="apple">Apple</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl>
-        <InputLabel>Type</InputLabel>
-        <Select id="type">
-          <MenuItem value="movie">Movie</MenuItem>
-          <MenuItem value="show">Show</MenuItem>
-        </Select>
-      </FormControl>
-    </div>
+      <div className={classes.selectorContainer}>
+        <FormControl className={classes.formControl}>
+          <InputLabel>Service</InputLabel>
+          <Select id="service" value={service} onChange={(e) => setService(e.target.value)}>
+            <MenuItem value="netflix">Netflix</MenuItem>
+            <MenuItem value="prime">Prime</MenuItem>
+            <MenuItem value="disney">Disney</MenuItem>
+            <MenuItem value="hbo">HBO</MenuItem>
+            <MenuItem value="hulu">Hulu</MenuItem>
+            <MenuItem value="peacock">Peacock</MenuItem>
+            <MenuItem value="paramount">Paramount</MenuItem>
+            <MenuItem value="apple">Apple</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <InputLabel>Type</InputLabel>
+          <Select id="contentType" value={contentType} onChange={(e) => setContentType(e.target.value)}>
+            <MenuItem value="movie">Movie</MenuItem>
+            <MenuItem value="series">Series</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
             <Shows ShowsArray={shows} service={service}/>
