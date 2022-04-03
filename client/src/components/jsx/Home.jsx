@@ -14,7 +14,7 @@ function Home() {
   const [contentType, setContentType] = useState('series'); //movie or series
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
   const [sort, setSort] = useState(true);
-  //Create a dropdown for service and type and send the data to api call
+  
   let page = useRef();
   const ref = useRef();
   
@@ -45,12 +45,9 @@ function Home() {
         }
       }
     })
-  },
-    { rootMargin: '100px' }
-  )
+  }, { rootMargin: '100px' })
 
-  useEffect(() => 
-  {
+  useEffect(() => {
     if(page.current == null) {
       page.current = 1;   //Pre-fills home page with first page of api calls
       loadMoreShows();

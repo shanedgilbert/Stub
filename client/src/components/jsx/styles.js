@@ -60,7 +60,6 @@ export default makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1), minWidth: 120, marginBottom: '30px',
-    color: 'white !important',
   },
   selectorContainer: {
     paddingBottom: '0.5rem',
