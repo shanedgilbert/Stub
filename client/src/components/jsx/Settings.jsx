@@ -53,11 +53,11 @@ function Settings() {
           key={index}
           id={index}
           imdbRating = {listItem.showInfo.imdbRating}
-          title={listItem.originalTitle}
+          title={listItem.showInfo.originalTitle}
           poster={listItem.showInfo.posterURLs.original}
-          date = {listItem.year}
-          tagline = {listItem.tagline}
-          overview = {listItem.overview}
+          date = {listItem.showInfo.year}
+          tagline = {listItem.showInfo.tagline}
+          overview = {listItem.showInfo.overview}
           cast = {listItem.cast.map((cast) => `${cast}, `)}
           showID = {listItem.showInfo._id}
           listID = {pageList._id}
