@@ -61,6 +61,7 @@ function Settings() {
           cast = {listItem.cast.map((cast) => `${cast}, `)}
           showID = {listItem.showInfo._id}
           listID = {pageList._id}
+          imdbid = {listItem.showInfo.imdbID}
         />
       );
     })}
