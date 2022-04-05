@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { useDispatch } from 'react-redux';
+import imdbLogo from '../../images/imdblogo.png'
 
 import { rateShow } from '../../actions/shows';
 import useStyles from '../Shows/Show/styles';
@@ -27,7 +28,8 @@ function ListContent(prop){
         </td>
         <td class="listMovieInfo">
           <p><b class="titleMovie">{prop.title}</b> {prop.date}</p>
-          <p>IMDB Rating: {prop.imdbRating/10}/10</p>
+          <p><a href={"https://www.imdb.com/title/"+prop.imdbid} target="_blank">
+                  <img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a> IMDB Rating: {prop.imdbRating/10}/10</p>
           <p><b>Cast:</b> {prop.cast}</p>
           <p><b>Overview:</b> {prop.overview}</p>
         </td>
