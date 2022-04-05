@@ -25,18 +25,20 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        {/* Parent route for url ".../lists" */}
         <Route
           path="/lists"
           element=
           {
             <PrivateRoute>
-              <ListAdder/>
               <Lists />
             </PrivateRoute>
           }
         > 
-        <Route path="" element={<ListsPage />} />
-        <Route path=":postSlug" element={<ListPage />} />
+          {/* Child route for if url ends with "/list" */}
+          <Route path="" element={<><ListAdder/><ListsPage /></>} />
+          {/* Child route for if url ends with "/list/..." */}
+          <Route path=":postSlug" element={<ListPage />} />
         </Route>
 
         <Route path = "/dev" element = {<DevPage/>}/>
