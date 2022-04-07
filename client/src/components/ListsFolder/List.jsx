@@ -8,6 +8,7 @@ import {editListName} from '../../actions/lists.js';
 import useStyles from './styles';
 //import { editListName } from '../../api';
 
+//note, function call here , but const in show.js, may be potential error/warning
 function List(prop){
 
   //2 variables below for handleEdit related code
