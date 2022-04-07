@@ -89,40 +89,49 @@
 ADDING TO LISTS
 */
 .dropdown {
+  display:block;
+  margin-top: 1px;
+  align-content: top;
   position: relative;
   float: right;
+  
   height: 100%;
 }
 
 .editButton{
   border: none;
+  width: 100%;
   height: 100%;
   cursor: pointer;
   border-radius: 10px;
+  font-size: 15px;
+  color: white;
+  background-color: rgb(193,18,31);
 }
 
-.editMenuContent{
+.editMenuContentModal{
   display: none;
   position: absolute;
-  background-color: white;
   width: 100%;
   max-width: fit-content;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+  background-color: #222831;
+  /*box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);*/
   z-index: 1;
 }
 
-.dropdownLink {
-  color: black;
+.dropdownLinkModal {
+  color:white;
+  background-color: rgb(193,18,31);
   text-decoration: none;
   display: block;
   margin-top: 3px;
   margin-bottom: 3px;
   margin-left: 5px;
   margin-right: 5px;
+  font-size: 15px;
 }
 
-.dropdownLink:hover {
-  color: black;
+.dropdownLinkModal:hover {
   text-decoration: none;
 }
 
@@ -132,6 +141,6 @@ ADDING TO LISTS
 }
 
 /* should be done in edit hover  */
-.dropdown:hover .editMenuContent {
+.dropdown:hover .editMenuContentModal {
   display: block;
 }

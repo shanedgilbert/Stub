@@ -8,6 +8,7 @@ import { fetchLists } from "../../../api";
 import genreNames from "../genre";
 import imdbLogo from "../../../images/imdblogo.png";
 import {getLocalUser} from "../../../actions/login";
+import ModalDropdown from "./ModalDropdown";
 
 
 const Modal = props => {
@@ -61,10 +62,12 @@ const Modal = props => {
   }
 
   //ADD SHOW TO LIST
+  /*
   const handleAddToList = (show, listID) => {
     dispatch(addToList(show, listID))
     .then(getList())
   }
+  */
 
   function findMovieGenres(genre){
     let movieGenres = []
@@ -99,7 +102,12 @@ const Modal = props => {
                       <a href={props.link} target="_blank">
                         <img className="streamingLink" 
                         src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-N-Symbol-logo-red-transparent-RGB-png.png" 
-                        alt="netflix logo" width="30"></img></a></h2>,
+                        alt="netflix logo" width="30"></img></a>
+                        <ModalDropdown
+                          props = {props}
+                          list = {lists}
+                        />
+                        </h2>,
                     'prime' : 
                       <h2 className="modal-title">{props.title} 
                       <a href={props.link} target="_blank">
@@ -144,6 +152,8 @@ const Modal = props => {
                         alt="apple logo" width="30"></img></a></h2>
                   }[props.service]
                 }
+                
+
                 <h5 className="modal-rating">IMDB: {imdbRatingNormalized}/10</h5>
                 <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID} target="_blank">
                   <img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a>
@@ -166,19 +176,7 @@ const Modal = props => {
           <p>{props.children}</p>
           </div>
           <div className="modal-footer">
-          {!(getLocalUser() == null) ?
-            <div className = "dropdown">
-              <div className = "editMenuContent">
-                  {/* {console.log(genreNames[props.showInfo.genres])} */}
-                  {lists.map((listItem, index) => {
-                    return (
-                      <button key = {listItem._id} className = "dropdownLink" onClick={() => handleAddToList(props, listItem._id)}>Add to {listItem.name}</button>
-                    )
-                  })}
-                </div>
-              <button className = "editButton">Add To List</button>
-            </div>
-          :null} 
+          
           </div>
         </div>
       </div>
