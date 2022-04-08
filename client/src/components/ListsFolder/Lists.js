@@ -1,8 +1,10 @@
 import React, {useState, useEffect, createRef} from 'react';
-import {Grid, CircularProgress} from '@material-ui/core';
+import {Grid, CircularProgress, Container} from '@material-ui/core';
+
 
 import List from './List/List.js';
 import useStyles from './styles';
+import "./lists.css";
 import { useSelector } from 'react-redux';
 
 const Lists = ({ListsArray}) => {
@@ -20,14 +22,17 @@ const Lists = ({ListsArray}) => {
         //REPLACE FIRST LINE IF WE WANT CIRCULAR LOADING BAR INSTEAD OF TEXT MESSAGE
         !currentLists.length ? <CircularProgress /> : (
         //!currentLists.length ? <div className={classes.listMessage}> Looks like you don't have any lists!</div> : (
-            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+            <Container className="homeLists">
+            <Grid className={classes.container} container justifyContent='space-between' alignItems='stretch' spacing={3}>
                 {currentLists.map((list) => (
                     list.ownerID !== JSON.parse(localStorage.getItem('userLoginData')).id ? null :
-                        <Grid item xs={12} sm={12} md={12}>
+                        <Grid item xs={12} sm={6} md={4} lg={4}className="listsLayout">
                             <List list={list}/>
                         </Grid>
                 ))}            
             </Grid>
+
+    </Container>
         )
     );
 };

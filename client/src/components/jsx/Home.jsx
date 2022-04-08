@@ -79,7 +79,7 @@ function Home(){
    
     <div>
       <Grow in>
-      <Container className="homeLists">
+      <Container>
       <ServiceChanger></ServiceChanger>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>

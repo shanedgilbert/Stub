@@ -8,6 +8,9 @@ import {updateList} from '../../actions/lists.js';
 import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
 import { getThemeProps } from '@material-ui/styles';
+import useStyles from './styles';
+
+import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 
 import white from '../../images/white.jpeg';
 import axios from 'axios';
@@ -15,6 +18,7 @@ import axios from 'axios';
 
 function List(prop){
 
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const handleDelete = (payload) => {
@@ -80,29 +84,31 @@ function List(prop){
   // console.log("testing "+ JSON.stringify(prop.shows[0].showInfo))
 
     return (
-        
-        <div className="listButton">
-          <Link className="link-list" to={"/lists/"+prop.name}>
-            <div className="areaOfButton">
-              <div className="listHeaderDiv">
-                  <div className='listButtonImages'>
-                    {getListImages(prop.shows)}
+        <Card className={classes.card}>
+          <div className="listButton">
+            <Link className="link-list" to={"/lists/"+prop.name}>
+              <div className="areaOfButton">
+                <div className="listHeaderDiv">
+                    <div className='listButtonImages'>
+                      {getListImages(prop.shows)}
+                    </div>
+                </div>
+                <h1 className="listHeader">{prop.name}</h1>
+                <div className="listItem">
+                <div className="dropdown">
+                  <button className ="editButton">edit</button>
+                  <div className="editMenuContent">
+                    <button className="dropdownLink" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
+                    <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
                   </div>
-              </div>
-              <h1 className="listHeader">{prop.name}</h1>
-            </div>
-              
-          </Link>
-            <div className="listItem">
-              <div className="dropdown">
-                <button className ="editButton">v</button>
-                <div className="editMenuContent">
-                  <button className="dropdownLink" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
-                  <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
                 </div>
               </div>
-            </div>
-        </div>
+              </div>
+                
+            </Link>
+              
+          </div>
+        </Card>
   );
 }
 
