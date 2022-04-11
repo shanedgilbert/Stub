@@ -13,7 +13,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState();
   const [contentType, setContentType] = useState('series'); //movie or series
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
-  const [sort, setSort] = useState(true);
+  const [sortType, setSortType] = useState('ratings');
   
   let page = useRef();
   const ref = useRef();
@@ -23,7 +23,7 @@ function Home() {
     {
       setIsLoading(true);
     }
-    await fetchNineShows(contentType, service, sort, page.current)
+    await fetchNineShows(contentType, service, page.current, sortType)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
