@@ -38,39 +38,39 @@ function Home() {
     setIsLoading(false);
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting) {
-        if(page.current > 2)
-        {
-          loadMoreShows();
-        }
-      }
-    })
-  }, { rootMargin: '100px' })
+
+
+
 
   useEffect(() => {
-    if(page.current == null) {
-      page.current = 1;   //Pre-fills home page with first page of api calls
-      loadMoreShows();
-    }
-    if(page.current == 1) {
-      page.current += 1;  //Pre-fills home page with another set of api calls
-      
-      loadMoreShows();
-    }
-      if(ref.current) {
-        observer.observe(ref.current)
-      }
-  }, [ref]);
 
-  useEffect(() => {
     setShows([]);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          if(page.current > 2)
+          {
+            loadMoreShows();
+          }
+        }
+      })
+    }, { rootMargin: '100px' })
     page.current = 1;
     loadMoreShows();
     page.current += 1;
     loadMoreShows();
-  }, [contentType, service])
+
+    if(ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => 
+    {
+      observer.disconnect()
+     observer.current = null
+    }
+
+  }, [contentType, service, ref])
 
   return (
     <div>
