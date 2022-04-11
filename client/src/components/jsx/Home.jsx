@@ -87,6 +87,14 @@ function Home() {
             <MenuItem value="series">Series</MenuItem>
           </Select>
         </FormControl>
+        <FormControl className={classes.formControl}>
+          <InputLabel>Sort</InputLabel>
+          <Select id="contentType" value={sortType} onChange={(e) => setSortType(e.target.value)}>
+            <MenuItem value="none">None</MenuItem>
+            <MenuItem value="ratings">Ratings</MenuItem>
+            <MenuItem value="name">Name</MenuItem>
+          </Select>
+        </FormControl>
       </div>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
