@@ -19,6 +19,8 @@ function Home() {
   const ref = useRef();
   
   async function loadMoreShows() {
+    console.log(page.current);
+    console.log(contentType);
     if(page.current > 2)
     {
       setIsLoading(true);
@@ -61,6 +63,14 @@ function Home() {
         observer.observe(ref.current)
       }
   }, [ref]);
+
+  useEffect(() => {
+    setShows([]);
+    page.current = 1;
+    loadMoreShows();
+    page.current += 1;
+    loadMoreShows();
+  }, [contentType, service])
 
   return (
     <div>
