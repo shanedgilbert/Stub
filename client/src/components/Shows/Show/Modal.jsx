@@ -37,7 +37,6 @@ const Modal = props => {
 
   async function getList() {
 
-    console.log("GET LIST");
     var tempList = [];
     const listGet = await fetchLists();
     var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
