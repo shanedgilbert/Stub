@@ -86,13 +86,15 @@ function List(prop){
     return (
         <Card className={classes.card}>
           <div className="listButton">
-            <Link className="link-list" to={"/lists/"+prop.name}>
+            
               <div className="areaOfButton">
+              <Link className="link-list" to={"/lists/"+prop.name}>
                 <div className="listHeaderDiv">
                     <div className='listButtonImages'>
                       {getListImages(prop.shows)}
                     </div>
                 </div>
+              </Link>
                 <h1 className="listHeader">{prop.name}</h1>
                 <div className="listItem">
                 <div className="dropdown">
@@ -105,7 +107,7 @@ function List(prop){
               </div>
               </div>
                 
-            </Link>
+            
               
           </div>
         </Card>
