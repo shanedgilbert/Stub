@@ -13,7 +13,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState();
   const [contentType, setContentType] = useState('series'); //movie or series
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
-  const [sort, setSort] = useState(true);
+  const [sortType, setSortType] = useState('ratings');
   
   let page = useRef();
   const ref = useRef();
@@ -23,7 +23,7 @@ function Home() {
     {
       setIsLoading(true);
     }
-    await fetchNineShows(contentType, service, sort, page.current)
+    await fetchNineShows(contentType, service, page.current, sortType)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
@@ -92,6 +92,14 @@ function Home() {
           <Select id="contentType" value={contentType} onChange={(e) => setContentType(e.target.value)}>
             <MenuItem value="movie">Movie</MenuItem>
             <MenuItem value="series">Series</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <InputLabel>Sort</InputLabel>
+          <Select id="contentType" value={sortType} onChange={(e) => setSortType(e.target.value)}>
+            <MenuItem value="none">None</MenuItem>
+            <MenuItem value="ratings">Ratings</MenuItem>
+            <MenuItem value="name">Name</MenuItem>
           </Select>
         </FormControl>
       </div>

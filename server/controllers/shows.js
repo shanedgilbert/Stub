@@ -20,11 +20,11 @@ export const getShow = async (req, res) =>
 { 
     const { type } = req.params.type;
     const  { service }  = req.params;
-    const { sort } = req.params;
+    const { sortType } = req.params;
     const page = req.params.page
     try 
     {
-        if(sort == 'true')
+        if(sortType == 'ratings')
         {
             if(page == 1)
             {
@@ -34,6 +34,18 @@ export const getShow = async (req, res) =>
             {
                 var show = await ShowContent.find({type : req.params.type, service: req.params.service}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
             }
+        }
+        else if(sortType == 'name')
+        {
+            if(page == 1)
+            {
+                var show = await ShowContent.find({type : req.params.type, service: req.params.service}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
+            }
+            else
+            {
+                var show = await ShowContent.find({type : req.params.type, service: req.params.service}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
+            }
+          
         }
         else
         {
