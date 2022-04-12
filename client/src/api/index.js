@@ -16,10 +16,13 @@ export const fetchShows = () => axios.get(DatabaseURL);
 export const fetchNineShows = async (type,service,page,sortType) => 
 {
   try {
-    console.log(service)
     // const { data : { results } } = await axios.get(APIURL, options);
+
     const { data } = await axios.get(`${DatabaseURL}/${type}/${service}/${page}/${sortType}`);
     console.log(data);
+
+
+
     return data;
   } catch(error) {
     console.log(error);

@@ -30,7 +30,12 @@ const Show = ({ show, service }) => {
 
   const getServiceLink = (show) =>
   {
-    return show.streamingInfo[service].us.link
+    if (show.streamingInfo.hasOwnProperty(service)) {
+      return show.streamingInfo[service].us.link
+    }
+    else {
+      return show.streamingInfo[Object.keys(show.streamingInfo)[0]].us.link
+    }
   }
   ////
 
