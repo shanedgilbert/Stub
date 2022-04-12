@@ -11,9 +11,9 @@ function Home() {
   const classes = useStyles();
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState();
-  const [contentType, setContentType] = useState('series'); //movie or series
+  const [contentType, setContentType] = useState('movie'); //movie or series
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
-  const [sortType, setSortType] = useState('ratings');
+  const [sortType, setSortType] = useState('none');
   
   let page = useRef();
   const ref = useRef();
@@ -67,7 +67,7 @@ function Home() {
      observer.current = null
     }
 
-  }, [contentType, service, ref])
+  }, [contentType, service, sortType, ref])
 
   return (
     <div>
