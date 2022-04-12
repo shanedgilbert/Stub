@@ -19,8 +19,6 @@ function Home() {
   const ref = useRef();
   
   async function loadMoreShows() {
-    console.log(page.current);
-    console.log(contentType);
     if(page.current > 2)
     {
       setIsLoading(true);
@@ -37,7 +35,6 @@ function Home() {
     page.current = page.current + 1;
     setIsLoading(false);
   }
-
 
 
 

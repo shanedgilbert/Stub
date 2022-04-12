@@ -13,10 +13,6 @@ const Shows = ({ ShowsArray, service }) => {
     setElRefs((refs) => Array(ShowsArray.length).fill().map((_, i) => refs[i] || createRef()));
   }, [ShowsArray]);
 
-  useEffect(() => {
-    console.log(service);
-  }, [service])
-
   return (
     !ShowsArray.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
