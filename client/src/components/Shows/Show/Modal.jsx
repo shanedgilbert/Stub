@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./modal.css";
 import { useDispatch } from 'react-redux';
-import {addToList} from "../../../actions/shows";
 import { fetchLists } from "../../../api";
 import genreNames from "../genre";
 import imdbLogo from "../../../images/imdblogo.png";
@@ -13,7 +12,6 @@ import ModalDropdown from "./ModalDropdown";
 
 const Modal = props => {
 
-  const dispatch = useDispatch();
   const [lists, setLists] = useState([]);
   const imdbRatingNormalized = props.showInfo.imdbRating/10;
 
@@ -59,14 +57,6 @@ const Modal = props => {
     })
     setLists(tempList);
   }
-
-  //ADD SHOW TO LIST
-  /*
-  const handleAddToList = (show, listID) => {
-    dispatch(addToList(show, listID))
-    .then(getList())
-  }
-  */
 
   function findMovieGenres(genre){
     let movieGenres = []

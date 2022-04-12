@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, AppBar, Typography, Grow, Grid, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { Container, Grow, Grid, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
-import { Navigation } from '.';
-import { createShow, getShowsData, fetchNineShows, fetchShows } from '../../api/index';
+import {fetchNineShows} from '../../api/index';
 import './loader.css'
 
 function Home() {

@@ -1,7 +1,6 @@
 import './lists.css';
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import Settings from "../jsx/Settings";
 
 

@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 //Show Testing
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import Shows from '../../components/Shows/Shows';
+import { Container, Grow, Grid } from '@material-ui/core';
 import { createShow, getShowsData } from '../../api/index';
 let page = 1;
 let showCount = 0;
 function DevPage() {
 
-    //SHOW TESTING
-    ////////////////////////////////////////////////////////////////////////////////////////
-    const [isLoading, setIsLoading] = useState();
     const [shows, setShows] = useState([]);
     
     const ref = useRef();
