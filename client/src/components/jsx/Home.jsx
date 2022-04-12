@@ -52,10 +52,13 @@ function Home() {
         }
       })
     }, { rootMargin: '100px' })
+
     page.current = 1;
     loadMoreShows();
-    page.current += 1;
-    loadMoreShows();
+
+ 
+
+    setTimeout(() => loadMoreShows(), 1000); //timeout
 
     if(ref.current) {
       observer.observe(ref.current)
@@ -65,6 +68,7 @@ function Home() {
     {
       observer.disconnect()
      observer.current = null
+    
     }
 
   }, [contentType, service, sortType, ref])
