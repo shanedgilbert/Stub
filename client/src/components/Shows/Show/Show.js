@@ -1,9 +1,8 @@
-import React, { useState, setState } from 'react';
-import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
+import React, { useState } from 'react';
+import { Card, CardMedia, Typography } from '@material-ui/core/';
 import  Modal  from './Modal.jsx'
 import { useDispatch } from 'react-redux';
 import {addToList} from "../../../actions/shows";
-import handleAddShow from "../../ListsFolder/List.jsx";
 
 import useStyles from './styles';
 
@@ -14,18 +13,9 @@ const Show = ({ show, service }) => {
 
   const [visibility, setVisibility] = useState(false);
 
-  const handleCloseModal = () => {
-    console.log("went through")
-    setVisibility(false);
-  }
   const handleShowModal = () =>  {
     console.log("did not go through")
     setVisibility(true);
-  }
-
-  //ADD SHOW TO LIST
-  const handleAddToList = (show, listID) => {
-    dispatch(addToList(show, listID));
   }
 
   const getServiceLink = (show) =>
