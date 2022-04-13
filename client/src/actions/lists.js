@@ -1,5 +1,4 @@
 import {FETCH_ALL, CREATE, REMOVE, EDIT, ADDSHOW} from '../constants/actionTypes';
-
 import * as api from '../api/index.js';
 
 export const getLists = () => async(dispatch) => {
@@ -30,15 +29,11 @@ export const updateList = (id, listName) => async(dispatch) => {
         console.log('ACTIONS/LIST UPDATELIST(): ' + error.message);
     }
 }
-// crreated editListName to function as the 'edit' in list pages
+// created editListName to function as the 'edit' in list pages
 export const editListName = (listID, newListName) => async(dispatch) =>{
-    console.log("ladies and gentlemen we're in");
-    console.log(newListName);
     try {
-        console.log("list.js in ACTIONS: "+ listID + " new name: " + newListName);
         const data = await api.editListName(listID, newListName);
         dispatch({type: EDIT, payload: data});
-        //reload page here
     }
     catch(error) {
         console.log('ACTIONS/LIST EDITLIST(): ' + error.message);
@@ -50,8 +45,6 @@ export const addListShow = (id, showsList) => async(dispatch) => {
         
         console.log("ACTIONS ADDLISTSHOW: " + id);
         const {data} = await api.addListShow(id, showsList);
-        console.log(data);
-        // console.log("ACTIONS ADDLISTSHOW DATA: " + data.name);
         dispatch({type: ADDSHOW, payload: data})
     }
     catch(error) {

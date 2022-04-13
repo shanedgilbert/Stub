@@ -1,6 +1,6 @@
-import React,{ useState } from "react";
+import React from "react";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import {getLocalUser,setLocalUser,componentClicked } from "../../actions/login";
+import {setLocalUser } from "../../actions/login";
 import { createAccount } from '../../actions/accounts';
 import FacebookAPIKey from '../../api/FacebookAPIKey';
 import "../../index.css";
@@ -14,7 +14,6 @@ function Login({LoggedInState, setLoggedIn})
     if(response.status == 'unknown') //no response at all
     {
       setLoggedIn(false);
-      //window.location.reload();
     }
     else //some response
     {
@@ -22,7 +21,6 @@ function Login({LoggedInState, setLoggedIn})
       if(userData.error) //if userdata has error or interuption, like closing the login api screen during login
       {
         setLoggedIn(false);
-        //window.location.reload();
       }
       else //sucessful login, no interuptions 
       {

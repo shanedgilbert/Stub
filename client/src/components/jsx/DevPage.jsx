@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-
-//Show Testing
 import { Container, Grow, Grid } from '@material-ui/core';
 import { createShow, getShowsData } from '../../api/index';
+
 let page = 1;
 let showCount = 0;
 function DevPage() {
-
     const [shows, setShows] = useState([]);
-    
     const ref = useRef();
-
     async function loadMoreShows() 
   {
     console.log('page', page)
@@ -18,26 +14,14 @@ function DevPage() {
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
-          console.log(element)
-          console.log(element.title)
           moreShows.push(element) 
           createShow(element)
           showCount = showCount +1;
-          console.log('showCount:', showCount);
         },this);
-        //console.log(moreShows)
-        
         setShows((shows) => [...shows, ...moreShows]);
-        //console.log(shows)
-
-        //console.log(data)
       });    
   }
 
-
-
-
-  
   useEffect(() => 
   {
        try
@@ -50,11 +34,7 @@ function DevPage() {
        {
          console.log(error);
        }
-     
-  
   });
-  ////////////////////////////////////////////////////////////////////////////////////////
-
 
     return (
         <div>
@@ -68,7 +48,6 @@ function DevPage() {
                   </Container>
               </Grow>
     </div>
-    )
-}
+    )}
 
 export default DevPage;

@@ -34,11 +34,7 @@ function Home() {
     setIsLoading(false);
   }
 
-
-
-
   useEffect(() => {
-
     setShows([]);
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -53,9 +49,6 @@ function Home() {
 
     page.current = 1;
     loadMoreShows();
-
- 
-
     setTimeout(() => loadMoreShows(), 1000); //timeout
 
     if(ref.current) {
@@ -65,8 +58,7 @@ function Home() {
     return () => 
     {
       observer.disconnect()
-     observer.current = null
-    
+      observer.current = null
     }
 
   }, [contentType, service, sortType, ref])

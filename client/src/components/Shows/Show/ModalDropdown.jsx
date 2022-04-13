@@ -5,13 +5,9 @@ import { useDispatch } from 'react-redux';
 import "./modal.css";
 
 const ModalDropdown = (prop) => {
-
     const dispatch = useDispatch();
-
-
     const handleAddToList = (show, listID) => {
         dispatch(addToList(show, listID))
-        //.then(getList())
     }
 
     return (
@@ -19,7 +15,6 @@ const ModalDropdown = (prop) => {
             {!(getLocalUser() == null) ?
                 <div className = "dropdown">
                   <div className = "editMenuContentModal">
-                      {/* {console.log(genreNames[props.showInfo.genres])} */}
                       {prop.list.map((listItem, index) => {
                         return (
                           <button key = {listItem._id} className = "dropdownLinkModal" onClick={() => handleAddToList(prop.props, listItem._id)}>Add to {listItem.name}</button>

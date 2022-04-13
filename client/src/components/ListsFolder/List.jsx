@@ -6,7 +6,6 @@ import {deleteList} from '../../actions/lists.js';
 import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
 import useStyles from './styles';
-//import { editListName } from '../../api';
 
 //note, function call here , but const in show.js, may be potential error/warning
 function List(prop){
@@ -21,10 +20,6 @@ function List(prop){
     dispatch(deleteList(payload));
   }
   const handleEdit = (payload,e) => {
-    //console.log("List.jsx update fn (array appearance)-> E: " + e);
-    console.log("List.jsx update fn: id: "+ payload+" E: " + e);
-    //e.preventDefault();
-    //dispatch(editListName(listData.id, listData.name));
     dispatch(editListName(payload, e));
     window.location.reload(false);//code here refreshes to see database change
   }
@@ -35,7 +30,6 @@ function List(prop){
   }
 
     return (
-
         <div className="listButton">
         <Link to={"/lists/"+prop.name}>
           <div className="listHeaderDiv">
@@ -54,20 +48,4 @@ function List(prop){
         </div>
   );
 }
-//commented code below incase my changes are bad and faulty
-/* <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handleEdit}>
-                      <div className = {classes.addListButton}>
-                          <div class = 'dropdown'>
-                              <div class = 'addListContent'>
-                                  <div className = {classes.addListButtonDropDown}>
-                                      <TextField className = {classes.addListTextField} style = {{margin: '5% 10%'}} name = "name" variant = "filled" label = "New Name" margin = "normal" InputLabel inputlabelprops = {{ shrink: true}} value = {listData.name} onChange = {(e) =>({...listData, name: e.target.value, id:prop._id})}/>
-                                      <Button className = {classes.addListSubmit} variant = "contained" size = "large" type = "submit">
-                                          Submit
-                                      </Button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                </form> */
-
 export default List;

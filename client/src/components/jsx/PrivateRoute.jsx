@@ -1,7 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { getLocalUser } from '../../actions/login';
-
 
 function PrivateRoute({children}) {
   const isLoggedIn = getLocalUser();

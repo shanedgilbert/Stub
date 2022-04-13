@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { Card, CardMedia, Typography } from '@material-ui/core/';
 import  Modal  from './Modal.jsx'
 import { useDispatch } from 'react-redux';
-import {addToList} from "../../../actions/shows";
-
 import useStyles from './styles';
 
 const Show = ({ show, service }) => {
-  const dispatch = useDispatch();
   const classes = useStyles();
   const imdbRatingNormalized = show.imdbRating/10;
 
@@ -27,7 +24,6 @@ const Show = ({ show, service }) => {
       return show.streamingInfo[Object.keys(show.streamingInfo)[0]].us.link
     }
   }
-  ////
 
   return (
       <Card className={classes.card}>
@@ -40,7 +36,6 @@ const Show = ({ show, service }) => {
           <Typography variant="body2">IMDB: {imdbRatingNormalized}/10</Typography>
         </div>
         <div className={classes.overlay2}>
-          {/* <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(show._id)}><MoreHorizIcon fontSize="default" /></Button> */}
         </div>
         <Modal onClose={() => setVisibility(false)}
         service = {service}

@@ -11,23 +11,18 @@ const contentType = 'series';
 
 //Create a dropdown for service and type and send the data here
 
-
 export const fetchShows = () => axios.get(DatabaseURL);
 export const fetchNineShows = async (type,service,page,sortType) => 
 {
   try {
-    // const { data : { results } } = await axios.get(APIURL, options);
-
     const { data } = await axios.get(`${DatabaseURL}/${type}/${service}/${page}/${sortType}`);
-    console.log(data);
-
-
 
     return data;
   } catch(error) {
     console.log(error);
   }
 }
+
 export const createShow = async (newShow) =>  axios.post(DatabaseURL, newShow);
 export const rateShow = (id) => axios.patch(`${DatabaseURL}/${id}/rateShow`);
 export const updateShow = (id, updatedShow) => axios.patch(`${DatabaseURL}/${id}`, updatedShow);
@@ -48,10 +43,7 @@ export const getShowsData = async (pageNumber) => {
   };
 
   try {
- 
-    // const { data : { results } } = await axios.get(APIURL, options);
     const { data } = await axios.get(APIURL, options);
-    // console.log(data.total_pages);
     const { results } = data;
     return results;
   } catch(error) {
@@ -79,10 +71,8 @@ export const addListShow = async (listID, newShows) => {
     if (list._id === listID) {
       list.shows.push(newShows);
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
-      console.log("Show added!");
     }
   });
-  
 } 
 
 export const removeListShow = async (listID, showRemove) => {
@@ -90,19 +80,14 @@ export const removeListShow = async (listID, showRemove) => {
   listGet.data.forEach(async list => {
     if (list._id === listID) {
       var tempArray = [];
-      //console.log("List" + list._id + " removes" + showRemove.showInfo._id);
       list.shows.map(currShow => {
-        console.log(currShow.showInfo._id + " === " + showRemove);
         if(currShow.showInfo._id !== showRemove)
         {
           tempArray.push(currShow);
-          console.log("add");
         }
         list.shows = tempArray;
-        console.log(list.shows);
       })
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
-      console.log("Show removed!");
     }
   });
 }
@@ -113,11 +98,6 @@ export const editListName = async(listID, newListName) =>{
     if (list._id == listID){
       list.name = newListName;//maybeee
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
-      console.log("SRC/API/INDEX : New Name updated");
     }
   });
-
 }
-
-//export const updateList = (listID, newName) => axios.patch(`${DatabaseURLLists}/${listID}`,newName);// old code here outdated code rip updates
-//export const editListName = (listID, newName) => axios.get(`${DatabaseURLLists}/${listID}`, newName);// need to find correct api call here this here is def wrong right?

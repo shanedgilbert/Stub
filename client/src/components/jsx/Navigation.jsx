@@ -1,9 +1,8 @@
-import React, { setState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React from "react";
 import stublogo from '../../images/stublogo.png';
 import useStyles from './styles';
 import Login from './Login';
-import { getLocalUser, setLocalUser, componentClicked } from "../../actions/login";
+import { getLocalUser } from "../../actions/login";
 import './Navigation.css';
 import { Nav, Navbar, Container } from "react-bootstrap"
 

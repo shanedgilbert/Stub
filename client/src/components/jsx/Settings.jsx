@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { fetchLists} from '../../api/index';
 import ListContent from '../ListsFolder/ListContent.jsx';
 
-
 function Settings() {
   const [pageList, setPageList] = useState(null)
   const [shows, setShows] = useState([]);

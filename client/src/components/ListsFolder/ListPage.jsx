@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import Settings from "../jsx/Settings";
 
-
 function ListPage() {
 
   let { postSlug } = useParams();

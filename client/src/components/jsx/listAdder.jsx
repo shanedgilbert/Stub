@@ -5,8 +5,6 @@ import useStyles from './styles';
 import {getLists} from '../../actions/lists.js';
 import {createList} from '../../actions/lists.js';
 
-//import { getLists, createList } from '.../actions/lists.js';
-
 function ListAdder()
 {
     const [listData, setListData] = useState({name: '', ownerID: '', shows: []});
@@ -19,9 +17,7 @@ function ListAdder()
 
     const handle_submit = (e) => {
         e.preventDefault();
-        //setListData({...listData, ownerID: JSON.parse(localStorage.getItem('userLoginData')).id})
         listData.ownerID = JSON.parse(localStorage.getItem('userLoginData')).id;
-        console.log("list Added");
         dispatch(createList(listData));
         clearText();
     }
@@ -46,8 +42,6 @@ function ListAdder()
                 </div>
             </div>
        </form>
-       
-    )
-}
+    )}
 
 export default ListAdder;

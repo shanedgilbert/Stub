@@ -1,13 +1,8 @@
-import React,{ useEffect, useState } from "react";
-import { NavLink, useNavigate, Navigate } from "react-router-dom";
+import React,{ useEffect } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 
-
-
-
-
-function Logout({LoggedInState, setLoggedIn}) 
+function Logout({setLoggedIn}) 
 {
-
     let navigate = useNavigate();
     const handleLogout = () =>
     {  
@@ -20,12 +15,7 @@ function Logout({LoggedInState, setLoggedIn})
     useEffect(() => {
       handleLogout();
     }, []);
-  
-   
     return <Navigate to="/" />;
-
 }
 
 export default Logout;
-
-

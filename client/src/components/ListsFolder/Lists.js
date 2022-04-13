@@ -1,6 +1,5 @@
 import React, {useState, useEffect, createRef} from 'react';
 import {Grid, CircularProgress} from '@material-ui/core';
-
 import List from './List/List.js';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
@@ -16,10 +15,7 @@ const Lists = ({ListsArray}) => {
     }, [ListsArray]);   
 
     return (
-
-        //REPLACE FIRST LINE IF WE WANT CIRCULAR LOADING BAR INSTEAD OF TEXT MESSAGE
         !currentLists.length ? <CircularProgress /> : (
-        //!currentLists.length ? <div className={classes.listMessage}> Looks like you don't have any lists!</div> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {currentLists.map((list) => (
                     list.ownerID !== JSON.parse(localStorage.getItem('userLoginData')).id ? null :

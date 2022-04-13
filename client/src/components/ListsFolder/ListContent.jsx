@@ -1,16 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import imdbLogo from '../../images/imdblogo.png'
-
 import useStyles from '../Shows/Show/styles';
-
 import {removeListShow} from "../../actions/lists";
 
 function ListContent(prop){
   const dispatch = useDispatch();
-  const classes = useStyles();
-
-  //const imdbRatingNormalized = prop.imdbRating/10;
 
   const removeFromList = () => {
     console.log("Removing list...")

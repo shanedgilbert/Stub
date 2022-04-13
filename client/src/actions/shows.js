@@ -1,5 +1,4 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE, RATE, ADDSHOW } from '../constants/actionTypes';
-
 import * as api from '../api/index.js';
 
 export const getShows = () => async (dispatch) => {
@@ -21,8 +20,6 @@ export const getShow = (type, service, page) => async (dispatch) => {
     console.log(error.message);
   }
 };
-
-
 
 export const createShow = (show) => async (dispatch) => {
   try {

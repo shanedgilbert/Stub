@@ -16,25 +16,24 @@ footer {
     right: 0;
 }
 
-a{
+a  {
   color: white;
 }
 
-a:hover{
+a:hover  {
   color: white;
   text-decoration: none;
 }
 
-.nav-link{
+.nav-link {
   margin-top: 20px;
 }
 
-#loginImage{
+#loginImage {
   border-radius: 50%;
 }
 
-#fbImage{
-
+#fbImage {
   object-fit: cover;
   height: 50px;
   width: 50px;
@@ -42,13 +41,12 @@ a:hover{
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
 }
+
 .button {
   background-color: transparent;
   border-color: transparent;
   align-items:center;
   height: 50px;
   width: 50px;
-
 }

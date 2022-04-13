@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import ListsJS from './Lists';
-import makeStyles from './styles';
-
 
 function ListsPage() {
   const [lists, setLists] = useState([]);

@@ -1,8 +1,3 @@
-import FacebookLogin from 'react-facebook-login'
-import React from "react";
-
-
-
 export const componentClicked = () => 
 {
   console.log("clicked");
