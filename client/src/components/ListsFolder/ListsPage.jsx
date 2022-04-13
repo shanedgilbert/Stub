@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import ListsJS from './Lists';
 
 function ListsPage() {
-  const [lists, setLists] = useState([]);
+  const [lists] = useState([]);
   console.log(lists);
 
   return (

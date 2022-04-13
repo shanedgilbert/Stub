@@ -1,18 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './lists.css';
 import { Link } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {deleteList} from '../../actions/lists.js';
 import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
-import useStyles from './styles';
 
 //note, function call here , but const in show.js, may be potential error/warning
 function List(prop){
 
   //2 variables below for handleEdit related code
-  const classes = useStyles();
-  const [listData, editListData] = useState({name: '',id: ''});//array to temp store to use later
+  // const [listData, editListData] = useState({name: '',id: ''});//array to temp store to use later
 
   const dispatch = useDispatch();
 
@@ -24,10 +22,10 @@ function List(prop){
     window.location.reload(false);//code here refreshes to see database change
   }
 
-  const handleAddShow = () => {
-    console.log("List.jsx handleAddShow: " + prop.shows + ", " + prop._id);
-    dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
-  }
+  // const handleAddShow = () => {
+  //   console.log("List.jsx handleAddShow: " + prop.shows + ", " + prop._id);
+  //   dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
+  // }
 
     return (
         <div className="listButton">

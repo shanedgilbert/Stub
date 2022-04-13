@@ -1,4 +1,4 @@
-import {FETCH_ALL, CREATE, UPDATE, DELETE, ADD, REMOVE, EDIT, ADDSHOW, REMOVESHOW} from  '../constants/actionTypes';
+import {FETCH_ALL, CREATE, REMOVE, EDIT, ADDSHOW, REMOVESHOW} from  '../constants/actionTypes';
 
 export default (lists = [], action) => {
     switch (action.type) {

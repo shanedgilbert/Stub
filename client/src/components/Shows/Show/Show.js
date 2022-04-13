@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardMedia, Typography } from '@material-ui/core/';
 import  Modal  from './Modal.jsx'
-import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 
 const Show = ({ show, service }) => {

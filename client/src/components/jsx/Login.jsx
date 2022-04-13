@@ -11,7 +11,7 @@ function Login({LoggedInState, setLoggedIn})
 {
   const responseFacebook = async (response) => 
   {
-    if(response.status == 'unknown') //no response at all
+    if(response.status === 'unknown') //no response at all
     {
       setLoggedIn(false);
     }

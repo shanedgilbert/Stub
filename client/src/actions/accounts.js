@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, RATE } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
 export async function getAccounts() 

@@ -14,7 +14,7 @@ function Logout({setLoggedIn})
 
     useEffect(() => {
       handleLogout();
-    }, []);
+    });
     return <Navigate to="/" />;
 }
 

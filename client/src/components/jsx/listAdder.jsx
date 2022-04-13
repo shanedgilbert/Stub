@@ -30,7 +30,7 @@ function ListAdder()
         <form autoComplete='off' noValidate className = {`${classes.root} ${classes.form}`} onSubmit = {handle_submit}>
             <div className = {classes.addListButton}>
                 <div class = 'dropdown'>
-                    <img className = {classes.buttonImg} src = {require("../../images/listAdd.png")}/>
+                    <img className = {classes.buttonImg} src = {require("../../images/listAdd.png")} alt=""/>
                     <div class = 'addListContent'>
                         <div className = {classes.addListButtonDropDown}>
                             <TextField className = {classes.addListTextField} style = {{margin: '5% 10%'}} name = "name" variant = "filled" label = "List Name" margin = "normal" InputLabel inputlabelprops = {{ shrink: true}} required value = {listData.name} onChange = {(e) => setListData({...listData, name: e.target.value})}/>
