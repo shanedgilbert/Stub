@@ -171,7 +171,9 @@
 
 
 .listItem{
-  width: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .link-list{
@@ -189,4 +191,18 @@
 
 .listsLayout{
   display: flex;
+}
+
+.edit-btn{
+  background-color: #008CBA;
+  width: 50%;
+}
+
+.delete-btn{
+  background-color: #f44336;
+  width: 50%;
+}
+
+.listname-info{
+  
 }

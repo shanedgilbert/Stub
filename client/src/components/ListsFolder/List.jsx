@@ -94,17 +94,16 @@ function List(prop){
                       {getListImages(prop.shows)}
                     </div>
                 </div>
-              </Link>
-                <h1 className="listHeader">{prop.name}</h1>
-                <div className="listItem">
-                <div className="dropdown">
-                  <button className ="editButton">edit</button>
-                  <div className="editMenuContent">
-                    <button className="dropdownLink" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
-                    <button className="dropdownLink" onClick={() => handleDelete(prop._id)}>Delete</button>
-                  </div>
+                <div className='listname-info'>
+                  <h1 className="listHeader">{prop.name}</h1>
                 </div>
-              </div>
+                
+              </Link>
+                
+                <div className="listItem">
+                    <button className="edit-btn" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
+                    <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
+                  </div>
               </div>
                 
             
