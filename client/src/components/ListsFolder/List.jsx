@@ -97,8 +97,8 @@ function List(prop){
           </Link>
             
             <div className="listItem">
-                <button className="edit-btn" onClick={() => handleEdit(prop._id, "testing one two")}>Edit</button>
-                <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
+              <button className="edit-btn" onClick={() => handleEdit(prop._id, "testing v1.2 change")}>Edit</button>
+              <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
               </div>
           </div>
             
