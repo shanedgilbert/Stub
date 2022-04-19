@@ -107,7 +107,7 @@
 
 .moviePosterList{
   border-radius: 20px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .titleMovie{
   font-size: 30px;
