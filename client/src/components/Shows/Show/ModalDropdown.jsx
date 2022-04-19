@@ -1,6 +1,7 @@
 import React from 'react';
 import {getLocalUser} from "../../../actions/login";
 import {addToList} from "../../../actions/shows";
+import {addListShow}  from "../../../actions/lists"
 import { useDispatch } from 'react-redux';
 import "./modal.css";
 
@@ -10,7 +11,8 @@ const ModalDropdown = (prop) => {
     const handleAddToList = (show, listID) => {
       console.log(listID);
       console.log(show);
-      dispatch(addToList(show, listID))
+      //dispatch(addToList(show, listID))
+      dispatch(addListShow(listID, show))
     }
 
     return (
