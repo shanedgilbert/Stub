@@ -2,9 +2,7 @@ node_modules
 build
 client/package-lock.json
 server/package-lock.json
-client/src/api/StreamingAPIKey.js
 client/src/api/ApiCall.png
-client/src/api/FacebookAPIKey.js
 client/package-lock 2.json
 client/.DS_Store
 .DS_Store
