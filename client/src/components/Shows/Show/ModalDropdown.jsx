@@ -11,8 +11,8 @@ const ModalDropdown = (prop) => {
     }
 
     return (
-        <div className = "dropdown">
-            {!(getLocalUser() == null) ?
+        <div className = "modalAddDropdown">
+            {!(getLocalUser() == null) && prop.list.length > 0 ?
                 <div className = "dropdown">
                   <div className = "editMenuContentModal">
                       {prop.list.map((listItem, index) => {
