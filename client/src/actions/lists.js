@@ -44,8 +44,9 @@ export const addListShow = (id, showsList) => async(dispatch) => {
     try {
         
         console.log("ACTIONS ADDLISTSHOW: " + id);
-        const {data} = await api.addListShow(id, showsList);
-        dispatch({type: ADDSHOW, payload: data})
+        console.log(showsList);
+        await api.addListShow(id, showsList);
+        //dispatch({type: ADDSHOW, payload: data})
     }
     catch(error) {
         console.log("error encountered");
