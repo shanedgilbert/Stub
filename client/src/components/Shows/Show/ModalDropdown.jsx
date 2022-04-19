@@ -6,8 +6,11 @@ import "./modal.css";
 
 const ModalDropdown = (prop) => {
     const dispatch = useDispatch();
+
     const handleAddToList = (show, listID) => {
-        dispatch(addToList(show, listID))
+      console.log(listID);
+      console.log(show);
+      dispatch(addToList(show, listID))
     }
 
     return (
