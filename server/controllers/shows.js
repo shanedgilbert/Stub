@@ -23,7 +23,6 @@ export const getShow = async (req, res) =>
     const { sortType } = req.params;
     const {genre} = req.params;
     const page = req.params.page
-    console.log(genre);
     try 
     {
         if(genre == 'noGenre') //no genre
@@ -66,9 +65,6 @@ export const getShow = async (req, res) =>
         }
         else //genre
         {
-            console.log('genre!')
-            console.log(req.params.service)
-            console.log(req.params.genre)
             if(sortType == 'ratings')
             {
                 if(page == 1)
