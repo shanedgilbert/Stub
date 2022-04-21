@@ -208,5 +208,14 @@
   position: absolute;
   height: 40px;
   bottom: 25px;
+  padding-top: 10px;
   background-color: rgb(0,0,0,0.75);
+}
+
+.listPageHeader{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }

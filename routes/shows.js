@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', getShows);
 router.post('/', createShow);
-router.get('/:type/:service/:page/:sortType', getShow);
+router.get('/:type/:service/:genre/:page/:sortType', getShow);
 router.patch('/:id', updateShow);
 router.delete('/:id', deleteShow);
 router.patch('/:id/rateShow', rateShow);

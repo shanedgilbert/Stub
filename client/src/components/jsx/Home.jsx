@@ -11,7 +11,9 @@ function Home() {
   const [isLoading, setIsLoading] = useState();
   const [contentType, setContentType] = useState('movie'); //movie or series
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
-  const [sortType, setSortType] = useState('none');
+  const [sortType, setSortType] = useState('noSort');
+  const [genre, setGenre] = useState('noGenre');
+  const [year, setYear] = useState('none');
   
   let page = useRef();
   const ref = useRef();
@@ -21,7 +23,7 @@ function Home() {
     {
       setIsLoading(true);
     }
-    await fetchNineShows(contentType, service, page.current, sortType)
+    await fetchNineShows(contentType, service, genre, page.current, sortType)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
@@ -61,8 +63,19 @@ function Home() {
       observer.current = null
     }
 
-  }, [contentType, service, sortType, ref])
+  }, [contentType, service, sortType, genre, ref])
 
+  function convertGenreAndSet(genreNum)
+  {
+    if(genreNum == 'noGenre')
+    {
+      setGenre('noGenre')
+    }
+    else
+    {
+      setGenre(parseInt(genreNum))
+    }
+  }
   return (
     <div>
       <Grow in>
@@ -91,11 +104,46 @@ function Home() {
         <FormControl className={classes.formControl}>
           <InputLabel>Sort</InputLabel>
           <Select id="contentType" value={sortType} onChange={(e) => setSortType(e.target.value)}>
-            <MenuItem value="none">None</MenuItem>
+            <MenuItem value="noSort">None</MenuItem>
             <MenuItem value="ratings">Ratings</MenuItem>
             <MenuItem value="name">Name</MenuItem>
           </Select>
         </FormControl>
+        <FormControl className={classes.formControl}>
+          <InputLabel>Genre</InputLabel>
+          <Select id="contentType" value={genre} onChange={(e) => convertGenreAndSet(e.target.value)}>
+            <MenuItem value="noGenre">None</MenuItem>
+            <MenuItem value="1">Biography</MenuItem>
+            <MenuItem value="2">Film Noir</MenuItem>
+            <MenuItem value="3">Game Show</MenuItem>
+            <MenuItem value="4">Musical</MenuItem>
+            <MenuItem value="5">Sport</MenuItem>
+            <MenuItem value="6">Short</MenuItem>
+            <MenuItem value="7">Adult</MenuItem>
+            <MenuItem value="12">Adventure</MenuItem>
+            <MenuItem value="14">Fantasy</MenuItem>
+            <MenuItem value="16">Animation</MenuItem>
+            <MenuItem value="18">Drama</MenuItem>
+            <MenuItem value="27">Horror</MenuItem>
+            <MenuItem value="28">Action</MenuItem>
+            <MenuItem value="35">Comedy</MenuItem>
+            <MenuItem value="36">History</MenuItem>
+            <MenuItem value="37">Western</MenuItem>
+            <MenuItem value="53">Thriller</MenuItem>
+            <MenuItem value="80">Crime</MenuItem>
+            <MenuItem value="99">Documentary</MenuItem>
+            <MenuItem value="878">Science Fiction</MenuItem>
+            <MenuItem value="9648">Mystery</MenuItem>
+            <MenuItem value="10402">Music</MenuItem>
+            <MenuItem value="10749">Romance</MenuItem>
+            <MenuItem value="10751">Family</MenuItem>
+            <MenuItem value="10752">War</MenuItem>
+            <MenuItem value="10763">News</MenuItem>
+            <MenuItem value="10764">Reality</MenuItem>
+            <MenuItem value="10767">Talk Show</MenuItem>
+          </Select>
+        </FormControl>
+
       </div>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>

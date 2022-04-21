@@ -36,7 +36,7 @@ const App = () => {
           }
         > 
           {/* Child route for if url ends with "/list" */}
-          <Route path="" element={<><ListAdder/><ListsPage /></>} />
+          <Route path="" element={<><ListsPage /></>} />
           {/* Child route for if url ends with "/list/..." */}
           <Route path=":postSlug" element={<ListPage />} />
         </Route>
