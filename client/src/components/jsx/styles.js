@@ -21,7 +21,6 @@ export default makeStyles((theme) => ({
   addListButton: {
     height: '100%',
     float: 'right',
-    padding: '3rem 5rem 0 0',
     cursor: 'pointer'
   },
   buttonImg: {

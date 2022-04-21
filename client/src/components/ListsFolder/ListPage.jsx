@@ -16,15 +16,16 @@ function ListPage() {
 
   return (
     <div>
-    <div class="container">
       <div className = "listPageHeader">
-        <h2>{postSlug}</h2>
         <Link to="/lists">
-          Back
+          <img src={require("../../images/Back-Icon.png")} width = "30px" height = "30px"/>
         </Link>
+        <h2>{postSlug}</h2>
+        <div width = "25px"/>
       </div>
-      <Settings />
-    </div>
+      <div class="container">
+        <Settings />
+      </div>
     </div>
   );
 }
