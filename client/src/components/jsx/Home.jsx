@@ -13,7 +13,7 @@ function Home() {
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
   const [sortType, setSortType] = useState('noSort');
   const [genre, setGenre] = useState('noGenre');
-  const [year, setYear] = useState('noYear');
+  const [year, setYear] = useState('none');
   
   let page = useRef();
   const ref = useRef();
@@ -23,7 +23,7 @@ function Home() {
     {
       setIsLoading(true);
     }
-    await fetchNineShows(contentType, service,  genre, year,page.current, sortType)
+    await fetchNineShows(contentType, service, genre, page.current, sortType)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
@@ -63,7 +63,7 @@ function Home() {
       observer.current = null
     }
 
-  }, [contentType, service, sortType,year, genre, ref])
+  }, [contentType, service, sortType, genre, ref])
 
   function convertGenreAndSet(genreNum)
   {
@@ -74,17 +74,6 @@ function Home() {
     else
     {
       setGenre(parseInt(genreNum))
-    }
-  }
-  function convertYearAndSet(year)
-  {
-    if(year == 'noYear')
-    {
-      setYear('noYear')
-    }
-    else
-    {
-      setYear(parseInt(year))
     }
   }
   return (
@@ -152,16 +141,6 @@ function Home() {
             <MenuItem value="10763">News</MenuItem>
             <MenuItem value="10764">Reality</MenuItem>
             <MenuItem value="10767">Talk Show</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <InputLabel>Sort</InputLabel>
-          <Select id="contentType" value={year} onChange={(e) => convertYearAndSet(e.target.value)}>
-            <MenuItem value="noYear">None</MenuItem>
-            <MenuItem value="2022">2022</MenuItem>
-            <MenuItem value="2021">2021</MenuItem>
-            <MenuItem value="2020">2020</MenuItem>
-            <MenuItem value="2019">2019</MenuItem>
           </Select>
         </FormControl>
 
