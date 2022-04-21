@@ -2,6 +2,7 @@ import './lists.css';
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import Settings from "../jsx/Settings";
+import { Link } from "react-router-dom";
 
 function ListPage() {
 
@@ -16,7 +17,12 @@ function ListPage() {
   return (
     <div>
     <div class="container">
-      <h2>{postSlug}</h2>
+      <div className = "listPageHeader">
+        <h2>{postSlug}</h2>
+        <Link to="/lists">
+          Back
+        </Link>
+      </div>
       <Settings />
     </div>
     </div>
