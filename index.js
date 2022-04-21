@@ -9,7 +9,6 @@ import accountRoutes from './routes/accounts.js';
 import listRoutes from './routes/lists.js';
 
 const app = express();
-const path = require('path');
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
@@ -23,11 +22,11 @@ const CONNECTION_URL = 'mongodb+srv://scottsak:Feb!2193803@cluster0.w3za4.mongod
 const PORT = process.env.PORT|| 5000;
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/src'));
+	app.use(express.static('client/build'));
 };
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/src', 'index.js'));
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
