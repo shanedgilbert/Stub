@@ -9,6 +9,7 @@ import accountRoutes from './routes/accounts.js';
 import listRoutes from './routes/lists.js';
 
 const app = express();
+const path = require('path');
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
