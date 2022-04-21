@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 };
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/public', 'index.html'));
+	response.sendFile(path.join(__dirname, 'client/src', 'index.js'));
 });
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
