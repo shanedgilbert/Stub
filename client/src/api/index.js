@@ -12,11 +12,10 @@ const contentType = 'series';
 //Create a dropdown for service and type and send the data here
 
 export const fetchShows = () => axios.get(DatabaseURL);
-export const fetchNineShows = async (type,service,genre,year,page,sortType) => 
+export const fetchNineShows = async (type,service,genre,page,sortType) => 
 {
   try {
-    console.log(year);
-    const { data } = await axios.get(`${DatabaseURL}/${type}/${service}/${genre}/${year}/${page}/${sortType}`);
+    const { data } = await axios.get(`${DatabaseURL}/${type}/${service}/${genre}/${page}/${sortType}`);
 
     return data;
   } catch(error) {

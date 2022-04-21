@@ -18,179 +18,88 @@ export const getShows = async (req, res) => {
 
 export const getShow = async (req, res) => 
 { 
-    console.log('test')
     const { type } = req.params.type;
     const  { service }  = req.params;
     const { sortType } = req.params;
     const {genre} = req.params;
-    const{year} = req.params;
     const page = req.params.page
-    console.log(year);
     try 
     {
         if(genre == 'noGenre') //no genre
         {
-            console.log('!!!!!')
-            console.log('.',year)
-            if(year == 'noYear')//no year
+            if(sortType == 'ratings')
             {
-                console.log('!!')
-                if(sortType == 'ratings')
+                if(page == 1)
                 {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service}).sort({imdbRating: -1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service}).sort({imdbRating: -1, _id: 1}).limit(9);
                 }
-                else if(sortType == 'name')
+                else
                 {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
+                }
+            }
+            else if(sortType == 'name')
+            {
+                if(page == 1)
+                {
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
+                }
+                else
+                {
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
+                }
+            
+            }
+            else
+            {
+                if(page == 1)
+                {
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9);
                 
                 }
                 else
                 {
-                    
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9);
-                    
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9).skip((page-1)*9);
-                    }
-                }   
-            }
-            else//year
-            {
-                console.log('!!')
-                if(sortType == 'ratings')
-                {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, year: req.params.year}).sort({imdbRating: -1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, year: req.params.year}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service}).limit(9).skip((page-1)*9);
                 }
-                else if(sortType == 'name')
-                {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, year: req.params.year}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, year: req.params.year}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
-                
-                }
-                else
-                {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, year: req.params.year}).limit(9);
-                    
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, year: req.params.year}).limit(9).skip((page-1)*9);
-                    }
-                } 
-            }
+            } 
         }
         else //genre
         {
-            console.log('!!!!')
-            if(year == 'noYear') //no year
+            if(sortType == 'ratings')
             {
-                if(sortType == 'ratings')
+                if(page == 1)
                 {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).sort({imdbRating: -1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).sort({imdbRating: -1, _id: 1}).limit(9);
                 }
-                else if(sortType == 'name')
+                else
                 {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
+                }
+            }
+            else if(sortType == 'name')
+            {
+                if(page == 1)
+                {
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
+                }
+                else
+                {
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
+                }
+            
+            }
+            else
+            {
+                if(page == 1)
+                {
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).limit(9);
                 
                 }
                 else
                 {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).limit(9);
-                    
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).limit(9).skip((page-1)*9);
-                    }
-                } 
-            }
-            else //year
-            {
-                if(sortType == 'ratings')
-                {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre, year: req.params.year}).sort({imdbRating: -1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre, year: req.params.year}).sort({imdbRating: -1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
+                    var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre}).limit(9).skip((page-1)*9);
                 }
-                else if(sortType == 'name')
-                {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre, year: req.params.year}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9);
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre, year: req.params.year}).collation({locale:'simple',strength: 1}).sort({originalTitle: 1, _id: 1}).limit(9).skip((page-1)*9);
-                    }
-                
-                }
-                else
-                {
-                    if(page == 1)
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre, year: req.params.year}).limit(9);
-                    
-                    }
-                    else
-                    {
-                        var show = await ShowContent.find({type : req.params.type, service: req.params.service, genres: req.params.genre, year: req.params.year}).limit(9).skip((page-1)*9);
-                    }
-                } 
-            }
+            } 
         }
         res.status(200).json(show);
     } 
