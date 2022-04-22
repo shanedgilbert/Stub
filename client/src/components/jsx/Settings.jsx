@@ -51,6 +51,8 @@ function Settings() {
           showID = {listItem.showInfo._id}
           listID = {pageList._id}
           imdbid = {listItem.showInfo.imdbID}
+          service = {listItem.service}
+          link = {listItem.link}
         />
       );
     })}
