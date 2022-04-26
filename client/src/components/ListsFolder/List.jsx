@@ -6,6 +6,8 @@ import {deleteList} from '../../actions/lists.js';
 import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
 import useStyles from './styles';
+//import Form from '';
+//import { Button } from '@material-ui/core';
 
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 
@@ -27,11 +29,8 @@ function List(prop){
     dispatch(editListName(payload, e));
     window.location.reload(false);//code here refreshes to see database change
   }
-
-  // const handleAddShow = () => {
-  //   console.log("List.jsx handleAddShow: " + prop.shows + ", " + prop._id);
-  //   dispatch(addListShow(prop._id, [...prop.shows, "hello"]));
-  // }
+  //const [display, setDisplay] = useState(false);// for edit modal appearing 
+  //const [newName, setNewName] = useState({name: ""});
 
   function CreatePoster(prop){
     console.log(prop.shows)
@@ -40,7 +39,6 @@ function List(prop){
 
 
   function getListImages(shows){
-    console.log("djakhjfaesjjaf")
     console.log(shows)
     if(shows.length >= 1){
       if(3<=shows.length){
@@ -97,7 +95,36 @@ function List(prop){
           </Link>
             
             <div className="listItem">
-              <button className="edit-btn" onClick={() => handleEdit(prop._id, "testing v1.2 change")}>Edit</button>
+              <button className="edit-btn" onClick={() => handleEdit(prop._id, "testing v1.3 change")}>Edit</button>
+			  	{/* <Modal 
+				{...props}
+				size = "lg"
+				aria-labelledby="NameFieldModal"
+				centered
+				>
+				<Modal.Header classname={classes.editListName}>
+					<Modal.Title >
+						Add New List Name
+					</Modal.Title>
+				</Modal.Header>
+				<Modal.Body classname = {classes.body}>
+					<Form>
+					<Form.Group className={classes.editListName} >
+					<Form.Label>Add New Name</Form.Label>
+					<Form.Control
+					type="text"
+					onInput = {(e)=>setNewName=(e.target.value)}//needs fixing up here
+					placeholder="StubListDefault"//gives default ex for user
+					autoFocus//may not be necessary unless preparing for blind users
+					/>
+					</Form.Group>
+					</Form>
+				</Modal.Body>
+				<Modal.Footer classname = {classes.nameSubmit}>
+					<Button onClick = {() => handleEdit(prop._id, nameVal)}> Save Changes</Button>
+				</Modal.Footer>
+				</Modal> */}
+
               <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
               </div>
           </div>
