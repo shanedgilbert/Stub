@@ -13,7 +13,7 @@ function Home() {
   const [service, setService] = useState('netflix'); //netflix, prime, disney, hbo, hulu, peacock, paramount, apple
   const [sortType, setSortType] = useState('noSort');
   const [genre, setGenre] = useState('noGenre');
-  const [year, setYear] = useState('none');
+  const [year, setYear] = useState('noYear');
   
   let page = useRef();
   const ref = useRef();
@@ -23,7 +23,7 @@ function Home() {
     {
       setIsLoading(true);
     }
-    await fetchNineShows(contentType, service, genre, page.current, sortType)
+    await fetchNineShows(contentType, service, genre, year, page.current, sortType)
       .then((data) => {
         const moreShows = [];
         data.forEach(function pushAndCreate(element) {
@@ -63,7 +63,7 @@ function Home() {
       observer.current = null
     }
 
-  }, [contentType, service, sortType, genre, ref])
+  }, [contentType, service, sortType,year, genre, ref])
 
   function convertGenreAndSet(genreNum)
   {
@@ -76,6 +76,23 @@ function Home() {
       setGenre(parseInt(genreNum))
     }
   }
+
+  function convertYearAndSet(year)
+  {
+    console.log(year);
+    if(year == 'noYear')
+    {
+      console.log('1');
+      setYear('noYear')
+    }
+    else
+    {
+      console.log('2');
+      setYear(parseInt(year))
+      console.log('set')
+    }
+  }
+
   return (
     <div>
       <Grow in>
@@ -143,7 +160,16 @@ function Home() {
             <MenuItem value="10767">Talk Show</MenuItem>
           </Select>
         </FormControl>
-
+        <FormControl className={classes.formControl}>
+          <InputLabel>Sort</InputLabel>
+          <Select id="contentType" value={year} onChange={(e) => convertYearAndSet(e.target.value)}>
+            <MenuItem value="noYear">None</MenuItem>
+            <MenuItem value="2022">2022</MenuItem>
+            <MenuItem value="2021">2021</MenuItem>
+            <MenuItem value="2020">2020</MenuItem>
+            <MenuItem value="2019">2019</MenuItem>
+          </Select>
+        </FormControl>
       </div>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
