@@ -135,6 +135,10 @@ ADDING TO LISTS
   text-decoration: none;
 }
 
+.dropdownLinkModal:disabled, .dropdownLinkModal[disabled] {
+  background-color: grey;
+}
+
 /* Displays dropdown once hovering mouse */
 .editButton:hover {
   display: block;
