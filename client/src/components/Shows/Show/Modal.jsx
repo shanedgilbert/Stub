@@ -11,6 +11,7 @@ import ModalDropdown from "./ModalDropdown";
 const Modal = props => {
 
   const [lists, setLists] = useState([]);
+  const [tempLists, setTempLists] = useState([]);
   const imdbRatingNormalized = props.showInfo.imdbRating/10;
 
   const closeOnEscapeKeyDown = e => {
@@ -33,6 +34,7 @@ const Modal = props => {
 
   async function getList() {
     var tempList = [];
+    var tempList2 = [];
     const listGet = await fetchLists();
     var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
     listGet.data.forEach(async listElement => {
@@ -46,7 +48,10 @@ const Modal = props => {
         })
         if (addList === true)
         {
-          tempList.push(listElement);
+          tempList.push({listsList: listElement, isDisplay: true});
+        }
+        else {
+          tempList.push({listsList: listElement, isDisplay: false});
         }
       }
     })
