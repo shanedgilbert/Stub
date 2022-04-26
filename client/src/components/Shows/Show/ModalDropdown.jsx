@@ -9,8 +9,6 @@ const ModalDropdown = (prop) => {
     const dispatch = useDispatch();
 
     const handleAddToList = (show, listID) => {
-      console.log(listID);
-      console.log(show);
       //dispatch(addToList(show, listID))
       dispatch(addListShow(listID, show))
     }
@@ -22,7 +20,7 @@ const ModalDropdown = (prop) => {
                   <div className = "editMenuContentModal">
                       {prop.list.map((listItem, index) => {
                         return (
-                          <button key = {listItem._id} className = "dropdownLinkModal" onClick={() => handleAddToList(prop.props, listItem._id)}>Add to {listItem.name}</button>
+                          <button key = {listItem.listsList_id} className = "dropdownLinkModal" onClick={() => handleAddToList(prop.props, listItem.listsList._id)} disabled = {!listItem.isDisplay}>Add to {listItem.listsList.name}</button>
                         )
                       })}
                     </div>
