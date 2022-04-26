@@ -63,6 +63,10 @@
   padding-right: 5px;
 }
 
+.show-poster {
+  width: 899px;
+}
+
 .modalOverview{
   padding-left: 20px;
   padding-right: 10px;
@@ -133,6 +137,10 @@ ADDING TO LISTS
 
 .dropdownLinkModal:hover {
   text-decoration: none;
+}
+
+.dropdownLinkModal:disabled, .dropdownLinkModal[disabled] {
+  background-color: grey;
 }
 
 /* Displays dropdown once hovering mouse */
