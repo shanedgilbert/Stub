@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./modal.css";
+import "./responsive.css"; 
 import { fetchLists } from "../../../api";
 import genreNames from "../genre";
 import imdbLogo from "../../../images/imdblogo.png";
@@ -74,7 +75,7 @@ const Modal = props => {
             <button onClick={props.onClose} className="button closeButton">
               x
             </button>
-            <img src={props.movieImage} alt={props.title} width="899px"></img>
+            <img className="show-poster" src={props.movieImage} alt={props.title}></img>
           </div>
           <tr className="modalTable">
             <td className="modalOverview">
