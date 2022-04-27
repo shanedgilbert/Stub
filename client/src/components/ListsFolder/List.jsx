@@ -11,7 +11,8 @@ import useStyles from './styles';
 
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 
-import white from '../../images/white.jpeg';
+import middle from '../../images/middle.png';
+import sides from '../../images/EmptyList.png';
 
 //note, function call here , but const in show.js, may be potential error/warning
 function List(prop){
@@ -67,9 +68,9 @@ function List(prop){
     else{
       return (
       <>
-      <img className='listImagePosters' src={white} alt="blank image"></img>
-      <img className='listImagePosters' src={white} alt="blank image"></img>
-      <img className='listImagePosters' src={white} alt="blank image"></img>
+      <img className='listImagePosters' src={sides} alt="blank image"></img>
+      <img className='listImagePosters' src={middle} alt="blank image"></img>
+      <img className='listImagePosters' src={sides} alt="blank image"></img>
       </>
       )
     }
