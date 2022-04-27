@@ -79,17 +79,13 @@ function Home() {
 
   function convertYearAndSet(year)
   {
-    console.log(year);
     if(year == 'noYear')
     {
-      console.log('1');
       setYear('noYear')
     }
     else
     {
-      console.log('2');
       setYear(parseInt(year))
-      console.log('set')
     }
   }
 

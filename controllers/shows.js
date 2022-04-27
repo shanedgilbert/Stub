@@ -25,13 +25,10 @@ export const getShow = async (req, res) =>
     const {genre} = req.params;
     const{year} = req.params;
     const page = req.params.page
-    console.log(year);
     try 
     {
         if(genre == 'noGenre') //no genre
         {
-            console.log('!!!!!')
-            console.log('.',year)
             if(year == 'noYear')//no year
             {
                 console.log('!!')
