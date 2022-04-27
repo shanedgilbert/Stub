@@ -208,7 +208,7 @@
   position: absolute;
   height: 40px;
   bottom: 25px;
-  padding-top: 10px;
+  padding-top: 5px;
   background-color: rgb(0,0,0,0.75);
 }
 
@@ -222,4 +222,8 @@
 
 .StreamingListBtn{
   padding-bottom: 20px;
+}
+
+.defaultImagePoster{
+  width: 100%;
 }
