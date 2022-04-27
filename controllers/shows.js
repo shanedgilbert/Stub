@@ -18,7 +18,6 @@ export const getShows = async (req, res) => {
 
 export const getShow = async (req, res) => 
 { 
-    console.log('test')
     const { type } = req.params.type;
     const  { service }  = req.params;
     const { sortType } = req.params;
@@ -31,7 +30,6 @@ export const getShow = async (req, res) =>
         {
             if(year == 'noYear')//no year
             {
-                console.log('!!')
                 if(sortType == 'ratings')
                 {
                     if(page == 1)
@@ -71,7 +69,7 @@ export const getShow = async (req, res) =>
             }
             else//year
             {
-                console.log('!!')
+
                 if(sortType == 'ratings')
                 {
                     if(page == 1)
@@ -111,7 +109,6 @@ export const getShow = async (req, res) =>
         }
         else //genre
         {
-            console.log('!!!!')
             if(year == 'noYear') //no year
             {
                 if(sortType == 'ratings')
