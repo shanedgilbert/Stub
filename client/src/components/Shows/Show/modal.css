@@ -60,6 +60,7 @@
 
 .modalInfo{
   width: 200px;
+  padding-top: 1.5rem;
   padding-right: 5px;
 }
 
@@ -73,12 +74,24 @@
   width: 700px;
 }
 
+.modal-overview-row {
+  background-color: #222831;
+}
+
 .closeButton {
-    color: white;
-    width: 70px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+  color: white;
+  width: 70px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.close-button-bottom {
+  color: white;
+  background-color: #222831;
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 100%;
 }
 
 .streamingLink {
@@ -98,7 +111,6 @@ ADDING TO LISTS
   align-content: top;
   position: relative;
   float: right;
-  
   height: 100%;
 }
 
@@ -107,7 +119,7 @@ ADDING TO LISTS
   width: 100%;
   height: 100%;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 15px;
   color: white;
   background-color: rgb(193,18,31);
@@ -159,6 +171,9 @@ ADDING TO LISTS
   align-content: top;
   position: relative;
   float: right;
-  
   height: 10%;
+}
+
+.modal-footer {
+  justify-content: center;
 }

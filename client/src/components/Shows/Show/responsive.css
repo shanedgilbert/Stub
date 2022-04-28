@@ -1,16 +1,23 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .modal-content {
-        width: 90vw;
+        max-height: 75vh;
+        width: 85vw;
     }
     .show-poster {
-        width: 90vw;
+        max-height: 25vh;
+        width: 85vw;
     }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
+    .modal-content {
+        width: 90vw;
+    }
+    .show-poster {
+        width: 90vw;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
