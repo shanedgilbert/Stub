@@ -215,14 +215,14 @@ export const createShow = async (req, res) =>
 
             const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURLs, userRating, streamingInfo, runtime, originalTitle, genres, backdropURLs, cast, significants, tagline, service  })
             await newShowContent.save();
-            console.log('if', newShowContent.title);
+            console.log('show added:', newShowContent.title);
             //console.log('if', Object.keys(newShowContent.streamingInfo)[0]);
             //console.log('if', newShowContent.streamingInfo.netflix.us.link);
             res.status(201).json(newShowContent);
         }
         else
         {
-            console.log('else', foundShow.title);
+            console.log('already in database:', foundShow.title);
             //console.log('else', Object.keys(foundShow.streamingInfo)[0]);
             //console.log('else', foundShow.streamingInfo.netflix.us.link);
             res.status(201).json(foundShow);
