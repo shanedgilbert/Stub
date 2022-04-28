@@ -34,13 +34,13 @@ function List(prop){
   //const [newName, setNewName] = useState({name: ""});
 
   function CreatePoster(prop){
-    console.log(prop.shows)
+    //console.log(prop.shows)
     return <img className='listImagePosters' src={prop.shows[prop.i].showInfo.posterURLs.original} alt="movie poster"></img>
   }
 
 
   function getListImages(shows){
-    console.log(shows)
+    //console.log(shows)
     if(shows.length >= 1){
       if(3<=shows.length){
         return (<>
