@@ -1,8 +1,9 @@
 import React, {useState, useEffect, createRef} from 'react';
 import {Grid, CircularProgress, Container} from '@material-ui/core';
-import List from './List/List.js';
+//import List from './List/List.js';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
+import List from "./List.jsx"
 
 const Lists = ({ListsArray}) => {
     const classes = useStyles();
@@ -20,10 +21,10 @@ const Lists = ({ListsArray}) => {
                     //!currentLists.length ? <div className={classes.listMessage}> Looks like you don't have any lists!</div> : (
                         <Container className="homeLists">
                         <Grid className={classes.container} container justifyContent='space-between' alignItems='stretch' spacing={3}>
-                            {currentLists.map((list) => (
+                            {currentLists.map((list, index) => (
                                 list.ownerID !== JSON.parse(localStorage.getItem('userLoginData')).id ? null :
-                                    <Grid item xs={12} sm={6} md={4} lg={4}className="listsLayout">
-                                        <List list={list}/>
+                                    <Grid item xs={12} sm={6} md={4} lg={4}className="listsLayout" key = {index}>
+                                        <List name = {list.name} _id = {list._id} shows = {list.shows}/>
                                     </Grid>
                             ))}            
                         </Grid>

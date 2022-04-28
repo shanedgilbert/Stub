@@ -6,7 +6,6 @@ import ListAdder from "../jsx/listAdder.jsx"
 
 function ListsPage() {
   const [lists] = useState([]);
-  console.log(lists);
 
   return (
     <div className="home">
@@ -17,7 +16,7 @@ function ListsPage() {
         <h2>Your Lists</h2>
         <ListAdder/>
       </div>
-      <div class="container">
+      <div className ="container">
           <ListsJS
             ListsArray={lists}
           />

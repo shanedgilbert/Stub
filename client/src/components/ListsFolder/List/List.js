@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import ListDisplay from "../List.jsx";
 import '../lists.css';
 
@@ -9,3 +9,4 @@ const List = ({list}) => {
 }
 
 export default List;
+*/
