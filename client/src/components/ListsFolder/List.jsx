@@ -3,16 +3,17 @@ import './lists.css';
 import { Link } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {deleteList} from '../../actions/lists.js';
-import {addListShow} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
 import useStyles from './styles';
-//import Form from '';
-//import { Button } from '@material-ui/core';
+import Modal from 'react-bootstrap/Modal'
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { useState } from 'react';
 
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 
 import middle from '../../images/middle.png';
-import sides from '../../images/EmptyList.png';
+import sides from '../../images/EmptyList.png'; 
 
 //note, function call here , but const in show.js, may be potential error/warning
 function List(prop){
@@ -28,19 +29,20 @@ function List(prop){
   }
   const handleEdit = (payload,e) => {
     dispatch(editListName(payload, e));
+	console.log("edit window displayed");
     window.location.reload(false);//code here refreshes to see database change
   }
-  //const [display, setDisplay] = useState(false);// for edit modal appearing 
-  //const [newName, setNewName] = useState({name: ""});
+  const [display, setDisplay] = useState(false);// for edit modal appearing 
+  const [nameVal, setNewName] = useState({name: ""});
 
   function CreatePoster(prop){
-    console.log(prop.shows)
+    //console.log(prop.shows)
     return <img className='listImagePosters' src={prop.shows[prop.i].showInfo.posterURLs.original} alt="movie poster"></img>
   }
 
 
   function getListImages(shows){
-    console.log(shows)
+    //console.log(shows)
     if(shows.length >= 1){
       if(3<=shows.length){
         return (<>
@@ -96,14 +98,14 @@ function List(prop){
           </Link>
             
             <div className="listItem">
-              <button className="edit-btn" onClick={() => handleEdit(prop._id, "testing v1.3 change")}>Edit</button>
-			  	{/* <Modal 
-				{...props}
+              <button className="edit-btn" onClick={() => {setDisplay(true)}}>Edit</button>
+			  {/* <Modal 
+				{...prop}
 				size = "lg"
 				aria-labelledby="NameFieldModal"
 				centered
 				>
-				<Modal.Header classname={classes.editListName}>
+				<Modal.Header id="NameFieldModal">
 					<Modal.Title >
 						Add New List Name
 					</Modal.Title>
@@ -122,10 +124,9 @@ function List(prop){
 					</Form>
 				</Modal.Body>
 				<Modal.Footer classname = {classes.nameSubmit}>
-					<Button onClick = {() => handleEdit(prop._id, nameVal)}> Save Changes</Button>
+					<Button onClick = {() => handleEdit(prop._id, "nameVal")}> Save Changes</Button>
 				</Modal.Footer>
 				</Modal> */}
-
               <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
               </div>
           </div>
