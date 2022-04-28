@@ -23,7 +23,7 @@ function ListPage() {
         <h2>{postSlug}</h2>
         <div width = "25px"/>
       </div>
-      <div class="container">
+      <div className ="container">
         <Settings />
       </div>
     </div>
