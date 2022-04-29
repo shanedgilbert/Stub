@@ -13,16 +13,18 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .modal-content {
-        width: 90vw;
+        width: 65vw;
     }
     .show-poster {
-        width: 90vw;
+        width: 65vw;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
+    .close-button-bottom {
+        width: 100px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

@@ -74,7 +74,7 @@ const Modal = props => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <Container className="modal" onClick={props.onClose}>
+      <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
           <div className="modal-body">
           <div className="poster-header">
@@ -209,7 +209,7 @@ const Modal = props => {
           <p>{props.children}</p>
           </div>
         </div>
-      </Container>
+      </div>
     </CSSTransition>,
     document.getElementById("root")
   );
