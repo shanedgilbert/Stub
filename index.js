@@ -18,13 +18,6 @@ app.use('/shows', showRoutes);
 app.use('/accounts', accountRoutes);
 app.use('/listsdb', listRoutes);
 
-app.get("*", (req, res) => {
-  let url = path.join(__dirname, '../client/build', 'index.html');
-  if (!url.startsWith('/app/')) // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
-});
-
 const CONNECTION_URL = 'mongodb+srv://scottsak:Feb!2193803@cluster0.w3za4.mongodb.net/Stub';
 const PORT = process.env.PORT|| 5000;
 

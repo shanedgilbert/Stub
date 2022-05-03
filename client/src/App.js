@@ -16,23 +16,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} /> {/*Test */}
         <Route path="/logout" element={<Logout LoggedInState={LoggedIn} setLoggedIn={setLoggedIn}/>} />
-        <Route
-          path="/settings"
-          element=
-          {
-            <PrivateRoute>
-              <Settings />
-            </PrivateRoute>
-          }
-        />
         {/* Parent route for url ".../lists" */}
         <Route
           path="/lists"
           element=
           {
-            <PrivateRoute>
               <Lists />
-            </PrivateRoute>
           }
         > 
           {/* Child route for if url ends with "/list" */}
