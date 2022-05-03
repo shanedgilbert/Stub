@@ -1,9 +1,9 @@
 import axios from 'axios';
 import StreamingAPIKey from './StreamingAPIKey';
 
-const DatabaseURL = 'http://localhost:5000/shows';
+const DatabaseURL = 'https://stub-netflix-n-review.herokuapp.com/shows';
 const DatabaseURLAccounts = '/accounts';
-const DatabaseURLLists = 'http://localhost:5000/listsdb';
+const DatabaseURLLists = 'https://stub-netflix-n-review.herokuapp.com/listsdb';
 const APIURL = 'https://streaming-availability.p.rapidapi.com/search/basic';
 const key = StreamingAPIKey(); 
 const streamingService = 'netflix';
