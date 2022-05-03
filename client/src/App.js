@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
 import { Navigation, Footer, Home, Lists, Settings, Logout } from "./components/jsx";
 import { isLoggedIn } from './actions/login';
 import PrivateRoute from './components/jsx/PrivateRoute';
@@ -13,7 +13,7 @@ const App = () => {
   return (
     <Router>
       <Navigation LoggedInState={LoggedIn} setLoggedIn={setLoggedIn} />
-      <Routes>
+      <Switch>
         <Route path="/" element={<Home />} /> {/*Test */}
         <Route path="/logout" element={<Logout LoggedInState={LoggedIn} setLoggedIn={setLoggedIn}/>} />
         <Route
@@ -42,7 +42,7 @@ const App = () => {
         </Route>
 
         <Route path = "/dev" element = {<DevPage/>}/>
-    </Routes>
+    </Switch>
     <Footer />
   </Router>
   );
