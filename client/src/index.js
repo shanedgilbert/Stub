@@ -11,10 +11,8 @@ import './index.css';
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <BrowserRouter>
     <Provider store={store}>
       <App />
-    </Provider>
-  </BrowserRouter>,
+    </Provider>,
   document.getElementById('root'),
 );
