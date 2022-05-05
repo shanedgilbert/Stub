@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
     backgroundBlendMode: 'darken',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: 'black',
   },
   body: {
     display: 'flex',

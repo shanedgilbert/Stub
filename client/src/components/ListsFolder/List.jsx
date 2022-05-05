@@ -29,7 +29,7 @@ function List(prop){
   }
   const handleEdit = () => {
     dispatch(editListName(prop._id, nameVal));
-	console.log("edit window displayed\n list_id:" + prop._id+ " e val: " + nameVal);
+	//console.log("edit window displayed\n list_id:" + prop._id+ " e val: " + nameVal);
     //window.location.reload(false);//code here refreshes to see database change
   }
   const [display, setDisplay] = useState(false);// for edit modal appearing 
@@ -103,14 +103,15 @@ function List(prop){
             <div className="listItem" > 	
               <button className="edit-btn" onClick={() => {setDisplay(true)}}>Edit</button>
 			  <Modal 
+			  		className="editModal"
 			  		isOpen = {display}
 					onRequestClose = {handleModalClose}
 					contentLabel= "New List Name"
 				>
-					<div>Input New List Name</div>
+					<div className={classes.title}>Add New List Name</div>
 					<form onSubmit = {handleEdit}>
 						<TextField id="outlined-basic" label="New List Name" variant="outlined" value={nameVal} onChange= {(e)=>{setNewName(e.target.value)}} />
-						<button type='submit'>Update Name</button>
+						<button className="updateNewName" >Update Name</button>
 					</form>
 				</Modal>	
               <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>

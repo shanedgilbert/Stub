@@ -84,7 +84,6 @@
   text-align: center;
 }
 
-
 /*---------------------------------------*/
 .titleOfList{
   text-align: center;
@@ -227,4 +226,22 @@
 
 .defaultImagePoster{
   width: 100%;
+}
+
+.editModal{    
+position: absolute;
+inset: 250px;
+border: 1px solid #212529;
+background: rgba(60,60,60);
+overflow: auto;
+border-radius: 4px;
+outline: none;
+padding: 10px;
+}
+
+.updateNewName{
+  background: #C1111F;
+  position: relative;
+  display: block;
+
 }
