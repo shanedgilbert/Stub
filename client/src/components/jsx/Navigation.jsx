@@ -26,10 +26,6 @@ function Navigation({ LoggedInState, setLoggedIn }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="me-auto navbar-right">
-            {LoggedInState ? <Nav.Link href="/lists">Lists</Nav.Link> : false}
-            {LoggedInState ? <Nav.Link href="/logout">Logout</Nav.Link> : false}
-            {/* {window.innerWidth >= 720 ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>} */}
-            {LoggedInState ? getProfile() : <Login LoggedIn={LoggedInState} setLoggedIn={setLoggedIn}/>}
           </Nav>
         </Navbar.Collapse>
       </Container>
