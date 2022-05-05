@@ -171,6 +171,7 @@
   bottom: 0;
   display: flex;
   justify-content: space-between;
+  z-index: 0;
 }
 
 .link-list{

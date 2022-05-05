@@ -5,9 +5,9 @@ import {useDispatch} from 'react-redux';
 import {deleteList} from '../../actions/lists.js';
 import {editListName} from '../../actions/lists.js';
 import useStyles from './styles';
-import Modal from 'react-bootstrap/Modal'
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Modal from 'react-modal';
+import {TextField} from '@material-ui/core';
+//import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
@@ -27,15 +27,20 @@ function List(prop){
   const handleDelete = (payload) => {
     dispatch(deleteList(payload));
   }
-  const handleEdit = (payload,e) => {
-    dispatch(editListName(payload, e));
-	console.log("edit window displayed");
-    window.location.reload(false);//code here refreshes to see database change
+  const handleEdit = () => {
+    dispatch(editListName(prop._id, nameVal));
+	console.log("edit window displayed\n list_id:" + prop._id+ " e val: " + nameVal);
+    //window.location.reload(false);//code here refreshes to see database change
   }
   const [display, setDisplay] = useState(false);// for edit modal appearing 
-  const [nameVal, setNewName] = useState({name: ""});
+  const [nameVal, setNewName] = useState("");
+
+  const handleModalClose = () => {
+	  setDisplay(false);
+  }
 
   function CreatePoster(prop){
+
     //console.log(prop.shows)
     return <img className='listImagePosters' src={prop.shows[prop.i].showInfo.posterURLs.original} alt="movie poster"></img>
   }
@@ -83,7 +88,6 @@ function List(prop){
     return (
       <Card className={classes.card}>
       <div className="listButton">
-        
           <div className="areaOfButton">
           <Link className="link-list" to={"/lists/"+prop.name}>
             <div className="listHeaderDiv">
@@ -94,46 +98,25 @@ function List(prop){
             <div className='listname-info'>
               <h1 className="listHeader">{prop.name}</h1>
             </div>
-            
           </Link>
             
-            <div className="listItem">
+            <div className="listItem" > 	
               <button className="edit-btn" onClick={() => {setDisplay(true)}}>Edit</button>
-			  {/* <Modal 
-				{...prop}
-				size = "lg"
-				aria-labelledby="NameFieldModal"
-				centered
+			  <Modal 
+			  		isOpen = {display}
+					onRequestClose = {handleModalClose}
+					contentLabel= "New List Name"
 				>
-				<Modal.Header id="NameFieldModal">
-					<Modal.Title >
-						Add New List Name
-					</Modal.Title>
-				</Modal.Header>
-				<Modal.Body classname = {classes.body}>
-					<Form>
-					<Form.Group className={classes.editListName} >
-					<Form.Label>Add New Name</Form.Label>
-					<Form.Control
-					type="text"
-					onInput = {(e)=>setNewName=(e.target.value)}//needs fixing up here
-					placeholder="StubListDefault"//gives default ex for user
-					autoFocus//may not be necessary unless preparing for blind users
-					/>
-					</Form.Group>
-					</Form>
-				</Modal.Body>
-				<Modal.Footer classname = {classes.nameSubmit}>
-					<Button onClick = {() => handleEdit(prop._id, "nameVal")}> Save Changes</Button>
-				</Modal.Footer>
-				</Modal> */}
+					<div>Input New List Name</div>
+					<form onSubmit = {handleEdit}>
+						<TextField id="outlined-basic" label="New List Name" variant="outlined" value={nameVal} onChange= {(e)=>{setNewName(e.target.value)}} />
+						<button type='submit'>Update Name</button>
+					</form>
+				</Modal>	
               <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
-              </div>
-          </div>
-            
-        
-          
-      </div>
+            </div>
+          </div>  
+      	</div>
     </Card>
   );
 }
