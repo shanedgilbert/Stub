@@ -61,6 +61,8 @@ export default makeStyles((theme) => ({
     margin: theme.spacing(1), minWidth: 120, marginBottom: '30px',
   },
   selectorContainer: {
+    textAlign: 'center',
     paddingBottom: '0.5rem',
+    color: 'white',
   },
 }));

@@ -3,7 +3,8 @@ import { Container, Grow, Grid, InputLabel, MenuItem, FormControl, Select } from
 import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import {fetchNineShows} from '../../api/index';
-import './loader.css'
+import './loader.css';
+import './home.css';
 
 function Home() {
   const classes = useStyles();
@@ -94,7 +95,7 @@ function Home() {
       <Grow in>
       <Container className="homeLists">
       <div className={classes.selectorContainer}>
-        <FormControl className={classes.formControl}>
+        <FormControl className={classes.formControl} style={{color: 'white'}}>
           <InputLabel>Service</InputLabel>
           <Select id="service" value={service} onChange={(e) => setService(e.target.value)}>
             <MenuItem value="netflix">Netflix</MenuItem>
