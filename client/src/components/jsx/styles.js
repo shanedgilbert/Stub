@@ -62,6 +62,5 @@ export default makeStyles((theme) => ({
   },
   selectorContainer: {
     paddingBottom: '0.5rem',
-    textAlign: 'center',
   },
 }));
