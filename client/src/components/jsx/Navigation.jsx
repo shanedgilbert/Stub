@@ -23,11 +23,6 @@ function Navigation({ LoggedInState, setLoggedIn }) {
           <img className={classes.image} src={stublogo} alt="icon" height="60" />
         </Nav>
         <Navbar.Brand href="/">Stub</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="me-auto navbar-right">
-          </Nav>
-        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

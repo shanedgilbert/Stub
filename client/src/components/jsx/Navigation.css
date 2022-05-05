@@ -4,3 +4,6 @@
 .navbar-right {
     float: right;
 }
+.navbar .container {
+    justify-content: start;
+}
