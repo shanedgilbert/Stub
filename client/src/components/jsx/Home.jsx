@@ -3,7 +3,8 @@ import { Container, Grow, Grid, InputLabel, MenuItem, FormControl, Select } from
 import Shows from '../../components/Shows/Shows';
 import useStyles from './styles';
 import {fetchNineShows} from '../../api/index';
-import './loader.css'
+import './loader.css';
+import './home.css';
 
 function Home() {
   const classes = useStyles();
