@@ -30,7 +30,7 @@ function List(prop){
   const handleEdit = () => {
     dispatch(editListName(prop._id, nameVal));
 	//console.log("edit window displayed\n list_id:" + prop._id+ " e val: " + nameVal);
-    //window.location.reload(false);//code here refreshes to see database change
+    window.location.reload(false);//code here refreshes to see database change
   }
   const [display, setDisplay] = useState(false);// for edit modal appearing 
   const [nameVal, setNewName] = useState("");
