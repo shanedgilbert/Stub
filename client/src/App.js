@@ -15,22 +15,8 @@ const App = () => {
       <Navigation LoggedInState={LoggedIn} setLoggedIn={setLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} /> {/*Test */}
-        <Route path="/logout" element={<Logout LoggedInState={LoggedIn} setLoggedIn={setLoggedIn}/>} />
+        {/* <Route path="/logout" element={<Logout LoggedInState={LoggedIn} setLoggedIn={setLoggedIn}/>} /> */}
         {/* Parent route for url ".../lists" */}
-        <Route
-          path="/lists"
-          element=
-          {
-              <Lists />
-          }
-        > 
-          {/* Child route for if url ends with "/list" */}
-          <Route path="" element={<><ListsPage /></>} />
-          {/* Child route for if url ends with "/list/..." */}
-          <Route path=":postSlug" element={<ListPage />} />
-        </Route>
-
-        <Route path = "/dev" element = {<DevPage/>}/>
     </Routes>
     <Footer />
   </Router>
