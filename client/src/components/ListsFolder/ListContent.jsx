@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import imdbLogo from '../../images/imdblogo.png'
-import useStyles from '../Shows/Show/styles';
+//import useStyles from '../Shows/Show/styles';
 import {removeListShow} from "../../actions/lists";
 import "./listContent.css";
 

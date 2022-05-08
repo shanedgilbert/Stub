@@ -7,19 +7,14 @@ import {editListName} from '../../actions/lists.js';
 import useStyles from './styles';
 import Modal from 'react-modal';
 import {TextField} from '@material-ui/core';
-//import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 
-import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
+import { Card } from '@material-ui/core/';
 
 import middle from '../../images/middle.png';
 import sides from '../../images/EmptyList.png'; 
 
-//note, function call here , but const in show.js, may be potential error/warning
 function List(prop){
-
-  //2 variables below for handleEdit related code
-  // const [listData, editListData] = useState({name: '',id: ''});//array to temp store to use later
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -29,8 +24,8 @@ function List(prop){
   }
   const handleEdit = () => {
     dispatch(editListName(prop._id, nameVal));
-	  console.log("edit window displayed\n list_id:" + prop._id+ " name val: " + nameVal);
-    window.location.reload(false);//code here refreshes to see database change
+	  //console.log("edit window displayed\n list_id:" + prop._id+ " name val: " + nameVal);
+    //window.location.reload(false);//code here refreshes to see database change
   }
   const [display, setDisplay] = useState(false);// for edit modal appearing 
   const [nameVal, setNewName] = useState("");
@@ -41,13 +36,10 @@ function List(prop){
 
   function CreatePoster(prop){
 
-    //console.log(prop.shows)
     return <img className='listImagePosters' src={prop.shows[prop.i].showInfo.posterURLs.original} alt="movie poster"></img>
   }
-  let temp = prop._id;
 
   function getListImages(shows){
-    //console.log(shows)
     if(shows.length >= 1){
       if(3<=shows.length){
         return (<>
@@ -80,9 +72,7 @@ function List(prop){
       <img className='listImagePosters' src={sides} alt="blank image"></img>
       </>
       )
-    }
-    // console.log("posters: "+imagePosters)
-      
+    } 
   }
 
     return (

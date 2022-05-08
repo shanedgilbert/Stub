@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import useStyles from './styles';
 import {getLists} from '../../actions/lists.js';
 import {createList} from '../../actions/lists.js';
-import InputLabel from '@material-ui/core/InputLabel';
+//import InputLabel from '@material-ui/core/InputLabel';
 
 function ListAdder()
 {

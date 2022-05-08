@@ -6,7 +6,7 @@ let page = 1;
 let showCount = 0;
 function DevPage() {
     const [shows, setShows] = useState([]);
-    const ref = useRef();
+    //const ref = useRef();
     async function loadMoreShows() 
   {
     console.log('page', page)

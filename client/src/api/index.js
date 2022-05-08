@@ -95,7 +95,7 @@ export const removeListShow = async (listID, showRemove) => {
 export const editListName = async(listID, newListName) =>{
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list =>{
-    if (list._id == listID){
+    if (list._id === listID){
       list.name = newListName;//maybeee
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
     }

@@ -1,5 +1,6 @@
-import {FETCH_ALL, CREATE, REMOVE, EDIT, ADDSHOW} from '../constants/actionTypes';
+import {FETCH_ALL, CREATE, REMOVE, EDIT} from '../constants/actionTypes';
 import * as api from '../api/index.js';
+//ADDSHOW removed from first import as it wasnt being used
 
 export const getLists = () => async(dispatch) => {
     try {

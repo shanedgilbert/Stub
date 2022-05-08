@@ -7,7 +7,7 @@ import List from "./List.jsx"
 
 const Lists = ({ListsArray}) => {
     const classes = useStyles();
-    const [elRefs, setElrefs] = useState([]);
+    const [elRefs, setElrefs] = useState([]);//is it necessary? var never used
 
     const currentLists = useSelector((state) => state.lists);
   
