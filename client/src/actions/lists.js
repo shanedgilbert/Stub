@@ -14,7 +14,8 @@ export const getLists = () => async(dispatch) => {
 export const createList = (list) => async(dispatch) => {
     try {
         const {data} = await api.createList(list);
-        dispatch({type: CREATE, payload: data});
+        await dispatch({type: CREATE, payload: data});
+        window.location.reload(true)
     }
     catch(error){
         console.log('ACTIONS/LIST CREATELIST(): ' + error.message);
