@@ -63,7 +63,6 @@ export const editListName = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
     try {
-        console.log("Server controller List name: "+ name);
         const listObj = await ListContent.findByIdAndUpdate(id, {name : name});
         await listObj.save();
         res.status(200).json(listObj);  
@@ -71,7 +70,6 @@ export const editListName = async (req, res) => {
     } catch (error) {
         res.status(404).json({message: 'SERVER/CONTROLLERS/LISTS EDITLISTNAME() '+ error.message});
     }
-    console.log("just to see what req looks like"+ req);
 }
 
 //Not yet properly updated

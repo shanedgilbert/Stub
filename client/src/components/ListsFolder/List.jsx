@@ -29,7 +29,7 @@ function List(prop){
   }
   const handleEdit = () => {
     dispatch(editListName(prop._id, nameVal));
-	//console.log("edit window displayed\n list_id:" + prop._id+ " e val: " + nameVal);
+	  console.log("edit window displayed\n list_id:" + prop._id+ " name val: " + nameVal);
     window.location.reload(false);//code here refreshes to see database change
   }
   const [display, setDisplay] = useState(false);// for edit modal appearing 
@@ -44,7 +44,7 @@ function List(prop){
     //console.log(prop.shows)
     return <img className='listImagePosters' src={prop.shows[prop.i].showInfo.posterURLs.original} alt="movie poster"></img>
   }
-
+  let temp = prop._id;
 
   function getListImages(shows){
     //console.log(shows)
@@ -105,13 +105,16 @@ function List(prop){
 			  <Modal 
 			  		className="editModal"
 			  		isOpen = {display}
-					onRequestClose = {handleModalClose}
-					contentLabel= "New List Name"
+					  onRequestClose = {handleModalClose}
+					  contentLabel= "New List Name"
+            ariaHideApp = {false}
 				>
 					<div className={classes.title}>Add New List Name</div>
 					<form onSubmit = {handleEdit}>
 						<TextField id="outlined-basic" label="New List Name" variant="outlined" value={nameVal} onChange= {(e)=>{setNewName(e.target.value)}} />
 						<button className="updateNewName" >Update Name</button>
+            {/* <h2>List ID:  {temp}</h2>
+            <h3>New Name: {nameVal}</h3> */}
 					</form>
 				</Modal>	
               <button className="delete-btn" onClick={() => handleDelete(prop._id)}>Delete</button>
