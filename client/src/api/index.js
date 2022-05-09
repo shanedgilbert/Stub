@@ -9,8 +9,7 @@ const key = StreamingAPIKey();
 const streamingService = 'netflix';
 const contentType = 'series';
 
-//Create a dropdown for service and type and send the data here
-
+// Create a dropdown for service and type and send the data here
 export const fetchShows = () => axios.get(DatabaseURL);
 export const fetchNineShows = async (type,service,genre,year,page,sortType) => 
 {
@@ -23,11 +22,13 @@ export const fetchNineShows = async (type,service,genre,year,page,sortType) =>
   }
 }
 
+// Show functions
 export const createShow = async (newShow) =>  axios.post(DatabaseURL, newShow);
 export const rateShow = (id) => axios.patch(`${DatabaseURL}/${id}/rateShow`);
 export const updateShow = (id, updatedShow) => axios.patch(`${DatabaseURL}/${id}`, updatedShow);
 export const deleteShow = (id) => axios.delete(`${DatabaseURL}/${id}`);
 
+// Gets the relevant shows based on parameters
 export const getShowsData = async (pageNumber) => {
   const options = {
     params: {
@@ -51,6 +52,7 @@ export const getShowsData = async (pageNumber) => {
   }
 }
 
+// Account functions
 export const fetchAccounts = () => axios.get(DatabaseURLAccounts);
 export const createAccount = (newPost) => {
   axios.post(DatabaseURLAccounts, newPost)
@@ -59,12 +61,12 @@ export const createAccount = (newPost) => {
   });
 }
 
-//List functions
+// List functions
 export const fetchLists = () => axios.get(DatabaseURLLists);
 export const createList = (newList) => axios.post(DatabaseURLLists, newList);
 export const deleteList = (id) => {axios.delete(`${DatabaseURLLists}/${id}`);}
 
-//Adds shows to a list with matching listID in database
+// Adds shows to a list with matching listID in database
 export const addListShow = async (listID, newShows) => {
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list => {
@@ -75,6 +77,7 @@ export const addListShow = async (listID, newShows) => {
   });
 } 
 
+// Removes a show from a list
 export const removeListShow = async (listID, showRemove) => {
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list => {
@@ -92,11 +95,12 @@ export const removeListShow = async (listID, showRemove) => {
   });
 }
 
+// Edits the name of lists
 export const editListName = async(listID, newListName) =>{
   const listGet = await axios.get(DatabaseURLLists)
   listGet.data.forEach(async list =>{
     if (list._id === listID){
-      list.name = newListName;//maybeee
+      list.name = newListName;
       const res = await axios.patch(`${DatabaseURLLists}/${listID}`, list);
     }
   });

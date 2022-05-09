@@ -15,7 +15,7 @@ export const getShows = async (req, res) => {
     }
 }
 
-
+// Gets shows based on parameters
 export const getShow = async (req, res) => 
 { 
     const { type } = req.params.type;
@@ -199,7 +199,6 @@ export const createShow = async (req, res) =>
     
     try
     {
-        //console.log('add', req.body.title)
         const imdbID = req.body.imdbID;
         const foundShow = await ShowContent.findOne({ imdbID: imdbID });
        
@@ -215,16 +214,10 @@ export const createShow = async (req, res) =>
 
             const newShowContent = new ShowContent({ imdbID, title, overview, year, imdbRating, tags, posterURLs, userRating, streamingInfo, runtime, originalTitle, genres, backdropURLs, cast, significants, tagline, service  })
             await newShowContent.save();
-            console.log('show added:', newShowContent.title);
-            //console.log('if', Object.keys(newShowContent.streamingInfo)[0]);
-            //console.log('if', newShowContent.streamingInfo.netflix.us.link);
             res.status(201).json(newShowContent);
         }
         else
         {
-            console.log('already in database:', foundShow.title);
-            //console.log('else', Object.keys(foundShow.streamingInfo)[0]);
-            //console.log('else', foundShow.streamingInfo.netflix.us.link);
             res.status(201).json(foundShow);
         }
     }
@@ -242,41 +235,25 @@ export const updateShow = async (req, res) => {
     const { title, overview, year, imdbRating, tags, posterURL, userRating } = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-
     const updatedShow = { title, overview, year, imdbRating, tags, posterURL, userRating };
-
     await ShowContent.findByIdAndUpdate(id, updatedShow, { new: true });
-
     res.json(updatedShow);
 }
 
 export const deleteShow = async (req, res) => {
     const { id } = req.params;
-
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-
     await ShowContent.findByIdAndRemove(id);
-
     res.json({ message: "Show deleted successfully." });
 }
 
 export const rateShow = async (req, res) => {
     const { id } = req.params;
-
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-    
     const show = await ShowContent.findById(id);
-
     //Implement rating method
     const updatedShow = await ShowContent.findByIdAndUpdate(id, { userRating: show.userRating}, { new: true });
-    
     res.json(updatedShow);
 }
 
-
 export default router;
-
-
-
-
-//GET STREAMING SERVICE BY {show}.Object.keys(foundShow.streamingInfo)[0]);

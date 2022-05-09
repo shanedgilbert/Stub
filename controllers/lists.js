@@ -16,6 +16,7 @@ export const getLists = async (req, res) => {
     }
 }
 
+// Retrieves lists
 export const getList = async (req, res) => { 
     const { id } = req.params;
 
@@ -28,6 +29,7 @@ export const getList = async (req, res) => {
     }
 }
 
+// Creates lists
 export const createList = async (req, res) => {
     const { name, ownerID, shows } = req.body;
 
@@ -43,7 +45,7 @@ export const createList = async (req, res) => {
     }
 }
 
-//updateList deals with changes inside list
+// updateList deals with changes inside list
 export const updateList = async (req, res) => {
     try {
         const listContent = await ListContent.find();
@@ -53,9 +55,7 @@ export const updateList = async (req, res) => {
         res.status(404).json({ message: 'SERVER/CONTROLLERS/LISTS GETLISTS(): ' + error.message });
     }
 }
-//editListName here deals with changing the name of the list
-//find where i can use this to update the 
-//
+// editListName here deals with changing the name of the list
 export const editListName = async (req, res) => {
     const { id: _id } = req.params;
     const { name, shows, ownerID } = req.body;
@@ -72,7 +72,7 @@ export const editListName = async (req, res) => {
     }
 }
 
-//Not yet properly updated
+// Deletes lists
 export const deleteList = async (req, res) => {
     const { id } = req.params;
 
@@ -85,6 +85,7 @@ export const deleteList = async (req, res) => {
     res.json({ message: "Show deleted successfully." });
 }
 
+// Adds shows to lists
 export const addListShow = async (req, res) => {
     const { id } = req.params;
     const newList = req.body;
@@ -96,6 +97,7 @@ export const addListShow = async (req, res) => {
     res.json({ message: "Show added successfully"});
 }
 
+// Removes shows from lists
 export const removeListShow = async(req, res) => {
     const {id} = req.params;
 }
