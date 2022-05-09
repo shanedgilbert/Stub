@@ -89,7 +89,7 @@ const Modal = props => {
                         <h2 className="modal-title">{props.title} 
                         <a href={props.link} target="_blank" rel="noopener noreferrer">
                           <img className="streamingLink" 
-                            src="https://cdn.icon-icons.com/icons2/2657/PNG/256/disney_plus_icon_161064.png" 
+                            src="https://logodownload.org/wp-content/uploads/2020/11/disney-plus-logo-1.png"  
                             alt="disney logo" width="30"></img></a>
                             <ModalDropdown
                             props = {props}
