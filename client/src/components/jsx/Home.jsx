@@ -5,6 +5,8 @@ import useStyles from './styles';
 import {fetchNineShows} from '../../api/index';
 import './loader.css';
 import './home.css';
+import {getLocalUser} from "../../actions/login";
+import { fetchLists } from "../../api";
 
 function Home() {
   const classes = useStyles();
@@ -15,6 +17,47 @@ function Home() {
   const [sortType, setSortType] = useState('noSort');
   const [genre, setGenre] = useState('noGenre');
   const [year, setYear] = useState('noYear');
+
+  const [lists, setLists] = useState([]);
+
+  const closeOnEscapeKeyDown = e => {
+    if ((e.charCode || e.keyCode) === 27) {
+      // props.onClose();
+    }
+  };
+
+  useEffect(() => {
+    if (getLocalUser() != null)
+    {
+      getList();
+    }
+
+    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    return function cleanup() {
+      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+    };
+  });
+
+  async function getList() {
+    var tempList = [];
+    //var tempList2 = [];
+    const listGet = await fetchLists();
+    var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
+    listGet.data.forEach(async listElement => {
+      if (listElement.ownerID === userID) {
+        var addList = true;
+        
+        if (addList === true)
+        {
+          tempList.push({listsList: listElement, isDisplay: true});
+        }
+        else {
+          tempList.push({listsList: listElement, isDisplay: false});
+        }
+      }
+    })
+    setLists(tempList);
+  }
   
   let page = useRef();
   const ref = useRef();
@@ -176,7 +219,7 @@ function Home() {
       </div>
         <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
-            <Shows ShowsArray={shows} service={service}/>
+            <Shows ShowsArray={shows} service={service} lists = {lists} setLists = {setLists}/>
             </Grid>
           </Grid>
         </Container>

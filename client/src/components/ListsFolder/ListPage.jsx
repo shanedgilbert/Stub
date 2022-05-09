@@ -18,7 +18,7 @@ function ListPage() {
     <div>
       <div className = "listPageHeader">
         <Link to="/lists">
-          <img src={require("../../images/Back-Icon.png")} width = "30px" height = "30px"/>
+          <img src={require("../../images/Back-Icon.png")} alt='back-icon' width = "30px" height = "30px"/>
         </Link>
         <h2>{postSlug}</h2>
         <div width = "25px"/>

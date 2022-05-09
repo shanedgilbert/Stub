@@ -19,10 +19,10 @@ function ListContent(prop){
         <td>
           <img className="moviePosterList" src={prop.poster} alt="Movie Poster" width="256" height="384" />
         </td>
-        <td class="listMovieInfo">
+        <td className="listMovieInfo">
           <div className = "divTitleAndDelete">
           
-            <p><b class="titleMovie">{prop.title}</b> {prop.date}</p>
+            <p><b className="titleMovie">{prop.title}</b> {prop.date}</p>
             {/* {getStreamingServices(prop.title)} */}
             
             <button className = "deleteButtonDisplay" onClick = {removeFromList}>

@@ -9,10 +9,13 @@ import genreNames from "../genre";
 import imdbLogo from "../../../images/imdblogo.png";
 import {getLocalUser} from "../../../actions/login";
 import ModalDropdown from "./ModalDropdown";
+import {addToList} from "../../../actions/shows";
+import {addListShow}  from "../../../actions/lists"
+import { useDispatch } from 'react-redux';
 
 const Modal = props => {
 
-  const [lists, setLists] = useState([]);
+  
   //const [tempLists, setTempLists] = useState([]);
   const imdbRatingNormalized = props.showInfo.imdbRating/10;
 
@@ -22,43 +25,14 @@ const Modal = props => {
     }
   };
 
-  useEffect(() => {
-    if (getLocalUser() != null)
-    {
-      getList();
-    }
+  const dispatch = useDispatch();
 
-    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-    return function cleanup() {
-      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-    };
-  });
-
-  async function getList() {
-    var tempList = [];
-    //var tempList2 = [];
-    const listGet = await fetchLists();
-    var userID = JSON.parse(localStorage.getItem('userLoginData')).id;
-    listGet.data.forEach(async listElement => {
-      if (listElement.ownerID === userID) {
-        var addList = true;
-        listElement.shows.map(currShow => {
-          if (currShow.title === props.title)
-          {
-            addList = false;
-          }
-        })
-        if (addList === true)
-        {
-          tempList.push({listsList: listElement, isDisplay: true});
-        }
-        else {
-          tempList.push({listsList: listElement, isDisplay: false});
-        }
-      }
-    })
-    setLists(tempList);
+  const handleAddToList = (show, listID) => {
+    //dispatch(addToList(show, listID))
+    dispatch(addListShow(listID, show))
   }
+
+  
 
   function findMovieGenres(genre){
     let movieGenres = []
@@ -97,7 +71,7 @@ const Modal = props => {
                           alt="netflix logo" width="30"></img></a>
                           <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                           </h2>,
                       'prime' : 
@@ -108,7 +82,7 @@ const Modal = props => {
                           alt="prime video logo" width="30"></img></a>
                           <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                           </h2>,
                       'disney' : 
@@ -119,8 +93,8 @@ const Modal = props => {
                             alt="disney logo" width="30"></img></a>
                             <ModalDropdown
                             props = {props}
-                            list = {lists}
-                            />
+                            list = {props.lists}
+                          />
                             </h2>,
                       'hbo' : 
                         <h2 className="modal-title">{props.title} 
@@ -128,9 +102,9 @@ const Modal = props => {
                           <img className="streamingLink" 
                             src="https://cdn-icons-png.flaticon.com/512/5968/5968668.png" 
                             alt="hbo logo" width="30"></img></a>
-                            <ModalDropdown
+                           <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                             </h2>,
                       'hulu' : 
@@ -141,7 +115,7 @@ const Modal = props => {
                           alt="hulu logo" width="30"></img></a>
                           <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                           </h2>,
                       'peacock' : 
@@ -150,9 +124,9 @@ const Modal = props => {
                           <img className="streamingLink" 
                           src="https://play-lh.googleusercontent.com/IdHOrlnq_yC9w5NGHollnGnunojuEW1_-8g32VaETN3kkXkTOTi001XN2TBykRC3Tg" 
                           alt="peacock logo" width="30"></img></a>
-                          <ModalDropdown
+                         <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                           </h2>,
                       'paramount' : 
@@ -161,9 +135,9 @@ const Modal = props => {
                           <img className="streamingLink" 
                           src="https://cdn.mos.cms.futurecdn.net/UFo74BuGo7FYxhAE3DrWUP.jpg" 
                           alt="paramount logo" width="30"></img></a>
-                          <ModalDropdown
+                         <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                           </h2>,
                       'apple' : 
@@ -174,11 +148,12 @@ const Modal = props => {
                           alt="apple logo" width="30"></img></a>
                           <ModalDropdown
                             props = {props}
-                            list = {lists}
+                            list = {props.lists}
                           />
                           </h2>
                     }[props.service]
                   }
+
                   <Col sm={12} className="modal-rating">IMDB: {imdbRatingNormalized}/10
                   <a href={"https://www.imdb.com/title/"+props.showInfo.imdbID} target="_blank">
                     <img src={imdbLogo} alt="imdb logo" width="50px" className="imdbLogo"></img></a></Col>

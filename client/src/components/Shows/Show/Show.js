@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Card, CardMedia, Typography } from '@material-ui/core/';
 import  Modal  from './Modal.jsx'
 import useStyles from './styles';
+import {getLocalUser} from "../../../actions/login";
+import { fetchLists } from "../../../api";
 
-const Show = ({ show, service }) => {
+const Show = ({ show, service, lists, setLists }) => {
   const classes = useStyles();
   const imdbRatingNormalized = show.imdbRating/10;
 
   const [visibility, setVisibility] = useState(false);
+
 
   const handleShowModal = () =>  {
     console.log("did not go through")
@@ -48,6 +51,8 @@ const Show = ({ show, service }) => {
         link = {getServiceLink(show)}
         showInfo = {show}
         type = {show.type}
+        lists = {lists}
+        setLists = {setLists}
         />
       </Card>
   );
