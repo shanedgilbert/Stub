@@ -1,7 +1,7 @@
 import {FETCH_ALL, CREATE, REMOVE, EDIT} from '../constants/actionTypes';
 import * as api from '../api/index.js';
-//ADDSHOW removed from first import as it wasnt being used
 
+// Retrieves the lists from the DB
 export const getLists = () => async(dispatch) => {
     try {
         const{data} = await api.fetchLists();
@@ -12,6 +12,7 @@ export const getLists = () => async(dispatch) => {
     }
 }
 
+// Adds a new list to the DB
 export const createList = (list) => async(dispatch) => {
     try {
         const {data} = await api.createList(list);
@@ -22,7 +23,8 @@ export const createList = (list) => async(dispatch) => {
         console.log('ACTIONS/LIST CREATELIST(): ' + error.message);
     }
 }
-//Created updatelist information within for the try edit: legacy code
+
+// Created updatelist information within for the try edit: legacy code
 export const updateList = (id, listName) => async(dispatch) => {
     try {
        
@@ -31,7 +33,8 @@ export const updateList = (id, listName) => async(dispatch) => {
         console.log('ACTIONS/LIST UPDATELIST(): ' + error.message);
     }
 }
-// created editListName to function as the 'edit' in list pages
+
+// Created editListName to function as the 'edit' in list pages
 export const editListName = (listID, newListName) => async(dispatch) =>{
     try {
         const data = await api.editListName(listID, newListName);
@@ -42,6 +45,7 @@ export const editListName = (listID, newListName) => async(dispatch) =>{
     }
 }
 
+// Adds shows to lists
 export const addListShow = (id, showsList) => async(dispatch) => {
     try {
         
@@ -56,6 +60,7 @@ export const addListShow = (id, showsList) => async(dispatch) => {
     }
 }
 
+// Removes a show from a list
 export const removeListShow = (id, showRemove) => async(dispatch) => {
     try {
         await api.removeListShow(id, showRemove);
@@ -66,6 +71,7 @@ export const removeListShow = (id, showRemove) => async(dispatch) => {
     }
 }
 
+// Deletes a list from the DB
 export const deleteList = (id) => async(dispatch) => {
     try {
         await api.deleteList(id);

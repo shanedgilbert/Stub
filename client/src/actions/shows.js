@@ -1,6 +1,7 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE, RATE } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
+// Retrieves the shows from the DB
 export const getShows = () => async (dispatch) => {
   try {
     const { data } = await api.fetchShows();
@@ -11,6 +12,7 @@ export const getShows = () => async (dispatch) => {
   }
 };
 
+// Fetches shows from the DB
 export const getShow = (type, service, page) => async (dispatch) => {
   try {
     const { data } = await api.fetchNineShows(type, service, page);
@@ -21,6 +23,7 @@ export const getShow = (type, service, page) => async (dispatch) => {
   }
 };
 
+// Creates and sends a show to the DB
 export const createShow = (show) => async (dispatch) => {
   try {
     const { data } = await api.createShow(show);
@@ -31,6 +34,7 @@ export const createShow = (show) => async (dispatch) => {
   }
 };
 
+// Updates the show's information
 export const updateShow = (id, show) => async (dispatch) => {
   try {
     const { data } = await api.updateShow(id, show);
@@ -41,6 +45,7 @@ export const updateShow = (id, show) => async (dispatch) => {
   }
 };
 
+// User ratings. Not used
 export const rateShow = (id) => async (dispatch) => {
   try {
     const { data } = await api.rateShow(id);
@@ -51,6 +56,7 @@ export const rateShow = (id) => async (dispatch) => {
   }
 };
 
+// Deletes a show from the DB
 export const deleteShow = (id) => async (dispatch) => {
   try {
     await api.deleteShow(id);
@@ -61,6 +67,7 @@ export const deleteShow = (id) => async (dispatch) => {
   }
 };
 
+// Adds a show to the DB
 export const addToList = (show, listID) => async() => {
   try {
   }

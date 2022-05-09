@@ -1,6 +1,7 @@
 import { FETCH_ALL, CREATE } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
+// Calls the API account fetch
 export async function getAccounts() 
 {
     try 
@@ -13,6 +14,7 @@ export async function getAccounts()
     }
 };
 
+// Calls the API account creation
 export async function createAccount(account)
 { 
   try 
